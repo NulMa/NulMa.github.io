@@ -35,46 +35,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-/* =========================================
-   SKILL BARS (animate on scroll)
-   ========================================= */
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-        bar.style.width = bar.style.width; // trigger reflow
-        bar.style.width = bar.getAttribute('style').match(/width:\s*([^;]+)/)[1];
-      });
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.skill-group').forEach(g => {
-  // reset bars to 0 first so animation plays
-  g.querySelectorAll('.skill-fill').forEach(bar => {
-    const target = bar.style.width;
-    bar.dataset.target = target;
-    bar.style.width = '0%';
-  });
-  skillObserver.observe(g);
-});
-
-// When skill group becomes visible, animate bars
-const skillBarObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.skill-fill').forEach((bar, i) => {
-        setTimeout(() => {
-          bar.style.width = bar.dataset.target;
-        }, i * 150);
-      });
-      skillBarObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.skill-group').forEach(g => skillBarObserver.observe(g));
 
 /* =========================================
    SMOOTH ACTIVE NAV HIGHLIGHT
@@ -96,6 +56,35 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => sectionObserver.observe(s));
+
+/* =========================================
+   VIDEO MODAL
+   ========================================= */
+const videoModal = document.getElementById('video-modal');
+const videoIframe = document.getElementById('video-modal-iframe');
+
+function closeVideoModal() {
+  videoModal.classList.remove('active');
+  videoIframe.src = '';
+}
+
+document.querySelectorAll('.link-btn-video').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const videoId = btn.dataset.videoId;
+    videoIframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+    videoModal.classList.add('active');
+  });
+});
+
+document.getElementById('video-modal-close').addEventListener('click', closeVideoModal);
+
+videoModal.addEventListener('click', (e) => {
+  if (e.target === videoModal) closeVideoModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeVideoModal();
+});
 
 /* =========================================
    HERO PARALLAX (subtle)

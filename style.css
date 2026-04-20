@@ -368,6 +368,35 @@ h2 {
     rgba(10,10,10,0.9) 100%);
 }
 
+/* Card with background image */
+.card-header-img {
+  overflow: hidden;
+  padding: 0;
+  height: 220px;
+}
+
+.header-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+}
+
+.card-header-img .card-platform-badge {
+  z-index: 2;
+}
+
 .dong-mae {
   background: linear-gradient(135deg,
     rgba(48,209,88,0.3) 0%,
@@ -390,6 +419,9 @@ h2 {
 }
 
 .card-platform-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
   padding: 6px 14px;
   background: rgba(0,0,0,0.5);
   border: 1px solid rgba(255,255,255,0.2);
@@ -399,6 +431,7 @@ h2 {
   letter-spacing: 0.05em;
   color: #fff;
   backdrop-filter: blur(8px);
+  z-index: 2;
 }
 
 .card-body {
@@ -483,6 +516,17 @@ h2 {
   border-color: rgba(255,255,255,0.2);
 }
 
+.link-btn-play {
+  background: rgba(41,151,255,0.15);
+  border-color: rgba(41,151,255,0.4);
+  color: var(--accent);
+}
+
+.link-btn-play:hover {
+  background: rgba(41,151,255,0.25);
+  border-color: rgba(41,151,255,0.6);
+}
+
 /* =========================================
    SKILLS
    ========================================= */
@@ -516,42 +560,6 @@ h2 {
   margin-bottom: 24px;
 }
 
-.skill-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.skill-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.skill-name {
-  font-size: 14px;
-  font-weight: 500;
-  width: 90px;
-  flex-shrink: 0;
-  color: var(--text);
-}
-
-.skill-bar {
-  flex: 1;
-  height: 4px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.skill-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  border-radius: 2px;
-  width: 0%;
-  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
 .skill-pills {
   display: flex;
   flex-wrap: wrap;
@@ -572,6 +580,17 @@ h2 {
 .pill:hover {
   background: rgba(255,255,255,0.1);
   color: var(--text);
+}
+
+.pill-accent {
+  border-color: rgba(41,151,255,0.4);
+  color: var(--accent);
+  background: rgba(41,151,255,0.08);
+}
+
+.pill-accent:hover {
+  background: rgba(41,151,255,0.15);
+  color: var(--accent);
 }
 
 /* =========================================
@@ -679,6 +698,102 @@ footer {
   .contact-card {
     min-width: unset;
   }
+}
+
+/* =========================================
+   NEW PROJECT CARD HEADERS
+   ========================================= */
+.match3 {
+  background: linear-gradient(135deg,
+    rgba(41,151,255,0.4) 0%,
+    rgba(191,90,242,0.35) 50%,
+    rgba(10,10,10,0.9) 100%);
+}
+
+.iron-sarcophagus {
+  background: linear-gradient(135deg,
+    rgba(255,149,0,0.35) 0%,
+    rgba(48,80,48,0.5) 50%,
+    rgba(10,10,10,0.9) 100%);
+}
+
+.link-btn-video {
+  background: rgba(48,209,88,0.12);
+  border-color: rgba(48,209,88,0.4);
+  color: var(--accent3);
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.link-btn-video:hover {
+  background: rgba(48,209,88,0.22);
+  border-color: rgba(48,209,88,0.6);
+}
+
+/* =========================================
+   VIDEO MODAL
+   ========================================= */
+.video-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.video-modal-overlay.active {
+  display: flex;
+}
+
+.video-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.video-modal-close:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.video-modal-iframe-wrap {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.video-modal-iframe-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 @media (max-width: 480px) {
