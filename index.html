@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>정우태 | 게임 클라이언트 개발자</title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0H11QLFWFB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0H11QLFWFB');
+  </script>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -92,7 +100,9 @@
 
         <!-- Ghost March -->
         <article class="project-card reveal" data-index="0">
-          <div class="card-header ghost-march">
+          <div class="card-header ghost-march card-header-img">
+            <img src="images/ghost_march/Header.png" alt="귀행 Play Store" class="header-bg-img" />
+            <div class="header-overlay"></div>
             <div class="card-platform-badge">Google Play</div>
           </div>
           <div class="card-body">
@@ -128,6 +138,7 @@
               </div>
             </div>
             <div class="card-links">
+              <a href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&hl=ko" target="_blank" class="link-btn link-btn-play">▶ Play Store</a>
               <a href="https://github.com/NulMa/Ghost_March" target="_blank" class="link-btn">GitHub →</a>
             </div>
           </div>
@@ -135,7 +146,9 @@
 
         <!-- Dong Mae -->
         <article class="project-card reveal" data-index="1">
-          <div class="card-header dong-mae">
+          <div class="card-header dong-mae card-header-img">
+            <img src="images/Dong_Mae/Header.png" alt="Dong Mae 타이틀" class="header-bg-img" />
+            <div class="header-overlay"></div>
             <div class="card-platform-badge">Team Project</div>
           </div>
           <div class="card-body">
@@ -178,7 +191,9 @@
 
         <!-- LostCone -->
         <article class="project-card reveal" data-index="2">
-          <div class="card-header lost-cone">
+          <div class="card-header lost-cone card-header-img">
+            <img src="images/LostCone/Header.jpg" alt="LostCone 게임플레이" class="header-bg-img" style="object-position: center top;" />
+            <div class="header-overlay"></div>
             <div class="card-platform-badge">Fan Game</div>
           </div>
           <div class="card-body">
@@ -221,7 +236,9 @@
 
         <!-- Cubika -->
         <article class="project-card reveal" data-index="3">
-          <div class="card-header cubika">
+          <div class="card-header cubika card-header-img">
+            <img src="images/Cubika/Header.jpg" alt="Cubika 게임플레이" class="header-bg-img" style="object-position: left center;" />
+            <div class="header-overlay"></div>
             <div class="card-platform-badge">itch.io</div>
           </div>
           <div class="card-body">
@@ -275,23 +292,11 @@
       <div class="skills-grid">
         <div class="skill-group reveal">
           <h4>Engine & Language</h4>
-          <div class="skill-list">
-            <div class="skill-item">
-              <span class="skill-name">C#</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Unity</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">ShaderLab</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">HLSL</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
-            </div>
+          <div class="skill-pills">
+            <span class="pill pill-accent">C#</span>
+            <span class="pill pill-accent">Unity</span>
+            <span class="pill pill-accent">ShaderLab</span>
+            <span class="pill pill-accent">HLSL</span>
           </div>
         </div>
         <div class="skill-group reveal">
