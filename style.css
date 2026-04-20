@@ -147,6 +147,8 @@ img { max-width: 100%; }
   line-height: 1.05;
   color: var(--text);
   margin-bottom: 24px;
+  word-break: keep-all;
+  overflow: visible;
 }
 
 .hero-title .accent {
