@@ -146,7 +146,7 @@ img { max-width: 100%; }
   letter-spacing: -0.04em;
   line-height: 1.15;
   color: var(--text);
-  margin-bottom: 48px;
+  margin-bottom: 16px;
   word-break: keep-all;
   overflow: visible;
 }
