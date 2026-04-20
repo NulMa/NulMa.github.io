@@ -144,9 +144,9 @@ img { max-width: 100%; }
   font-size: clamp(32px, 5vw, 58px);
   font-weight: 700;
   letter-spacing: -0.04em;
-  line-height: 1.05;
+  line-height: 1.15;
   color: var(--text);
-  margin-bottom: 24px;
+  margin-bottom: 48px;
   word-break: keep-all;
   overflow: visible;
 }
