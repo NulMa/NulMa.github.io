@@ -58,32 +58,97 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(s => sectionObserver.observe(s));
 
 /* =========================================
-   VIDEO MODAL
+   HAMBURGER MENU
    ========================================= */
-const videoModal = document.getElementById('video-modal');
-const videoIframe = document.getElementById('video-modal-iframe');
+const hamburger = document.getElementById('nav-hamburger');
+const mobileNav = document.getElementById('mobile-nav');
 
-function closeVideoModal() {
-  videoModal.classList.remove('active');
-  videoIframe.src = '';
+function openMobileNav() {
+  hamburger.setAttribute('aria-expanded', 'true');
+  hamburger.setAttribute('aria-label', '메뉴 닫기');
+  mobileNav.classList.add('open');
+  mobileNav.setAttribute('aria-hidden', 'false');
 }
 
-document.querySelectorAll('.link-btn-video').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const videoId = btn.dataset.videoId;
-    videoIframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
-    videoModal.classList.add('active');
+function closeMobileNav() {
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', '메뉴 열기');
+  mobileNav.classList.remove('open');
+  mobileNav.setAttribute('aria-hidden', 'true');
+}
+
+hamburger.addEventListener('click', () => {
+  const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+  isOpen ? closeMobileNav() : openMobileNav();
+});
+
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    closeMobileNav();
+    hamburger.focus();
   });
 });
 
-document.getElementById('video-modal-close').addEventListener('click', closeVideoModal);
+document.addEventListener('click', (e) => {
+  if (!navbar.contains(e.target) && !mobileNav.contains(e.target)) {
+    closeMobileNav();
+  }
+});
 
-videoModal.addEventListener('click', (e) => {
-  if (e.target === videoModal) closeVideoModal();
+/* =========================================
+   PROJECT MODAL
+   ========================================= */
+const projectModal = document.getElementById('project-modal');
+const pmIframe = document.getElementById('pm-iframe');
+const pmClose = document.getElementById('pm-close');
+const pmTags = document.getElementById('pm-tags');
+const pmTitle = document.getElementById('pm-title');
+const pmSub = document.getElementById('pm-sub');
+const pmDesc = document.getElementById('pm-desc');
+const pmHighlights = document.getElementById('pm-highlights');
+const pmLinks = document.getElementById('pm-links');
+let pmTrigger = null;
+
+function openProjectModal(card, trigger) {
+  pmTrigger = trigger || card;
+  const videoId = card.dataset.videoId;
+  pmIframe.src = videoId ? `https://drive.google.com/file/d/${videoId}/preview` : '';
+  pmTags.innerHTML = card.querySelector('.card-tags')?.innerHTML || '';
+  pmTitle.textContent = card.querySelector('h3')?.textContent || '';
+  pmSub.textContent = card.querySelector('.card-sub')?.textContent || '';
+  pmDesc.innerHTML = card.querySelector('.card-desc')?.innerHTML || '';
+  pmHighlights.innerHTML = card.querySelector('.card-highlights')?.innerHTML || '';
+  pmLinks.innerHTML = card.querySelector('.card-links')?.innerHTML || '';
+  projectModal.classList.add('active');
+  projectModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  pmClose.focus();
+}
+
+function closeProjectModal() {
+  projectModal.classList.remove('active');
+  projectModal.setAttribute('aria-hidden', 'true');
+  pmIframe.src = '';
+  document.body.style.overflow = '';
+  if (pmTrigger) { pmTrigger.focus(); pmTrigger = null; }
+}
+
+pmClose.addEventListener('click', closeProjectModal);
+
+projectModal.addEventListener('click', (e) => {
+  if (e.target === projectModal) closeProjectModal();
+});
+
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    e.stopPropagation();
+    openProjectModal(card, e.target.closest('.card-play-btn') || card);
+  });
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeVideoModal();
+  if (e.key === 'Escape' && projectModal.classList.contains('active')) closeProjectModal();
 });
 
 /* =========================================

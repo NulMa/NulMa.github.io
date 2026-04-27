@@ -23,13 +23,31 @@
   <nav id="navbar">
     <div class="nav-inner">
       <span class="nav-logo">Jung Wootae</span>
-      <ul class="nav-links">
+      <ul class="nav-links" id="desktop-nav">
         <li><a href="#about">소개</a></li>
         <li><a href="#projects">프로젝트</a></li>
         <li><a href="#skills">기술</a></li>
         <li><a href="#contact">연락처</a></li>
       </ul>
+      <button class="nav-hamburger" id="nav-hamburger"
+              aria-label="메뉴 열기"
+              aria-expanded="false"
+              aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="모바일 메뉴" aria-hidden="true">
+    <ul>
+      <li><a href="#about">소개</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#skills">기술</a></li>
+      <li><a href="#contact">연락처</a></li>
+    </ul>
   </nav>
 
   <!-- HERO -->
@@ -96,13 +114,18 @@
       <div class="projects-grid">
 
         <!-- Match3LogueLike -->
-        <article class="project-card reveal" data-index="0">
+        <article class="project-card reveal" data-index="0" data-video-id="1FAMivyRO50iwVxHdJrlWKzQO6mcZqRuY">
           <div class="card-header match3 card-header-img">
             <img src="images/Match3LogueLike.png" alt="Match3LogueLike" class="header-bg-img" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">개발 중</div>
+            <button class="card-play-btn" aria-label="영상 재생">
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
+            </button>
+            <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="Match3LogueLike 영상"></iframe>
           </div>
           <div class="card-body">
+            <button class="card-close-btn" aria-label="닫기">✕</button>
             <div class="card-tags">
               <span class="tag">Unity 6</span>
               <span class="tag">C#</span>
@@ -134,20 +157,24 @@
               </div>
             </div>
             <div class="card-links">
-              <button class="link-btn link-btn-video" data-video-id="1FAMivyRO50iwVxHdJrlWKzQO6mcZqRuY">▶ 영상 보기</button>
               <a href="https://github.com/NulMa/Match3LogueLike" target="_blank" class="link-btn">GitHub →</a>
             </div>
           </div>
         </article>
 
         <!-- LostCone -->
-        <article class="project-card reveal" data-index="1">
+        <article class="project-card reveal" data-index="1" data-video-id="1ZgJuu3kgD_R_MM_A7CgM5uDXkpk0lQVD">
           <div class="card-header lost-cone card-header-img">
             <img src="images/LostCone.png" alt="LostCone 게임플레이" class="header-bg-img" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">Fan Game</div>
+            <button class="card-play-btn" aria-label="영상 재생">
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
+            </button>
+            <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="LostCone 영상"></iframe>
           </div>
           <div class="card-body">
+            <button class="card-close-btn" aria-label="닫기">✕</button>
             <div class="card-tags">
               <span class="tag">C#</span>
               <span class="tag">DOTween</span>
@@ -179,7 +206,6 @@
               </div>
             </div>
             <div class="card-links">
-              <button class="link-btn link-btn-video" data-video-id="1ZgJuu3kgD_R_MM_A7CgM5uDXkpk0lQVD">▶ 영상 보기</button>
               <a href="https://gall.dcinside.com/mgallery/board/view/?id=yonezkensi&no=114242&search_head=30&page=1" target="_blank" class="link-btn">개발일지 →</a>
               <a href="https://github.com/NulMa/LostCone" target="_blank" class="link-btn">GitHub →</a>
             </div>
@@ -187,13 +213,18 @@
         </article>
 
         <!-- IronSarcophagus -->
-        <article class="project-card reveal" data-index="2">
+        <article class="project-card reveal" data-index="2" data-video-id="1WRTGT1rRBvl2OA5iQTlK_7kUjpZASr8g">
           <div class="card-header iron-sarcophagus card-header-img">
             <img src="images/IronSarcophagus.png" alt="IronSarcophagus" class="header-bg-img" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">VR · Team</div>
+            <button class="card-play-btn" aria-label="영상 재생">
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
+            </button>
+            <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="IronSarcophagus 영상"></iframe>
           </div>
           <div class="card-body">
+            <button class="card-close-btn" aria-label="닫기">✕</button>
             <div class="card-tags">
               <span class="tag">VR</span>
               <span class="tag">XR Toolkit</span>
@@ -225,20 +256,24 @@
               </div>
             </div>
             <div class="card-links">
-              <button class="link-btn link-btn-video" data-video-id="1WRTGT1rRBvl2OA5iQTlK_7kUjpZASr8g">▶ 영상 보기</button>
               <a href="https://github.com/Bit-Unity15th-XRProjects/IronSarcophagus" target="_blank" class="link-btn">GitHub →</a>
             </div>
           </div>
         </article>
 
         <!-- Cubika -->
-        <article class="project-card reveal" data-index="3" id="project-cubika">
+        <article class="project-card reveal" data-index="3" id="project-cubika" data-video-id="1iBH2BSldTjDhz5A1J3knLPK6rYmk4Jd1">
           <div class="card-header cubika card-header-img">
             <img src="images/Cubika.png" alt="Cubika 게임플레이" class="header-bg-img" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">itch.io</div>
+            <button class="card-play-btn" aria-label="영상 재생">
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
+            </button>
+            <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="Cubika 영상"></iframe>
           </div>
           <div class="card-body">
+            <button class="card-close-btn" aria-label="닫기">✕</button>
             <div class="card-tags">
               <span class="tag">C#</span>
               <span class="tag">Unity</span>
@@ -270,7 +305,6 @@
               </div>
             </div>
             <div class="card-links">
-              <button class="link-btn link-btn-video" data-video-id="1iBH2BSldTjDhz5A1J3knLPK6rYmk4Jd1">▶ 영상 보기</button>
               <a href="https://nullma.itch.io/cubika" target="_blank" class="link-btn">▶ 플레이</a>
               <a href="https://github.com/NulMa/Cubika" target="_blank" class="link-btn">GitHub →</a>
             </div>
@@ -278,13 +312,18 @@
         </article>
 
         <!-- Ghost March -->
-        <article class="project-card reveal" data-index="4" id="project-ghost-march">
+        <article class="project-card reveal" data-index="4" id="project-ghost-march" data-video-id="16RQdvfzecMPyONbTYJxh8V_fLNXawcb-">
           <div class="card-header ghost-march card-header-img">
             <img src="images/GhostMarch.png" alt="Ghost March" class="header-bg-img" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">Google Play</div>
+            <button class="card-play-btn" aria-label="영상 재생">
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
+            </button>
+            <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="Ghost March 영상"></iframe>
           </div>
           <div class="card-body">
+            <button class="card-close-btn" aria-label="닫기">✕</button>
             <div class="card-tags">
               <span class="tag">ShaderLab</span>
               <span class="tag">C#</span>
@@ -316,7 +355,6 @@
               </div>
             </div>
             <div class="card-links">
-              <button class="link-btn link-btn-video" data-video-id="16RQdvfzecMPyONbTYJxh8V_fLNXawcb-">▶ 영상 보기</button>
               <a href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&hl=ko" target="_blank" class="link-btn link-btn-play">▶ Play Store</a>
               <a href="https://github.com/NulMa/Ghost_March" target="_blank" class="link-btn">GitHub →</a>
             </div>
@@ -404,12 +442,33 @@
     <p>© 2026 Jung Wootae. Built with HTML · CSS · JS</p>
   </footer>
 
-  <!-- VIDEO MODAL -->
-  <div id="video-modal" class="video-modal-overlay" aria-hidden="true">
-    <div class="video-modal-container">
-      <button class="video-modal-close" id="video-modal-close">✕</button>
-      <div class="video-modal-iframe-wrap">
-        <iframe id="video-modal-iframe" src="" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+  <!-- PROJECT MODAL -->
+  <div id="project-modal" class="project-modal-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="pm-title"
+       aria-hidden="true">
+    <div class="project-modal-container">
+      <button class="project-modal-close" id="pm-close" aria-label="닫기">✕</button>
+      <div class="project-modal-left">
+        <div class="project-modal-video-wrap">
+          <iframe id="pm-iframe" src="" frameborder="0" allow="autoplay" allowfullscreen title="프로젝트 영상"></iframe>
+        </div>
+        <div class="project-modal-arch">
+          <div class="expand-visual-placeholder">
+            <span class="expand-visual-icon">🏗️</span>
+            <p class="expand-visual-label">아키텍처 · 구조도</p>
+            <p class="expand-visual-note">준비 중</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-modal-right">
+        <div id="pm-tags" class="card-tags"></div>
+        <h3 id="pm-title"></h3>
+        <p id="pm-sub" class="card-sub"></p>
+        <p id="pm-desc" class="card-desc"></p>
+        <div id="pm-highlights" class="card-highlights"></div>
+        <div id="pm-links" class="card-links"></div>
       </div>
     </div>
   </div>
