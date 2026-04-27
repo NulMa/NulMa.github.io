@@ -943,6 +943,8 @@ footer {
 
 .project-modal-overlay.active {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-modal-container {
