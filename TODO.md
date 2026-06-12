@@ -1,41 +1,39 @@
 # Portfolio TODO
 
-## 프로젝트 카드 확장 뷰
+## Current Project Showcase
 
-### 좌 하단 공간 활용
-- [ ] 영상(상단) + 시각 자료(하단) 2구역으로 좌측 패널 분리
-- [ ] 하단에 넣을 콘텐츠 결정 (옵션: 구조도 placeholder / 플랫폼 정보 / 기술 스택 / 개발 퀵 스탯)
+- [x] Replace visible project cards with GIF-first project showcase.
+- [x] Add multiple GIF clips per project.
+- [x] Add horizontal GIF sliders.
+- [x] Add GIF lightbox preview.
+- [x] Add YouTube gameplay buttons.
+- [x] Add mobile responsive showcase layout.
+- [x] Add cache-busting query strings for `style.css` and `script.js`.
 
-### 아키텍처 · 구조도 공간
-- [ ] 각 프로젝트별 구조도 / 설계도 이미지 또는 다이어그램 준비
-- [ ] 현재 "준비 중" placeholder 자리에 실제 콘텐츠 교체
-- [ ] 구조나 설계를 직관적으로 전달할 수단 고민 (플로우차트 / 클래스 다이어그램 / 스크린샷 모음 등)
+## Verify After Deployment
 
----
+- [ ] Test YouTube modal playback on `https://nulma.github.io/`.
+- [ ] If YouTube Error 153 still appears on some browsers, keep the modal fallback link visible.
+- [ ] Check mobile layout on a real phone, not only desktop responsive mode.
+- [ ] Check GIF loading time on mobile network.
 
-## 프로젝트별 작업
+## Content Polish
 
-### Match3LogueLike
-- [ ] AI 협업 방식 실제 구현 후 포트폴리오에 반영
-  - 참고: https://github.com/Donchitos/Claude-Code-Game-Studios 류 레포
-  - 에이전트·스킬 등 구체적 구현 먼저, 문서화 이후
-  - 해당 프로젝트 폴더에서 별도 진행
-- [ ] GitHub README 보강 (구조도 + 직관적 정보 추가)
+- [ ] Decide whether to permanently remove the hidden legacy card source from `index.html`.
+- [ ] If the hidden card source is removed, move project text data directly into the showcase markup.
+- [ ] Review project copy for final Korean wording.
+- [ ] Review whether `IronSarcophagus` and `LostCone` GIF file sizes are acceptable on mobile.
+- [ ] Add or replace clips if any project feels unclear from the GIF loop alone.
 
-### Ghost March / Dong Mae / LostCone / Cubika / IronSarcophagus
-- [ ] GitHub README 전면 개선
-  - 현재 너무 부실함
-  - 디테일 추가 + 구조도·관계도 등 시각 자료 포함
+## Site Metadata
 
----
+- [ ] Add favicon.
+- [ ] Add Open Graph tags for SNS preview.
+- [ ] Add preview image for link sharing.
+- [ ] Review resume/portfolio PDF download placement.
 
-## 카드 헤더 이미지
-- [ ] 각 프로젝트 고품질 이미지로 교체 (현재 이미지 많이 잘림)
-  - 같은 파일명으로 덮어쓰면 됨
+## Repository Cleanup
 
----
-
-## 미결 설정
-- [ ] OG 태그 추가 (SNS 공유 미리보기)
-- [ ] favicon 추가
-- [ ] White_Face 프로젝트 추가 여부 결정 (졸업작품)
+- [ ] Decide whether GIF generation scripts should be committed.
+- [ ] If scripts are committed, remove local absolute paths from any CSV examples.
+- [ ] If scripts are kept local only, document the manual GIF generation workflow separately.
