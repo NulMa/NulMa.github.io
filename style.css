@@ -709,6 +709,14 @@ a.badge:hover {
   flex-wrap: wrap;
 }
 
+.showcase-summary {
+  display: contents;
+}
+
+.showcase-details {
+  display: contents;
+}
+
 .showcase-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1257,21 +1265,78 @@ footer {
   }
 
   .showcase-project {
-    display: block;
-    padding: 28px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 34px 0 38px;
   }
 
   .showcase-copy {
+    display: contents;
     position: static;
-    margin-bottom: 18px;
+    margin-bottom: 0;
+  }
+
+  .showcase-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    order: 1;
+  }
+
+  .gif-slider {
+    order: 2;
+  }
+
+  .showcase-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    order: 3;
   }
 
   .showcase-copy h3 {
-    font-size: 25px;
+    font-size: 28px;
+    margin-bottom: 0;
   }
 
   .showcase-copy p {
     max-width: none;
+  }
+
+  .showcase-copy .card-tags {
+    margin-bottom: 2px;
+  }
+
+  .showcase-copy .card-sub {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .showcase-copy .card-desc {
+    max-width: none;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.68;
+  }
+
+  .showcase-copy .card-highlights {
+    max-width: none;
+    margin-bottom: 0;
+    gap: 8px;
+  }
+
+  .showcase-copy .highlight {
+    font-size: 12px;
+  }
+
+  .showcase-copy .card-links {
+    margin-top: 2px;
+  }
+
+  .showcase-copy .link-btn {
+    padding: 10px 16px;
+    font-size: 12px;
   }
 
   .gif-grid,
@@ -1288,24 +1353,24 @@ footer {
   .gif-grid-portrait .gif-tile,
   .gif-grid-wide .gif-tile-feature,
   .gif-grid-phone .gif-tile-feature {
-    flex: 0 0 min(76vw, 320px);
+    flex: 0 0 min(70vw, 300px);
     aspect-ratio: 9 / 16;
     scroll-snap-align: center;
   }
 
   .gif-grid-wide .gif-tile,
   .gif-grid-wide .gif-tile-feature {
-    flex-basis: min(72vw, 340px);
+    flex-basis: min(82vw, 360px);
     aspect-ratio: 16 / 9;
   }
 
   .gif-grid-portrait .gif-tile {
-    flex-basis: min(68vw, 290px);
+    flex-basis: min(66vw, 280px);
     aspect-ratio: 3 / 4;
   }
 
   .gif-slider-controls {
-    inset: 0 -8px;
+    display: none;
   }
 
   .gif-slider-btn {
@@ -1653,6 +1718,48 @@ footer {
 @media (max-width: 480px) {
   section {
     padding: 80px 20px;
+  }
+
+  #projects {
+    padding-top: 72px;
+  }
+
+  .showcase-stack {
+    gap: 18px;
+  }
+
+  .showcase-project {
+    padding: 30px 0 34px;
+  }
+
+  .section-label {
+    margin-bottom: 24px;
+  }
+
+  .showcase-copy h3 {
+    font-size: 25px;
+  }
+
+  .gif-grid-phone .gif-tile,
+  .gif-grid-phone .gif-tile-feature {
+    flex-basis: min(64vw, 250px);
+  }
+
+  .gif-grid-portrait .gif-tile {
+    flex-basis: min(68vw, 260px);
+  }
+
+  .gif-grid-wide .gif-tile,
+  .gif-grid-wide .gif-tile-feature {
+    flex-basis: min(86vw, 340px);
+  }
+
+  .gif-lightbox-media {
+    max-height: 78vh;
+  }
+
+  .video-lightbox-panel {
+    width: 96vw;
   }
 
   .hero-cta {

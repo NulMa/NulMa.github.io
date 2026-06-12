@@ -144,22 +144,25 @@ function syncShowcaseCopyFromCards() {
 
     copy.innerHTML = '';
 
+    const summary = document.createElement('div');
+    summary.className = 'showcase-summary';
+    const details = document.createElement('div');
+    details.className = 'showcase-details';
+
     if (existingKicker) {
       const kicker = document.createElement('span');
       kicker.className = 'showcase-kicker';
       kicker.textContent = existingKicker;
-      copy.appendChild(kicker);
+      summary.appendChild(kicker);
     }
 
-    if (tags) copy.appendChild(tags);
+    if (tags) summary.appendChild(tags);
 
     const heading = document.createElement('h3');
     heading.textContent = title;
-    copy.appendChild(heading);
+    summary.appendChild(heading);
 
-    if (sub) copy.appendChild(sub);
-    if (desc) copy.appendChild(desc);
-    if (highlights) copy.appendChild(highlights);
+    if (sub) summary.appendChild(sub);
 
     if (usableLinks.length || videoUrl) {
       const links = document.createElement('div');
@@ -174,8 +177,14 @@ function syncShowcaseCopyFromCards() {
         videoButton.dataset.projectTitle = title;
         links.appendChild(videoButton);
       }
-      copy.appendChild(links);
+      summary.appendChild(links);
     }
+
+    if (desc) details.appendChild(desc);
+    if (highlights) details.appendChild(highlights);
+
+    copy.appendChild(summary);
+    copy.appendChild(details);
   });
 }
 
