@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>정우태 | 게임 클라이언트 개발자</title>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0H11QLFWFB"></script>
@@ -106,7 +107,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
+  <section id="project-card-source" class="project-card-source" aria-hidden="true">
     <div class="section-inner">
       <p class="section-label reveal">Projects</p>
       <h2 class="reveal">직접 만들고, 직접 출시했습니다.</h2>
@@ -114,12 +115,14 @@
       <div class="projects-grid">
 
         <!-- Match3LogueLike -->
-        <article class="project-card reveal" data-index="0" data-video-id="1FAMivyRO50iwVxHdJrlWKzQO6mcZqRuY">
+        <article class="project-card reveal" data-index="0" data-gif-src="images/gifs/Match3LogueLike.gif" data-video-id="1FAMivyRO50iwVxHdJrlWKzQO6mcZqRuY">
           <div class="card-header match3 card-header-img">
             <img src="images/Match3LogueLike.png" alt="Match3LogueLike" class="header-bg-img" />
+            <img class="header-gif-preview" alt="" aria-hidden="true" loading="lazy" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">개발 중</div>
-            <button class="card-play-btn" aria-label="영상 재생">
+            <span class="card-gif-badge" aria-hidden="true">GIF</span>
+            <button class="card-play-btn" aria-label="프로젝트 자세히 보기">
               <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
             </button>
             <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="Match3LogueLike 영상"></iframe>
@@ -163,12 +166,14 @@
         </article>
 
         <!-- LostCone -->
-        <article class="project-card reveal" data-index="1" data-video-id="1ZgJuu3kgD_R_MM_A7CgM5uDXkpk0lQVD">
+        <article class="project-card reveal" data-index="1" data-gif-src="images/gifs/LostCone.gif" data-video-id="1ZgJuu3kgD_R_MM_A7CgM5uDXkpk0lQVD">
           <div class="card-header lost-cone card-header-img">
             <img src="images/LostCone.png" alt="LostCone 게임플레이" class="header-bg-img" />
+            <img class="header-gif-preview" alt="" aria-hidden="true" loading="lazy" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">Fan Game</div>
-            <button class="card-play-btn" aria-label="영상 재생">
+            <span class="card-gif-badge" aria-hidden="true">GIF</span>
+            <button class="card-play-btn" aria-label="프로젝트 자세히 보기">
               <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
             </button>
             <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="LostCone 영상"></iframe>
@@ -213,12 +218,14 @@
         </article>
 
         <!-- IronSarcophagus -->
-        <article class="project-card reveal" data-index="2" data-video-id="1WRTGT1rRBvl2OA5iQTlK_7kUjpZASr8g">
+        <article class="project-card reveal" data-index="2" data-gif-src="images/gifs/IronSarcophagus.gif" data-video-id="1WRTGT1rRBvl2OA5iQTlK_7kUjpZASr8g">
           <div class="card-header iron-sarcophagus card-header-img">
             <img src="images/IronSarcophagus.png" alt="IronSarcophagus" class="header-bg-img" />
+            <img class="header-gif-preview" alt="" aria-hidden="true" loading="lazy" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">VR · Team</div>
-            <button class="card-play-btn" aria-label="영상 재생">
+            <span class="card-gif-badge" aria-hidden="true">GIF</span>
+            <button class="card-play-btn" aria-label="프로젝트 자세히 보기">
               <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
             </button>
             <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="IronSarcophagus 영상"></iframe>
@@ -262,12 +269,14 @@
         </article>
 
         <!-- Cubika -->
-        <article class="project-card reveal" data-index="3" id="project-cubika" data-video-id="1iBH2BSldTjDhz5A1J3knLPK6rYmk4Jd1">
+        <article class="project-card reveal" data-index="3" id="project-cubika" data-gif-src="images/gifs/Cubika.gif" data-video-id="1iBH2BSldTjDhz5A1J3knLPK6rYmk4Jd1">
           <div class="card-header cubika card-header-img">
             <img src="images/Cubika.png" alt="Cubika 게임플레이" class="header-bg-img" />
+            <img class="header-gif-preview" alt="" aria-hidden="true" loading="lazy" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">itch.io</div>
-            <button class="card-play-btn" aria-label="영상 재생">
+            <span class="card-gif-badge" aria-hidden="true">GIF</span>
+            <button class="card-play-btn" aria-label="프로젝트 자세히 보기">
               <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
             </button>
             <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="Cubika 영상"></iframe>
@@ -312,12 +321,14 @@
         </article>
 
         <!-- Ghost March -->
-        <article class="project-card reveal" data-index="4" id="project-ghost-march" data-video-id="16RQdvfzecMPyONbTYJxh8V_fLNXawcb-">
+        <article class="project-card reveal" data-index="4" id="project-ghost-march" data-gif-src="images/gifs/GhostMarch.gif" data-video-id="16RQdvfzecMPyONbTYJxh8V_fLNXawcb-">
           <div class="card-header ghost-march card-header-img">
             <img src="images/GhostMarch.png" alt="Ghost March" class="header-bg-img" />
+            <img class="header-gif-preview" alt="" aria-hidden="true" loading="lazy" />
             <div class="header-overlay"></div>
             <div class="card-platform-badge">Google Play</div>
-            <button class="card-play-btn" aria-label="영상 재생">
+            <span class="card-gif-badge" aria-hidden="true">GIF</span>
+            <button class="card-play-btn" aria-label="프로젝트 자세히 보기">
               <svg width="16" height="18" viewBox="0 0 16 18" fill="white" aria-hidden="true"><path d="M0 0 L16 9 L0 18 Z"/></svg>
             </button>
             <iframe class="card-video-player" src="" frameborder="0" allow="autoplay" allowfullscreen title="Ghost March 영상"></iframe>
@@ -361,6 +372,112 @@
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- GIF SHOWCASE DRAFT -->
+  <section id="projects" class="gif-showcase">
+    <div class="section-inner">
+      <p class="section-label reveal">Projects</p>
+
+      <div class="showcase-stack">
+        <article class="showcase-project reveal" data-card-title="Ghost March" data-video-url="https://youtu.be/E25iW69OW6k">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">Mobile roguelike</span>
+            <h3>Ghost March</h3>
+            <p>Core loop, combat pacing, and progression beats are visible without opening the full video.</p>
+            <div class="showcase-meta">
+              <span>Solo</span>
+              <span>Released</span>
+              <span>ShaderLab</span>
+            </div>
+          </div>
+          <div class="gif-grid gif-grid-phone">
+            <figure class="gif-tile"><img data-src="images/gifs/GhostMarch_01.gif" alt="Ghost March opening gameplay"><figcaption>Opening</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/GhostMarch_02.gif" alt="Ghost March stage movement"><figcaption>Route</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/GhostMarch_04.gif" alt="Ghost March combat sequence"><figcaption>Combat</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/GhostMarch_05.gif" alt="Ghost March wave fight"><figcaption>Wave</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/GhostMarch_06.gif" alt="Ghost March boss action"><figcaption>Boss</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="showcase-project reveal" data-card-title="Match3LogueLike" data-video-url="https://youtu.be/mGgBsoj-2JA">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">Match-3 roguelike</span>
+            <h3>Match3Roguelike</h3>
+            <p>Board interaction, reward flow, and combat feedback are grouped as short loops.</p>
+            <div class="showcase-meta">
+              <span>Unity 6</span>
+              <span>AI workflow</span>
+              <span>C#</span>
+            </div>
+          </div>
+          <div class="gif-grid gif-grid-phone">
+            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/Match3Roguelike_01.gif" alt="Match3Roguelike early gameplay"><figcaption>Board</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/Match3Roguelike_02.gif" alt="Match3Roguelike combat UI"><figcaption>Combat</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/Match3Roguelike_03.gif" alt="Match3Roguelike reward interaction"><figcaption>Reward</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/Match3Roguelike_04.gif" alt="Match3Roguelike menu flow"><figcaption>Flow</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="showcase-project reveal" data-card-title="Cubika" data-video-url="https://youtube.com/shorts/A6-j0cwDtW4?feature=share">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">Puzzle WebGL</span>
+            <h3>Cubika</h3>
+            <p>Mechanics are shown as compact loops: move, merge, solve, and fail-state feedback.</p>
+            <div class="showcase-meta">
+              <span>WebGL</span>
+              <span>itch.io</span>
+              <span>Puzzle</span>
+            </div>
+          </div>
+          <div class="gif-grid gif-grid-portrait">
+            <figure class="gif-tile"><img data-src="images/gifs/Cubika_01.gif" alt="Cubika cube movement"><figcaption>Move</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/Cubika_02.gif" alt="Cubika merge puzzle"><figcaption>Merge</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/Cubika_03.gif" alt="Cubika stage solution"><figcaption>Solve</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/Cubika_04.gif" alt="Cubika puzzle feedback"><figcaption>Feedback</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="showcase-project showcase-project-wide reveal" data-card-title="IronSarcophagus" data-video-url="https://youtu.be/l2X7-3QnWKs">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">VR team project</span>
+            <h3>IronSarcophagus</h3>
+            <p>Vehicle roles, combat pressure, and VR interaction are presented as a wide 16:9 strip.</p>
+            <div class="showcase-meta">
+              <span>VR</span>
+              <span>XR Toolkit</span>
+              <span>Team of 2</span>
+            </div>
+          </div>
+          <div class="gif-grid gif-grid-wide">
+            <figure class="gif-tile"><img data-src="images/gifs/IronSarcophagus_01.gif" alt="IronSarcophagus cockpit interaction"><figcaption>Cockpit</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/IronSarcophagus_02.gif" alt="IronSarcophagus driving sequence"><figcaption>Drive</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/IronSarcophagus_03.gif" alt="IronSarcophagus combat sequence"><figcaption>Combat</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/IronSarcophagus_04.gif" alt="IronSarcophagus multi-role gameplay"><figcaption>Roles</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="showcase-project showcase-project-wide reveal" data-card-title="LostCone" data-video-url="https://youtu.be/6QyYSIKdJPw">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">Fan game</span>
+            <h3>LostCone</h3>
+            <p>Animation, stage gimmicks, and action feedback are grouped so the project reads from the page itself.</p>
+            <div class="showcase-meta">
+              <span>DOTween</span>
+              <span>Playtest</span>
+              <span>Action</span>
+            </div>
+          </div>
+          <div class="gif-grid gif-grid-wide">
+            <figure class="gif-tile"><img data-src="images/gifs/LostCone_01.gif" alt="LostCone intro gameplay"><figcaption>Intro</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/LostCone_02.gif" alt="LostCone action gameplay"><figcaption>Action</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/LostCone_03.gif" alt="LostCone stage traversal"><figcaption>Stage</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/LostCone_04.gif" alt="LostCone extended sequence"><figcaption>Sequence</figcaption></figure>
+            <figure class="gif-tile"><img data-src="images/gifs/LostCone_05.gif" alt="LostCone combat feedback"><figcaption>Feedback</figcaption></figure>
+          </div>
+        </article>
       </div>
     </div>
   </section>
