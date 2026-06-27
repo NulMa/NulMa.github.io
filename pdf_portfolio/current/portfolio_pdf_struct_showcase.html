@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>정우태 포트폴리오 구조안 B - 쇼케이스형</title>
+  <link rel="stylesheet" href="portfolio_structural_variants.css">
+</head>
+<body class="showcase">
+  <section class="page cover-dark">
+    <div>
+      <p class="kicker">Showcase Portfolio</p>
+      <h1>정우태<br>Game Client Work</h1>
+      <p class="lead line-block">
+        <span>출시, 최적화, 시스템 설계, 팀 구현, AI 협업 구조화를</span>
+        <span>프로젝트 화면과 짧은 근거 중심으로 보여주는 버전입니다.</span>
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="https://github.com/NulMa">GitHub</a>
+        <a class="btn" href="mailto:jungwt524@gmail.com">Contact</a>
+      </div>
+    </div>
+    <div class="img-box cover-shot"><img src="portfolio_pdf_assets/Match3_frame.jpg" alt="Match3LogueLike"></div>
+    <div class="footer"><span>Showcase</span><span>01</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Project Map</p>
+    <h2>한눈에 보는 작업 범위</h2>
+    <div class="poster-grid">
+      <div class="img-box"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March"></div>
+      <div class="mini-stack">
+        <div class="img-box"><img src="portfolio_pdf_assets/IronSarcophagus_frame.jpg" alt="IronSarcophagus"></div>
+        <div class="img-box"><img src="portfolio_pdf_assets/Cubika_frame.jpg" alt="Cubika"></div>
+      </div>
+    </div>
+    <div class="grid-4" style="margin-top:5mm;">
+      <div class="metric"><strong>출시</strong><span>Google Play, itch.io</span></div>
+      <div class="metric"><strong>성능</strong><span>DOTS, UI, batching</span></div>
+      <div class="metric"><strong>구조</strong><span>asmdef, EventBus, tests</span></div>
+      <div class="metric"><strong>협업</strong><span>VR team, AI workflow</span></div>
+    </div>
+    <div class="footer"><span>Project Map</span><span>02</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Released Mobile Game</p>
+    <h2>Ghost March</h2>
+    <div class="img-box hero-wide"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March"></div>
+    <div class="caption">공모전 수상 후 Play Store에 출시한 모바일 액션 게임. 출시 후 Legacy 구조를 기준본으로 남기고 DOTS 구조로 재설계했습니다.</div>
+    <div class="grid-3" style="margin-top:5mm;">
+      <div class="metric"><strong>9 -> 67 fps</strong><span>적 수를 늘린 상태에서 비교</span></div>
+      <div class="metric"><strong>691 -> 4</strong><span>instanced batches</span></div>
+      <div class="metric"><strong>AAB</strong><span>Billing, manifest, R8 검증</span></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&hl=ko">Play Store</a>
+      <a class="btn" href="https://youtu.be/E25iW69OW6k">Gameplay</a>
+    </div>
+    <div class="footer"><span>Ghost March</span><span>03</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">AI Guardrail Architecture</p>
+    <h2>Match3LogueLike</h2>
+    <div class="img-box hero-wide"><img src="portfolio_pdf_assets/Match3_frame.jpg" alt="Match3LogueLike"></div>
+    <div class="caption">AI가 코드를 작성하더라도 구조가 무너지지 않도록 asmdef, EventBus, 금지 API, 작업 lane, 테스트를 먼저 설계한 프로젝트입니다.</div>
+    <div class="grid-3" style="margin-top:5mm;">
+      <div class="metric"><strong>Data -> Core</strong><span>참조 방향 고정</span></div>
+      <div class="metric"><strong>34</strong><span>C# test files</span></div>
+      <div class="metric"><strong>10/10</strong><span>RewardOverlay PlayMode</span></div>
+    </div>
+    <div class="btn-row"><a class="btn" href="https://youtu.be/mGgBsoj-2JA">Gameplay</a></div>
+    <div class="footer"><span>Match3LogueLike</span><span>04</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Team VR System</p>
+    <h2>IronSarcophagus</h2>
+    <div class="img-box hero-wide"><img src="portfolio_pdf_assets/IronSarcophagus_frame.jpg" alt="IronSarcophagus"></div>
+    <div class="caption">2인 팀 VR 전차 협동 게임. 포수 조준, 탄도 계산, 적 AI, NetworkVariable 기반 부위별 상태 처리를 담당했습니다.</div>
+    <div class="grid-3" style="margin-top:5mm;">
+      <div class="metric"><strong>Ballistics</strong><span>TimeOfFlight 계산</span></div>
+      <div class="metric"><strong>5 points</strong><span>Linecast 노출도</span></div>
+      <div class="metric"><strong>Network</strong><span>HP, 장갑, 관통 처리</span></div>
+    </div>
+    <div class="btn-row"><a class="btn" href="https://youtu.be/l2X7-3QnWKs">Gameplay</a></div>
+    <div class="footer"><span>IronSarcophagus</span><span>05</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Public Dev / Puzzle Release</p>
+    <h2>작은 프로젝트에서 검증한 감각</h2>
+    <div class="grid-2" style="margin-top:7mm;">
+      <div>
+        <div class="img-box" style="height:88mm;"><img src="portfolio_pdf_assets/LostCone_frame.jpg" alt="LostCone"></div>
+        <div class="caption">LostCone: 개발일지 50회, 플레이테스트 3회. 터치스크린 Control Scheme auto-switch로 발생한 입력 중단을 해결.</div>
+        <div class="btn-row"><a class="btn" href="https://youtu.be/6QyYSIKdJPw">Gameplay</a><a class="btn" href="https://gall.dcinside.com/mgallery/board/view/?id=yonezkensi&no=114242&search_head=30&page=1">Dev Log</a></div>
+      </div>
+      <div>
+        <div class="img-box" style="height:88mm;"><img src="portfolio_pdf_assets/Cubika_frame.jpg" alt="Cubika"></div>
+        <div class="caption">Cubika: WebGL 배포 퍼즐 게임. 출시 후 모바일 조작, 게임오버, 광고/IAP scaffold 방향으로 확장.</div>
+        <div class="btn-row"><a class="btn" href="https://nullma.itch.io/cubika">itch.io</a><a class="btn" href="https://youtube.com/shorts/A6-j0cwDtW4?feature=share">Shorts</a></div>
+      </div>
+    </div>
+    <div class="footer"><span>LostCone / Cubika</span><span>06</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Closing</p>
+    <h2>포트폴리오에서 남길 인상</h2>
+    <div class="grid-2" style="margin-top:8mm;">
+      <div class="card">
+        <h3>보여줄 능력</h3>
+        <ul>
+          <li>출시된 프로젝트를 기준으로 운영/수익화/업데이트 이슈를 이해합니다.</li>
+          <li>성능 문제를 수치로 비교하고 구조 변경의 효과를 확인합니다.</li>
+          <li>AI를 코드 생산량이 아니라 작업 구조와 검증 루프 안에 넣습니다.</li>
+        </ul>
+      </div>
+      <div class="card tint">
+        <h3>짧게 언급할 보조 근거</h3>
+        <ul>
+          <li>MyTokenMate: AI coding tool 사용량 overlay.</li>
+          <li>Dong_Mae: 팀 구현, 카메라/페이드/기믹 연출.</li>
+          <li>OPIc IM2, 일본어 일상회화, Unity Certified Associate.</li>
+        </ul>
+      </div>
+    </div>
+    <table class="table" style="margin-top:8mm;">
+      <thead><tr><th>Target</th><th>Link</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>GitHub</td><td><a href="https://github.com/NulMa">github.com/NulMa</a></td><td>Code</td></tr>
+        <tr><td>Email</td><td><a href="mailto:jungwt524@gmail.com">jungwt524@gmail.com</a></td><td>Contact</td></tr>
+      </tbody>
+    </table>
+    <div class="footer"><span>Links</span><span>07</span></div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>정우태 포트폴리오 구조안 C - 증거중심형</title>
+  <link rel="stylesheet" href="portfolio_structural_variants.css">
+</head>
+<body class="evidence">
+  <section class="page">
+    <p class="kicker">Evidence Portfolio</p>
+    <h1 style="color:#12313c;">정우태<br>Unity / C# Client Developer</h1>
+    <p class="lead line-block">
+      <span>이 문서는 프로젝트 소개 순서가 아니라, 채용 관점의 역량별 증거 순서로 구성했습니다.</span>
+      <span>각 항목은 문제, 근거, 확인 가능한 프로젝트로 연결됩니다.</span>
+    </p>
+    <div class="index-grid">
+      <div class="axis"><strong>Release</strong><span>완성도와 배포 경험</span></div>
+      <div class="axis"><strong>Ghost March, Cubika</strong><span>Google Play / itch.io 배포, Android AAB, Billing metadata, WebGL 플레이 경로.</span></div>
+      <div class="axis"><strong>Performance</strong><span>수치 기반 개선</span></div>
+      <div class="axis"><strong>Ghost March</strong><span>DOTS 재설계, batching 축소, UI Toolkit 업데이트 비용 개선.</span></div>
+      <div class="axis"><strong>Architecture</strong><span>의존성 경계</span></div>
+      <div class="axis"><strong>Match3LogueLike</strong><span>asmdef, EventBus, Data/Core/Board/Combat 경계, AI 작업 guardrail.</span></div>
+      <div class="axis"><strong>Troubleshooting</strong><span>재현과 원인분리</span></div>
+      <div class="axis"><strong>LostCone, Ghost March</strong><span>Input System auto-switch, GPU Instancing, EnemySeparation, R8 keep rule.</span></div>
+    </div>
+    <div class="footer"><span>Competency Index</span><span>01</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Evidence 01</p>
+    <h2>출시와 운영을 끝까지 가져간 경험</h2>
+    <div class="evidence-row">
+      <h3>Ghost March</h3>
+      <p>공모전 수상 후 Play Store에 출시한 모바일 액션 게임입니다. 출시 이후에도 AdMob, IAP/remove ads, localization, app update prompt, AAB release 검증을 문서화했습니다.</p>
+      <div class="score"><span>Release</span><span>Android</span><span>Solo</span></div>
+    </div>
+    <div class="img-box proof-img"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March"></div>
+    <div class="evidence-row">
+      <h3>Cubika</h3>
+      <p>WebGL로 배포한 큐브 병합 퍼즐 게임입니다. 출시 후 모바일 조작, 게임오버, 광고/IAP scaffold까지 확장하며 작은 프로젝트를 배포 가능한 형태로 정리했습니다.</p>
+      <div class="score"><span>WebGL</span><span>itch.io</span><span>Solo</span></div>
+    </div>
+    <div class="img-box proof-img"><img src="portfolio_pdf_assets/Cubika_frame.jpg" alt="Cubika"></div>
+    <div class="footer"><span>Release Evidence</span><span>02</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Evidence 02</p>
+    <h2>성능 문제를 구조 변경으로 해결한 근거</h2>
+    <div class="grid-3" style="margin-top:7mm;">
+      <div class="metric"><strong>9 fps</strong><span>Legacy 1500 enemies</span></div>
+      <div class="metric"><strong>67 fps</strong><span>DOTS 4096 enemies</span></div>
+      <div class="metric"><strong>109.5ms -> 14.92ms</strong><span>CPU frame time</span></div>
+    </div>
+    <div class="evidence-row" style="margin-top:7mm;">
+      <h3>원인</h3>
+      <p><code>GameManager.instance</code>의 넓은 책임, <code>Weapon.Update()</code> switch 분기, 대량 데미지 텍스트와 UI Toolkit 갱신 비용이 함께 누적되었습니다.</p>
+      <div class="score"><span>State</span><span>Update</span><span>UI</span></div>
+    </div>
+    <div class="evidence-row">
+      <h3>조치</h3>
+      <p>Enemy, Bullet, Drop, Wave, Damage Event를 DOTS 수직 슬라이스로 분리하고, MonoBehaviour는 UI, 입력, 씬 부트스트랩, 외부 서비스 연동으로 제한했습니다.</p>
+      <div class="score"><span>DOTS</span><span>Slice</span><span>Boundary</span></div>
+    </div>
+    <div class="evidence-row">
+      <h3>검증</h3>
+      <p>batch 수, CPU/GPU frame time, UI Toolkit 갱신 비용을 기준으로 비교했습니다. <code>RenderMeshIndirect</code>처럼 궁합이 맞지 않는 접근은 유지하지 않았습니다.</p>
+      <div class="score"><span>Measure</span><span>Compare</span><span>Rollback</span></div>
+    </div>
+    <div class="footer"><span>Performance Evidence</span><span>03</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Evidence 03</p>
+    <h2>AI 협업은 작업 구조를 설계한 뒤 적용했습니다</h2>
+    <div class="evidence-row" style="margin-top:7mm;">
+      <h3>경계</h3>
+      <p>Data, Core, Board, Combat, Roguelike, Meta, UI, Ads의 참조 방향을 정하고, Board와 Combat의 직접 참조는 금지했습니다.</p>
+      <div class="score"><span>asmdef</span><span>EventBus</span><span>Data</span></div>
+    </div>
+    <div class="evidence-row">
+      <h3>규칙</h3>
+      <p>Data MonoBehaviour 금지, Find 금지, Update 할당 금지 hook을 적용했습니다. AI agent는 Coordinator, Worker, Verify 역할로 분리했습니다.</p>
+      <div class="score"><span>Hook</span><span>Lane</span><span>Review</span></div>
+    </div>
+    <div class="evidence-row">
+      <h3>검증</h3>
+      <p>C# 테스트 파일 34개, RewardOverlayTests PlayMode 10/10, SaveManagerPhase1SmokeTests EditMode 4/4를 근거로 남겼습니다.</p>
+      <div class="score"><span>34 tests</span><span>10/10</span><span>4/4</span></div>
+    </div>
+    <div class="img-box proof-img"><img src="portfolio_pdf_assets/Match3_frame.jpg" alt="Match3LogueLike"></div>
+    <div class="quote">강점은 AI 사용 여부가 아니라, AI가 구조를 지키며 일하도록 경계와 검증 장치를 먼저 만든 점입니다.</div>
+    <div class="footer"><span>Architecture / AI Evidence</span><span>04</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Evidence 04</p>
+    <h2>재현하기 어려운 문제를 상태 단위로 추적했습니다</h2>
+    <table class="table" style="margin-top:7mm;">
+      <thead><tr><th>Problem</th><th>Root Cause</th><th>Fix / Decision</th></tr></thead>
+      <tbody>
+        <tr><td>LostCone 키보드 입력 간헐 중단</td><td>터치스크린 노트북의 Control Scheme auto-switch</td><td>Keyboard&Mouse scheme 강제, prefab default scheme 변경, auto-switch 해제.</td></tr>
+        <tr><td>Ghost March GPU Instancing 전환 후 오브젝트 소실</td><td>scene value와 fallback 부재</td><td>원인을 분리하고 fallback 처리 기준 정리.</td></tr>
+        <tr><td>EnemySeparation이 chase 이동을 덮어씀</td><td>더블버퍼 처리 순서 문제</td><td><code>PositionDelta</code>로 이동량을 분리.</td></tr>
+        <tr><td>R8 minification 후 런타임 클래스 제거</td><td>Android release 빌드의 keep rule 누락</td><td>Billing/Play Core 경계와 keep rule 검증.</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2" style="margin-top:7mm;">
+      <div class="img-box" style="height:55mm;"><img src="portfolio_pdf_assets/LostCone_frame.jpg" alt="LostCone"></div>
+      <div class="card tint">
+        <h3>트러블슈팅 방식</h3>
+        <ul>
+          <li>현상을 기능 이름이 아니라 상태 변화로 기록.</li>
+          <li>외부 환경 차이를 의심하고 입력 장치/빌드 설정까지 확인.</li>
+          <li>해결 후 팀원이 재현할 수 있는 조건과 수정 지점을 남김.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer"><span>Troubleshooting Evidence</span><span>05</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Evidence 05</p>
+    <h2>팀 프로젝트에서 맡은 시스템 범위</h2>
+    <div class="img-box proof-img" style="height:62mm;"><img src="portfolio_pdf_assets/IronSarcophagus_frame.jpg" alt="IronSarcophagus"></div>
+    <div class="evidence-row">
+      <h3>VR 전차 협동</h3>
+      <p>2인 팀 프로젝트에서 네트워크 기반 구조, 포수 조준, 탄도 계산, 적 AI를 담당했습니다. 역할 경계가 필요한 VR 협동 게임에서 입력, 판정, 상태 동기화의 연결부를 구현했습니다.</p>
+      <div class="score"><span>Team 2</span><span>VR</span><span>Netcode</span></div>
+    </div>
+    <div class="evidence-row">
+      <h3>탄도 / 판정</h3>
+      <p>AimController, BallisticCalc, FireSystem, TankStatus 흐름을 구성했습니다. 포물선 탄도와 TimeOfFlight를 계산하고, 시각 발사체와 피해 판정 위치를 맞췄습니다.</p>
+      <div class="score"><span>Aim</span><span>Ballistic</span><span>Impact</span></div>
+    </div>
+    <div class="evidence-row">
+      <h3>적 AI / 데미지</h3>
+      <p>총구 기준 5개 포인트 Linecast로 노출도를 계산하고, 20% 미만 노출은 차폐 상태로 간주했습니다. NetworkVariable 기반으로 부위별 HP, 장갑, 관통을 처리했습니다.</p>
+      <div class="score"><span>AI</span><span>Linecast</span><span>Damage</span></div>
+    </div>
+    <div class="footer"><span>Team System Evidence</span><span>06</span></div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Appendix</p>
+    <h2>링크와 보조 근거</h2>
+    <table class="table" style="margin-top:7mm;">
+      <thead><tr><th>구분</th><th>링크</th><th>검토 포인트</th></tr></thead>
+      <tbody>
+        <tr><td>GitHub</td><td><a href="https://github.com/NulMa">https://github.com/NulMa</a></td><td>프로젝트 코드와 공개 repo 확인.</td></tr>
+        <tr><td>Ghost March</td><td><a href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&hl=ko">Play Store</a></td><td>출시 완료 모바일 게임.</td></tr>
+        <tr><td>Cubika</td><td><a href="https://nullma.itch.io/cubika">itch.io</a></td><td>WebGL 배포 퍼즐 게임.</td></tr>
+        <tr><td>LostCone</td><td><a href="https://gall.dcinside.com/mgallery/board/view/?id=yonezkensi&no=114242&search_head=30&page=1">Dev Log</a></td><td>공개 개발 기록.</td></tr>
+        <tr><td>MyTokenMate</td><td><a href="https://github.com/NulMa/my-token-mate">GitHub public repo</a></td><td>AI workflow 보조 도구. 별도 대형 프로젝트보다 짧은 근거로 사용.</td></tr>
+        <tr><td>Email</td><td><a href="mailto:jungwt524@gmail.com">jungwt524@gmail.com</a></td><td>Contact.</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-3" style="margin-top:7mm;">
+      <div class="axis"><strong>Unity</strong><span>C#, UGUI, UI Toolkit, URP 2D, ShaderLab, DOTS</span></div>
+      <div class="axis"><strong>Tools</strong><span>Aseprite, DOTween, XR Toolkit, Netcode, Electron</span></div>
+      <div class="axis"><strong>Profile</strong><span>Unity Certified Associate, OPIc IM2, 일본어 일상회화</span></div>
+    </div>
+    <div class="footer"><span>Links</span><span>07</span></div>
+  </section>
+</body>
+</html>

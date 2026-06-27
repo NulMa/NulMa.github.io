@@ -1,0 +1,1265 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>정우태 포트폴리오</title>
+  <style>
+    @page { size: A4 landscape; margin: 0; }
+
+    :root {
+      --paper: #181a15;
+      --paper-2: #1d2019;
+      --ink: #f4efe3;
+      --muted: #c1c7b9;
+      --quiet: #8f9988;
+      --line: rgba(244,239,227,0.16);
+      --panel: #24271f;
+      --panel-2: #2b2f25;
+      --deep: #11130f;
+      --green: #87d8b6;
+      --mint: rgba(135,216,182,0.14);
+      --gold: #e1b159;
+      --rose: #e08b98;
+      --blue: #8ec4da;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--deep); }
+    body {
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      color: var(--ink);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      position: relative;
+      overflow: hidden;
+      width: 297mm;
+      height: 210mm;
+      padding: 13mm 15mm 12mm;
+      background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+    .dark {
+      background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+      color: var(--ink);
+    }
+    .soft { background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%); }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8mm;
+      color: var(--quiet);
+      font-size: 7.6pt;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .dark .topline { color: var(--quiet); }
+    .page-no { color: var(--green); }
+    .dark .page-no { color: var(--green); }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: 38pt;
+      line-height: 1.03;
+      letter-spacing: 0;
+      font-weight: 950;
+    }
+    h2 {
+      color: var(--ink);
+      font-size: 28pt;
+      line-height: 1.06;
+      letter-spacing: 0;
+      font-weight: 950;
+      margin-bottom: 7mm;
+      word-break: keep-all;
+    }
+    h3 {
+      color: var(--ink);
+      font-size: 12.3pt;
+      line-height: 1.24;
+      font-weight: 920;
+      margin-bottom: 2.4mm;
+    }
+    .lead {
+      max-width: 140mm;
+      color: var(--muted);
+      font-size: 12pt;
+      line-height: 1.52;
+      font-weight: 650;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .dark .lead { color: var(--muted); }
+    .kicker {
+      color: var(--green);
+      font-size: 8pt;
+      line-height: 1.2;
+      font-weight: 950;
+      text-transform: none;
+      margin-bottom: 3mm;
+    }
+    .dark .kicker { color: var(--green); }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7mm;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4.2mm;
+    }
+    .stack { display: grid; gap: 4mm; }
+    .tight { display: grid; gap: 2.4mm; }
+
+    .media {
+      overflow: hidden;
+      border: 1px solid rgba(22,24,21,0.12);
+      background: #111;
+    }
+    .media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .dark .media { border-color: rgba(255,255,255,0.13); }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2mm;
+      margin-top: 6mm;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 8.4mm;
+      padding: 1.7mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 99mm;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 7.4pt;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .chip.primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .dark .chip {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.18);
+      color: #f7f4ec;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      margin-top: 7mm;
+    }
+    .metric {
+      padding-top: 3mm;
+      border-top: 2px solid var(--green);
+    }
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-size: 17pt;
+      line-height: 1;
+      font-weight: 950;
+    }
+    .metric span {
+      display: block;
+      margin-top: 1.5mm;
+      color: var(--muted);
+      font-size: 7.2pt;
+      line-height: 1.3;
+      font-weight: 780;
+    }
+    .dark .metric strong { color: #fff; }
+    .dark .metric span { color: #c7d0c9; }
+
+    .cover-layout {
+      display: grid;
+      grid-template-columns: 112mm 1fr;
+      gap: 11mm;
+      align-items: end;
+      height: 162mm;
+    }
+    .cover-media {
+      height: 145mm;
+      border-radius: 0;
+    }
+    .cover-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4mm;
+      margin-top: 2.4mm;
+    }
+    .cover-thumbs .media { height: 24mm; }
+
+    .link-hub {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4.2mm;
+      margin-top: 6mm;
+    }
+    .project-index {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4mm;
+      margin-top: 7mm;
+    }
+    .project-index .link-tile {
+      grid-column: span 2;
+      min-height: 42mm;
+    }
+    .project-index .link-tile.major { grid-column: span 3; }
+    .project-index .link-tile p { font-size: 7.8pt; line-height: 1.42; }
+    .project-index .link-url { font-size: 7.1pt; }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4mm;
+      margin-top: 7mm;
+    }
+    .work-card {
+      grid-column: span 2;
+      min-height: 42mm;
+      display: grid;
+      grid-template-columns: 38mm 1fr;
+      gap: 3.4mm;
+      padding: 3.4mm;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .work-card.featured {
+      grid-column: span 3;
+      min-height: 49mm;
+      grid-template-columns: 48mm 1fr;
+    }
+    .work-thumb { height: 35mm; min-height: 0; }
+    .work-card.featured .work-thumb { height: 42mm; }
+    .work-card h3 { margin-bottom: 2mm; }
+    .work-card p {
+      color: var(--muted);
+      font-size: 7.6pt;
+      line-height: 1.42;
+      font-weight: 680;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .work-meta {
+      display: block;
+      color: var(--green);
+      font-size: 6.8pt;
+      font-weight: 950;
+      margin-bottom: 2mm;
+      text-transform: none;
+    }
+    .work-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5mm;
+      margin-top: 3mm;
+    }
+    .work-points span {
+      color: var(--ink);
+      font-size: 6.8pt;
+      font-weight: 900;
+      padding: 1mm 1.8mm;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4mm;
+      margin-top: 7mm;
+    }
+    .focus-card {
+      grid-column: span 2;
+      min-height: 39mm;
+      padding: 4mm;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .focus-card.wide { grid-column: span 3; }
+    .focus-card b {
+      display: block;
+      color: var(--green);
+      font-size: 7.2pt;
+      font-weight: 950;
+      margin-bottom: 2mm;
+      text-transform: none;
+    }
+    .focus-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 16pt;
+      line-height: 1.05;
+      font-weight: 950;
+      margin-bottom: 2mm;
+    }
+    .focus-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 7.8pt;
+      line-height: 1.42;
+      font-weight: 680;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .link-tile {
+      min-height: 47mm;
+      padding: 4.4mm;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 2.4mm;
+    }
+    .link-tile .type {
+      color: var(--green);
+      font-size: 6.8pt;
+      font-weight: 950;
+      text-transform: none;
+    }
+    .link-tile p {
+      color: var(--muted);
+      font-size: 7.6pt;
+      line-height: 1.38;
+      font-weight: 650;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .link-url {
+      display: block;
+      overflow-wrap: anywhere;
+      color: var(--ink);
+      font-size: 7.2pt;
+      line-height: 1.25;
+      font-weight: 850;
+      padding-top: 2.4mm;
+      border-top: 1px solid var(--line);
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: 50mm 1fr 1fr 1.1fr;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      margin-top: 7mm;
+    }
+    .route-grid > div {
+      min-height: 18mm;
+      padding: 3.2mm 3.5mm;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-size: 7.5pt;
+      line-height: 1.36;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .route-grid > div:nth-child(4n) { border-right: 0; }
+    .route-grid > div:nth-last-child(-n+4) { border-bottom: 0; }
+    .route-grid .head {
+      min-height: 8mm;
+      background: var(--panel-2);
+      color: var(--ink);
+      font-weight: 950;
+    }
+    .route-grid b {
+      display: block;
+      color: var(--ink);
+      font-size: 8.4pt;
+      margin-bottom: 1mm;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 96mm 1fr;
+      gap: 7mm;
+      align-items: start;
+    }
+    .project-media { height: 76mm; margin-bottom: 4mm; }
+    .project-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.4mm;
+      margin-top: 4mm;
+    }
+    .fact {
+      min-height: 20mm;
+      padding: 3mm;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .fact b {
+      display: block;
+      color: var(--green);
+      font-size: 7pt;
+      font-weight: 950;
+      margin-bottom: 1.2mm;
+    }
+    .fact span {
+      display: block;
+      font-size: 8pt;
+      line-height: 1.32;
+      font-weight: 760;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .proof-box {
+      padding: 4mm;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .proof-box p {
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.48;
+      font-weight: 650;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .proof-list {
+      display: grid;
+      gap: 2mm;
+      margin-top: 3mm;
+    }
+    .proof-list li {
+      margin-left: 4mm;
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.42;
+      font-weight: 650;
+    }
+    .proof-list b { color: var(--ink); }
+
+    .callout {
+      padding: 4mm;
+      background: var(--panel);
+      color: #f7f4ec;
+    }
+    .callout b {
+      display: block;
+      color: var(--green);
+      font-size: 7.2pt;
+      font-weight: 950;
+      margin-bottom: 1.5mm;
+      text-transform: none;
+    }
+    .callout p {
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .mini-link {
+      display: grid;
+      grid-template-columns: 27mm 1fr;
+      gap: 2mm;
+      padding: 2.6mm 0;
+      border-top: 1px solid var(--line);
+      font-size: 7.4pt;
+      line-height: 1.25;
+    }
+    .mini-link:first-child { border-top: 0; }
+    .mini-link b { color: var(--green); font-weight: 950; }
+    .mini-link a {
+      overflow-wrap: anywhere;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3mm;
+      margin-top: 8mm;
+    }
+    .compare-card {
+      min-height: 38mm;
+      padding: 4mm;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .compare-card strong {
+      display: block;
+      color: var(--rose);
+      font-size: 17pt;
+      line-height: 1;
+      font-weight: 950;
+      margin-bottom: 2mm;
+    }
+    .compare-card span {
+      color: var(--muted);
+      font-size: 7.4pt;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      margin-top: 6mm;
+    }
+    .flow .step {
+      min-height: 30mm;
+      padding: 3.5mm;
+      background: var(--panel);
+      border-left: 3px solid var(--green);
+    }
+    .flow .step b {
+      display: block;
+      font-size: 8.2pt;
+      font-weight: 950;
+      margin-bottom: 1.4mm;
+    }
+    .flow .step span {
+      color: var(--muted);
+      font-size: 7.4pt;
+      line-height: 1.35;
+      font-weight: 650;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2mm;
+      padding: 4mm;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .node {
+      min-height: 11mm;
+      padding: 2.4mm 3mm;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      font-size: 8pt;
+      font-weight: 900;
+    }
+    .node.green { background: var(--mint); border-color: #b9dfd2; }
+    .node.gold { background: rgba(225,177,89,0.18); border-color: rgba(225,177,89,0.42); }
+    .node.rose { background: rgba(224,139,152,0.18); border-color: rgba(224,139,152,0.42); }
+    .note {
+      color: var(--muted);
+      font-size: 7.6pt;
+      line-height: 1.44;
+      font-weight: 650;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 2.5mm;
+      margin-top: 3mm;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 27mm 1fr;
+      gap: 3mm;
+      align-items: start;
+      min-height: 18mm;
+      padding-bottom: 2.5mm;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-item:last-child { border-bottom: 0; }
+    .timeline-item b {
+      color: var(--green);
+      font-size: 7.5pt;
+      font-weight: 950;
+    }
+    .timeline-item span {
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.4;
+      font-weight: 650;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .link-table {
+      display: grid;
+      grid-template-columns: 34mm 31mm 1fr 42mm;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      margin-top: 7mm;
+    }
+    .link-table > div {
+      min-height: 13mm;
+      padding: 2.7mm 3mm;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-size: 7.2pt;
+      line-height: 1.25;
+      color: var(--muted);
+      font-weight: 680;
+      overflow-wrap: anywhere;
+    }
+    .link-table > div:nth-child(4n) { border-right: 0; }
+    .link-table > div:nth-last-child(-n+4) { border-bottom: 0; }
+    .link-table .head {
+      min-height: 8mm;
+      background: var(--panel-2);
+      color: var(--ink);
+      font-weight: 950;
+    }
+    .link-table b { color: var(--ink); }
+    .link-table a { color: var(--green); font-weight: 850; }
+
+    .work-card,
+    .focus-card,
+    .link-tile,
+    .route-grid,
+    .fact,
+    .proof-box,
+    .compare-card,
+    .flow .step,
+    .diagram,
+    .link-table {
+      background: var(--panel);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+    .work-card,
+    .focus-card,
+    .fact,
+    .proof-box,
+    .compare-card,
+    .flow .step {
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .work-card,
+    .focus-card {
+      min-height: 58mm;
+    }
+    .work-card.featured {
+      min-height: 64mm;
+    }
+    .work-thumb { height: 50mm; }
+    .work-card.featured .work-thumb { height: 56mm; }
+    .work-meta,
+    .focus-card b,
+    .link-tile .type,
+    .fact b,
+    .mini-link b,
+    .timeline-item b {
+      color: var(--green);
+      text-transform: none;
+    }
+    .focus-card {
+      padding: 5mm;
+    }
+    .focus-card strong {
+      color: var(--ink);
+      font-size: 18pt;
+      margin-bottom: 3mm;
+    }
+    .focus-card span,
+    .work-card p,
+    .link-tile p,
+    .fact span,
+    .proof-box p,
+    .proof-list li,
+    .compare-card span,
+    .flow .step span,
+    .timeline-item span,
+    .note,
+    .link-table > div {
+      color: var(--muted);
+      font-size: 8.8pt;
+      line-height: 1.42;
+    }
+    .work-card p { font-size: 8.4pt; }
+    .work-points span {
+      background: var(--panel-2);
+      border-color: var(--line);
+      color: var(--ink);
+      font-size: 7.4pt;
+    }
+    .chip {
+      background: var(--panel);
+      border-color: var(--line);
+      color: var(--ink);
+      font-size: 8pt;
+    }
+    .chip.primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: #102019;
+    }
+    .metric span,
+    .dark .metric span { color: var(--muted); }
+    .metric strong,
+    .dark .metric strong { color: var(--ink); }
+    .media {
+      border-color: var(--line);
+      background: #0b0c09;
+    }
+    .project-layout {
+      height: 162mm;
+      min-height: 0;
+      grid-template-columns: 104mm 1fr;
+      gap: 9mm;
+      align-items: stretch;
+    }
+    .project-layout > div {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+    }
+    .project-media {
+      flex: 1 1 auto;
+      height: auto;
+      min-height: 0;
+      margin-bottom: 5mm;
+    }
+    .project-facts {
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+      margin-top: 6mm;
+    }
+    .fact {
+      min-height: 30mm;
+      padding: 4mm;
+    }
+    .proof-box {
+      padding: 4.5mm;
+    }
+    .mini-link {
+      border-top-color: var(--line);
+      font-size: 8.2pt;
+    }
+    .mini-link a,
+    .link-url,
+    .link-table a {
+      color: var(--ink);
+    }
+    .callout {
+      background: var(--panel);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--green);
+      padding: 4.5mm;
+    }
+    .callout b {
+      color: var(--green);
+      font-size: 8.4pt;
+      text-transform: none;
+    }
+    .callout p {
+      color: var(--muted);
+      font-size: 9pt;
+      line-height: 1.44;
+    }
+    .compare {
+      gap: 3.5mm;
+      margin-top: 10mm;
+    }
+    .compare-card {
+      min-height: 56mm;
+      padding: 5mm;
+    }
+    .compare-card strong {
+      color: var(--gold);
+      font-size: 20pt;
+      margin-bottom: 4mm;
+    }
+    .flow {
+      gap: 3.5mm;
+      margin-top: 8mm;
+    }
+    .flow .step {
+      min-height: 45mm;
+      padding: 4.5mm;
+      border-left-color: var(--green);
+    }
+    .flow .step b {
+      color: var(--ink);
+      font-size: 9.5pt;
+      margin-bottom: 2.2mm;
+    }
+    .diagram {
+      background: var(--panel);
+      gap: 3mm;
+      padding: 4.5mm;
+    }
+    .node {
+      min-height: 16mm;
+      background: var(--panel-2);
+      border-color: var(--line);
+      color: var(--ink);
+      font-size: 9pt;
+    }
+    .node.green { background: rgba(135,216,182,0.18); border-color: rgba(135,216,182,0.42); }
+    .node.gold { background: rgba(225,177,89,0.18); border-color: rgba(225,177,89,0.42); }
+    .node.rose { background: rgba(224,139,152,0.18); border-color: rgba(224,139,152,0.42); }
+    .timeline {
+      gap: 3.2mm;
+      margin-top: 5mm;
+    }
+    .timeline-item {
+      min-height: 22mm;
+      border-bottom-color: var(--line);
+    }
+    .link-table {
+      margin-top: 8mm;
+      grid-template-columns: 36mm 32mm 1fr 44mm;
+    }
+    .link-table > div {
+      min-height: 14.5mm;
+      border-color: var(--line);
+      padding: 3mm 3.2mm;
+    }
+    .link-table .head,
+    .route-grid .head {
+      background: var(--panel-2);
+      color: var(--ink);
+    }
+    .page-title-only {
+      margin-top: 1mm;
+    }
+    .project-index-page .work-card { min-height: 64mm; }
+    .project-index-page .work-card.featured { min-height: 70mm; }
+    .project-index-page .work-thumb { height: 56mm; }
+    .project-index-page .work-card.featured .work-thumb { height: 62mm; }
+    .implementation-page .focus-card {
+      min-height: 70mm;
+      padding: 6mm;
+    }
+    .validation-page .proof-box {
+      min-height: 43mm;
+    }
+    .validation-page .flow .step {
+      min-height: 72mm;
+    }
+    .performance-page .compare-card {
+      min-height: 61mm;
+    }
+    .performance-page .flow .step {
+      min-height: 51mm;
+    }
+    .work-system-page .grid-3 {
+      margin-top: 9mm;
+    }
+    .work-system-page .proof-box {
+      min-height: 40mm;
+      padding: 5mm;
+    }
+    .case-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3.5mm;
+      margin-top: 7mm;
+    }
+    .case-strip div {
+      min-height: 42mm;
+      padding: 4.5mm;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .case-strip b {
+      display: block;
+      color: var(--green);
+      font-size: 8.4pt;
+      font-weight: 950;
+      margin-bottom: 2mm;
+    }
+    .case-strip span {
+      display: block;
+      color: var(--muted);
+      font-size: 8.6pt;
+      line-height: 1.42;
+      font-weight: 680;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="page dark">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">01</span></div>
+    <div class="cover-layout">
+      <div>
+        <p class="kicker">Unity 클라이언트 / C#</p>
+        <h1>정우태<br>Unity 클라이언트<br>개발자</h1>
+        <div class="chip-row">
+          <a class="chip primary" href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&amp;hl=ko">Ghost March Play Store</a>
+          <a class="chip" href="https://nullma.itch.io/cubika">Cubika itch.io</a>
+          <a class="chip" href="https://github.com/NulMa">GitHub</a>
+        </div>
+        <div class="metric-row">
+          <div class="metric"><strong>2</strong><span>공개 배포 프로젝트</span></div>
+          <div class="metric"><strong>5</strong><span>대표 Unity 프로젝트</span></div>
+          <div class="metric"><strong>67fps</strong><span>DOTS 4096 enemies 기준</span></div>
+          <div class="metric"><strong>C#</strong><span>Unity 클라이언트 중심</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="media cover-media"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March gameplay"></div>
+        <div class="cover-thumbs">
+          <div class="media"><img src="portfolio_pdf_assets/Match3_frame.jpg" alt="Match3LogueLike"></div>
+          <div class="media"><img src="portfolio_pdf_assets/IronSarcophagus_frame.jpg" alt="IronSarcophagus"></div>
+          <div class="media"><img src="portfolio_pdf_assets/LostCone_frame.jpg" alt="LostCone"></div>
+          <div class="media"><img src="portfolio_pdf_assets/Cubika_frame.jpg" alt="Cubika"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page project-index-page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">02</span></div>
+    <h2 class="page-title-only">프로젝트</h2>
+    <div class="work-grid">
+      <a class="work-card featured" href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&amp;hl=ko">
+        <div class="media work-thumb"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March gameplay"></div>
+        <div>
+        <span class="work-meta">1인 개발 / 출시</span>
+        <h3>Ghost March</h3>
+        <p>Google Play 출시작. Android release, 수상 이력, 출시 후 DOTS 성능 실험까지 이어진 대표 프로젝트.</p>
+        <div class="work-points"><span>Play Store</span><span>DOTS 재구성</span><span>출시 운영</span></div>
+        </div>
+      </a>
+      <a class="work-card featured" href="https://youtu.be/mGgBsoj-2JA">
+        <div class="media work-thumb"><img src="portfolio_pdf_assets/Match3_frame.jpg" alt="Match3LogueLike gameplay"></div>
+        <div>
+        <span class="work-meta">1인 개발 / AI 협업</span>
+        <h3>Match3LogueLike</h3>
+        <p>모바일 portrait 매치3 로그라이크. asmdef, EventBus, 테스트 evidence로 AI 협업 경계를 관리.</p>
+        <div class="work-points"><span>asmdef</span><span>EventBus</span><span>34 tests</span></div>
+        </div>
+      </a>
+      <a class="work-card" href="https://youtu.be/l2X7-3QnWKs">
+        <div class="media work-thumb"><img src="portfolio_pdf_assets/IronSarcophagus_frame.jpg" alt="IronSarcophagus gameplay"></div>
+        <div>
+        <span class="work-meta">2인 팀 / VR</span>
+        <h3>IronSarcophagus</h3>
+        <p>VR 전차 시뮬레이션. 포수 조준, 탄도 계산, 피격 처리, 적 AI 흐름을 담당.</p>
+        <div class="work-points"><span>포수</span><span>탄도</span><span>적 AI</span></div>
+        </div>
+      </a>
+      <a class="work-card" href="https://youtu.be/6QyYSIKdJPw">
+        <div class="media work-thumb"><img src="portfolio_pdf_assets/LostCone_frame.jpg" alt="LostCone gameplay"></div>
+        <div>
+        <span class="work-meta">공개 개발 / 플레이테스트</span>
+        <h3>LostCone</h3>
+        <p>1년 공개 개발과 플레이테스트를 거친 팬게임. Input System 입력 이슈를 환경 상태까지 추적.</p>
+        <div class="work-points"><span>개발일지</span><span>플레이테스트</span><span>Input System</span></div>
+        </div>
+      </a>
+      <a class="work-card" href="https://nullma.itch.io/cubika">
+        <div class="media work-thumb"><img src="portfolio_pdf_assets/Cubika_frame.jpg" alt="Cubika gameplay"></div>
+        <div>
+        <span class="work-meta">1인 개발 / WebGL</span>
+        <h3>Cubika</h3>
+        <p>itch.io WebGL 배포 퍼즐. 모바일 조작, game-over feedback, Ads/IAP scaffold까지 확장.</p>
+        <div class="work-points"><span>itch.io</span><span>모바일</span><span>Ads/IAP</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="page soft implementation-page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">03</span></div>
+    <h2 class="page-title-only">구현 요약</h2>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <b>성능 개선</b>
+        <strong>9fps → 67fps</strong>
+        <span>Legacy 1500 enemies 기준 약 9fps, DOTS 4096 enemies 기준 약 67fps. CPU frame time 109.5ms → 14.92ms.</span>
+      </div>
+      <div class="focus-card">
+        <b>구조 설계</b>
+        <strong>11 asmdefs / 34 tests</strong>
+        <span>Data, Core, Board, Combat, UI 경계를 분리하고 EventBus와 테스트 evidence로 변경 범위를 관리.</span>
+      </div>
+      <div class="focus-card">
+        <b>출시 경험</b>
+        <strong>Android / WebGL</strong>
+        <span>Google Play와 itch.io 배포 경험. release build, Billing, App Update, WebGL publishing.</span>
+      </div>
+      <div class="focus-card">
+        <b>팀 프로젝트</b>
+        <strong>Aim → Fire → Hit</strong>
+        <span>AimController, BallisticCalc, FireSystem, TankStatus로 포수 전투 흐름을 분리.</span>
+      </div>
+      <div class="focus-card">
+        <b>트러블슈팅</b>
+        <strong>Input System</strong>
+        <span>터치스크린 노트북에서 Control Scheme이 Touch로 전환되던 입력 중단 원인을 추적.</span>
+      </div>
+      <div class="focus-card">
+        <b>배포 후 보강</b>
+        <strong>WebGL + Mobile</strong>
+        <span>itch.io 배포 후 모바일 조작, game-over feedback, Ads/IAP scaffold를 보강.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">04</span></div>
+    <div class="project-layout">
+      <div>
+        <div class="media project-media"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March gameplay"></div>
+        <div class="proof-box">
+          <h3>확인 링크</h3>
+          <div class="mini-link"><b>Play Store</b><a href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&amp;hl=ko">Google Play 출시 페이지</a></div>
+          <div class="mini-link"><b>Gameplay</b><a href="https://youtu.be/E25iW69OW6k">플레이 영상</a></div>
+        </div>
+      </div>
+      <div>
+        <h2>Ghost March 출시/운영</h2>
+        <p class="lead">Google Play 출시와 공모전 수상 이후 Android release, 광고/IAP, localization, app update까지 확장했습니다.</p>
+        <div class="project-facts">
+          <div class="fact"><b>배포</b><span>Google Play 출시, Android release build, AAB 검증.</span></div>
+          <div class="fact"><b>수상</b><span>2023 충청권 게임 인디유 공모전 장려상.</span></div>
+          <div class="fact"><b>운영 확장</b><span>AdMob, IAP, localization, app update prompt 문서화.</span></div>
+          <div class="fact"><b>규모</b><span>775 commits, 195 C# files, 72 docs, 12 asmdefs.</span></div>
+        </div>
+        <div class="callout" style="margin-top:5mm;">
+          <b>출시 처리 범위</b>
+          <p>AAB manifest/version/signing, Billing, App Update, localization을 출시 체크리스트로 관리했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page soft performance-page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">05</span></div>
+    <h2 class="page-title-only">Ghost March 성능 재설계</h2>
+    <p class="lead">출시 가능한 Legacy 구조를 유지한 상태에서 대량 적 처리와 렌더링 비용을 측정하고, DOTS 수직 슬라이스로 개선 가능성을 검증했습니다.</p>
+    <div class="compare">
+      <div class="compare-card"><strong>9fps</strong><span>Legacy 1500 enemies 기준 약 9fps.</span></div>
+      <div class="compare-card"><strong>67fps</strong><span>DOTS 4096 enemies 기준 약 67fps.</span></div>
+      <div class="compare-card"><strong>109.5ms</strong><span>CPU frame time baseline.</span></div>
+      <div class="compare-card"><strong>14.92ms</strong><span>DOTS 전환 후 CPU frame time.</span></div>
+      <div class="compare-card"><strong>691→4</strong><span>Instanced batches 축소.</span></div>
+    </div>
+    <div class="flow">
+      <div class="step"><b>1. 기준본 보존</b><span>Legacy 기준본을 유지해 회귀 위험 분리.</span></div>
+      <div class="step"><b>2. 병목 분리</b><span>적 처리, UI Toolkit, GPU instancing 비용 측정.</span></div>
+      <div class="step"><b>3. 수직 슬라이스</b><span>전체 이식 대신 작은 단위로 DOTS 검증.</span></div>
+      <div class="step"><b>4. 운영 문서화</b><span>Android release, Billing, App Update 문서 작성.</span></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">06</span></div>
+    <div class="project-layout">
+      <div>
+        <div class="media project-media"><img src="portfolio_pdf_assets/Match3_frame.jpg" alt="Match3LogueLike gameplay"></div>
+        <div class="proof-box">
+          <h3>확인 링크</h3>
+          <div class="mini-link"><b>Gameplay</b><a href="https://youtu.be/mGgBsoj-2JA">Match3LogueLike 플레이 영상</a></div>
+        </div>
+      </div>
+      <div>
+        <h2>Match3LogueLike 구조 설계</h2>
+        <p class="lead">모바일 portrait 매치3 로그라이크. 구현 전 GDD, asmdef, EventBus, 테스트 기준을 정해 생성 코드가 프로젝트 경계를 넘지 않도록 관리했습니다.</p>
+        <div class="grid-2" style="margin-top:6mm;">
+          <div class="diagram">
+            <div class="node green">Match3.Data</div>
+            <div class="node">Match3.Core</div>
+            <div class="node gold">Board / Combat / Roguelike / Meta</div>
+            <div class="node rose">UI / Ads</div>
+          </div>
+          <div class="proof-box">
+            <h3>구조 원칙</h3>
+            <ul class="proof-list">
+              <li><b>Board와 Combat 직접 참조 금지.</b> EventBus로 통신.</li>
+              <li><b>Data 영역 MonoBehaviour 금지.</b> 데이터와 런타임 경계 분리.</li>
+              <li><b>원격 JSON > 로컬 캐시 > SO 기본값.</b> 장애 시 fallback 경로 확보.</li>
+              <li><b>11 asmdefs, 34 C# test files.</b> 생성 코드의 영향 범위 제한.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page soft validation-page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">07</span></div>
+    <h2 class="page-title-only">Match3LogueLike 검증 루프</h2>
+    <p class="lead">문서, 테스트 evidence, visual QA를 분리해 AI 협업 결과를 검토했습니다.</p>
+    <div class="grid-3" style="margin-top:8mm;">
+      <div class="proof-box">
+        <h3>작업 문서</h3>
+        <p>CLAUDE.md, architecture, asmdef structure, AI 협업 계획, 멀티 에이전트 작업 문서로 경계를 정의.</p>
+      </div>
+      <div class="proof-box">
+        <h3>테스트 근거</h3>
+        <p>RewardOverlayTests 10/10, SaveManagerPhase1SmokeTests 4/4 등 PlayMode/EditMode evidence를 남김.</p>
+      </div>
+      <div class="proof-box">
+        <h3>시각 QA</h3>
+        <p>기능 테스트와 실제 화면 가독성 검증을 분리해 UI/UX visual QA finding을 별도로 관리.</p>
+      </div>
+    </div>
+    <div class="flow">
+      <div class="step"><b>1. 계획</b><span>GDD, 데이터 구조, 작업 lane을 기록.</span></div>
+      <div class="step"><b>2. 생성</b><span>정해진 asmdef와 역할 경계 안에서 코드 작성.</span></div>
+      <div class="step"><b>3. 검증</b><span>Unity MCP evidence로 회귀 확인.</span></div>
+      <div class="step"><b>4. 리뷰</b><span>스크린샷과 visual QA로 사용성 재검토.</span></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">08</span></div>
+    <div class="project-layout">
+      <div>
+        <div class="media project-media"><img src="portfolio_pdf_assets/IronSarcophagus_frame.jpg" alt="IronSarcophagus gameplay"></div>
+        <div class="proof-box">
+          <h3>확인 링크</h3>
+          <div class="mini-link"><b>Gameplay</b><a href="https://youtu.be/l2X7-3QnWKs">IronSarcophagus 플레이 영상</a></div>
+        </div>
+      </div>
+      <div>
+        <h2>IronSarcophagus 구현 범위</h2>
+        <p class="lead">VR 전차 시뮬레이션에서 포수 조준, 탄도 계산, 피격 처리, 적 AI 흐름을 담당했습니다.</p>
+        <div class="project-facts">
+          <div class="fact"><b>담당</b><span>네트워크 기반 구조, 포수 VR 조준, BallisticCalc, FireSystem.</span></div>
+          <div class="fact"><b>전투</b><span>탄도, TimeOfFlight, 시각 발사체와 피해 판정 위치 일치.</span></div>
+          <div class="fact"><b>AI</b><span>EnemyTank 5-point exposure check, NavMesh 기반 후보 탐색.</span></div>
+          <div class="fact"><b>협업</b><span>문서, namespace, asmdef, 인터페이스 경계 관리.</span></div>
+        </div>
+        <div class="flow">
+          <div class="step"><b>AimController</b><span>포수 VR 조준 입력.</span></div>
+          <div class="step"><b>BallisticCalc</b><span>탄도와 비행 시간 계산.</span></div>
+          <div class="step"><b>FireSystem</b><span>발사체 생성과 판정 연결.</span></div>
+          <div class="step"><b>TankStatus</b><span>부위별 HP와 파괴 상태.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page soft">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">09</span></div>
+    <div class="project-layout">
+      <div>
+        <div class="media project-media"><img src="portfolio_pdf_assets/LostCone_frame.jpg" alt="LostCone gameplay"></div>
+        <div class="proof-box">
+          <h3>확인 링크</h3>
+          <div class="mini-link"><b>Gameplay</b><a href="https://youtu.be/6QyYSIKdJPw">LostCone 플레이 영상</a></div>
+          <div class="mini-link"><b>Devlog</b><a href="https://gall.dcinside.com/mgallery/board/view/?id=yonezkensi&amp;no=114242&amp;search_head=30&amp;page=1">공개 개발 기록</a></div>
+        </div>
+      </div>
+      <div>
+        <h2>LostCone 공개 개발과 입력 이슈</h2>
+        <p class="lead">공개 개발과 플레이테스트를 진행하며, 간헐적 입력 중단 문제를 Unity Input System의 Control Scheme 전환 상태까지 추적했습니다.</p>
+        <div class="timeline">
+          <div class="timeline-item"><b>공개 개발</b><span>개발일지, 플레이테스트, 설문을 통해 팬층 반응과 조작 피드백을 수집.</span></div>
+          <div class="timeline-item"><b>증상</b><span>같은 코드와 커밋에서도 키보드 입력이 간헐적으로 중단.</span></div>
+          <div class="timeline-item"><b>실패한 시도</b><span>ActionMap 강제 활성화, polling 전환, sceneLoaded, Domain Reload, Library 삭제, git checkout.</span></div>
+          <div class="timeline-item"><b>원인</b><span>터치스크린 노트북에서 Input System이 Control Scheme을 Touch로 auto-switch.</span></div>
+          <div class="timeline-item"><b>해결</b><span>Keyboard&Mouse control scheme 강제, prefab default scheme 변경, auto-switch 해제.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">10</span></div>
+    <div class="project-layout">
+      <div>
+        <div class="media project-media"><img src="portfolio_pdf_assets/Cubika_frame.jpg" alt="Cubika gameplay"></div>
+        <div class="proof-box">
+          <h3>확인 링크</h3>
+          <div class="mini-link"><b>itch.io</b><a href="https://nullma.itch.io/cubika">Cubika WebGL 배포</a></div>
+          <div class="mini-link"><b>Shorts</b><a href="https://youtube.com/shorts/A6-j0cwDtW4?feature=share">Cubika 플레이 숏츠</a></div>
+        </div>
+      </div>
+      <div>
+        <h2>Cubika WebGL 배포</h2>
+        <p class="lead">짧은 기간에 완성해 itch.io에 WebGL로 배포한 퍼즐 게임입니다. 출시 후 모바일 조작, game-over feedback, Ads/IAP scaffold까지 확장했습니다.</p>
+        <div class="project-facts">
+          <div class="fact"><b>배포</b><span>WebGL 빌드 후 itch.io 공개.</span></div>
+          <div class="fact"><b>차별화</b><span>정사각형 큐브의 회전, 낙하, 밀치기 변형.</span></div>
+          <div class="fact"><b>보강</b><span>3초 game-over grace period, countdown feedback.</span></div>
+          <div class="fact"><b>확장</b><span>모바일 조작, pause popup, confirmation dialog, Ads/IAP scaffold.</span></div>
+        </div>
+        <div class="callout" style="margin-top:5mm;">
+          <b>배포 후 보강</b>
+          <p>초기 배포 후 조작과 feedback을 보강하고, 광고/IAP 제거 결제 scaffold까지 확장했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page soft work-system-page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">11</span></div>
+    <h2 class="page-title-only">작업 방식</h2>
+    <div class="grid-3" style="margin-top:8mm;">
+      <div class="proof-box">
+        <h3>결과물 우선</h3>
+        <p>배포 페이지, 플레이 영상, 개발 기록으로 결과물의 상태를 확인합니다.</p>
+      </div>
+      <div class="proof-box">
+        <h3>구조 설계</h3>
+        <p>asmdef, EventBus, Data/Core/UI 경계를 정한 뒤 구현합니다. 생성 코드는 경계 안에서만 허용합니다.</p>
+      </div>
+      <div class="proof-box">
+        <h3>검증 분리</h3>
+        <p>기능 테스트, 플레이 영상, visual QA, 성능 수치를 분리해 결과를 확인합니다.</p>
+      </div>
+      <div class="proof-box">
+        <h3>운영 감각</h3>
+        <p>Android release, Billing, App Update, localization처럼 출시 이후 필요한 작업을 문서화합니다.</p>
+      </div>
+      <div class="proof-box">
+        <h3>팀 경계</h3>
+        <p>팀 작업에서는 역할 분담, interface, namespace, 문서로 구현 책임을 명확히 둡니다.</p>
+      </div>
+      <div class="proof-box">
+        <h3>도구화</h3>
+        <p>MyTokenMate처럼 작업 중 필요한 문제를 local-only 도구로 풀어내는 생산성 실험도 병행합니다.</p>
+      </div>
+    </div>
+    <div class="case-strip">
+      <div><b>Ghost March</b><span>출시 기준본을 유지한 뒤 DOTS 실험을 별도 수직 슬라이스로 분리했습니다.</span></div>
+      <div><b>Match3LogueLike</b><span>asmdef, EventBus, 테스트 파일로 생성 코드가 넘지 않을 경계를 먼저 정했습니다.</span></div>
+      <div><b>LostCone</b><span>입력 중단 문제를 코드 변경이 아니라 Control Scheme 상태 변화까지 추적했습니다.</span></div>
+      <div><b>IronSarcophagus</b><span>포수 조준, 탄도, 피격, 적 AI 후보 탐색을 인터페이스와 문서로 분리했습니다.</span></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="topline"><span>정우태 · Unity 클라이언트</span><span class="page-no">12</span></div>
+    <h2 class="page-title-only">링크 / 연락처</h2>
+    <div class="link-table">
+      <div class="head">항목</div><div class="head">유형</div><div class="head">링크</div><div class="head">역할</div>
+      <div><b>Ghost March</b></div><div>출시</div><div><a href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&amp;hl=ko">play.google.com/store/apps/details?id=com.NullMa.GhostMarch</a></div><div>대표 출시작</div>
+      <div><b>Ghost March</b></div><div>영상</div><div><a href="https://youtu.be/E25iW69OW6k">youtu.be/E25iW69OW6k</a></div><div>플레이 화면</div>
+      <div><b>Match3LogueLike</b></div><div>영상</div><div><a href="https://youtu.be/mGgBsoj-2JA">youtu.be/mGgBsoj-2JA</a></div><div>AI 협업 구조</div>
+      <div><b>IronSarcophagus</b></div><div>영상</div><div><a href="https://youtu.be/l2X7-3QnWKs">youtu.be/l2X7-3QnWKs</a></div><div>VR 전차 시스템</div>
+      <div><b>LostCone</b></div><div>영상</div><div><a href="https://youtu.be/6QyYSIKdJPw">youtu.be/6QyYSIKdJPw</a></div><div>플레이 영상</div>
+      <div><b>LostCone</b></div><div>개발일지</div><div><a href="https://gall.dcinside.com/mgallery/board/view/?id=yonezkensi&amp;no=114242&amp;search_head=30&amp;page=1">gall.dcinside.com/.../view/?id=yonezkensi&amp;no=114242</a></div><div>공개 개발 기록</div>
+      <div><b>Cubika</b></div><div>출시</div><div><a href="https://nullma.itch.io/cubika">nullma.itch.io/cubika</a></div><div>WebGL 배포</div>
+      <div><b>Cubika</b></div><div>숏츠</div><div><a href="https://youtube.com/shorts/A6-j0cwDtW4?feature=share">youtube.com/shorts/A6-j0cwDtW4</a></div><div>플레이 숏츠</div>
+      <div><b>GitHub</b></div><div>프로필</div><div><a href="https://github.com/NulMa">github.com/NulMa</a></div><div>코드/프로필</div>
+      <div><b>Email</b></div><div>연락처</div><div><a href="mailto:jungwt524@gmail.com">jungwt524@gmail.com</a></div><div>연락처</div>
+    </div>
+  </section>
+
+</body>
+</html>

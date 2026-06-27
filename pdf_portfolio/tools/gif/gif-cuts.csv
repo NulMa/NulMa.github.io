@@ -1,0 +1,8 @@
+Project,Clip,Input,Output,Start,End,Fps,Width,Quality,UseAsCard
+Match3LogueLike,main,C:\Users\admin\Desktop\Portfolios\Match3LogueLike.mp4,images\gifs\Match3LogueLike.gif,,,,,,true
+LostCone,main,C:\Users\admin\Desktop\Portfolios\LostCone.mp4,images\gifs\LostCone.gif,,,,,,true
+IronSarcophagus,main,C:\Users\admin\Desktop\Portfolios\IronSarcophagus.mp4,images\gifs\IronSarcophagus.gif,,,,,,true
+Cubika,main,C:\Users\admin\Desktop\Portfolios\Cubika.mp4,images\gifs\Cubika.gif,,,,,,true
+GhostMarch,main,C:\Users\admin\Desktop\Portfolios\GhostMarch.mp4,images\gifs\GhostMarch.gif,,,,,,true
+GhostMarch,combat,C:\Users\admin\Desktop\Portfolios\GhostMarch.mp4,,,,,,,,false
+LostCone,feedback,C:\Users\admin\Desktop\Portfolios\LostCone.mp4,,,,,,,,false

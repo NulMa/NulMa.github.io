@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>정우태 포트폴리오 - landscape fresh</title>
+  <style>
+    @page { size: A4 landscape; margin: 0; }
+    * { box-sizing: border-box; }
+
+    :root {
+      --bg: #101821;
+      --panel: #162331;
+      --panel2: #1c2d3c;
+      --ink: #edf3f5;
+      --soft: #aab8c2;
+      --muted: #758895;
+      --line: rgba(255,255,255,0.14);
+      --accent: #efb454;
+      --cyan: #6bd6c8;
+      --paper: #f7fafb;
+      --dark: #14242d;
+    }
+
+    body {
+      margin: 0;
+      background: #cfd6da;
+      color: var(--ink);
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+      line-height: 1.55;
+      word-break: keep-all;
+      line-break: strict;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: 44pt; line-height: 1.05; letter-spacing: 0; }
+    h2 { font-size: 28pt; line-height: 1.08; letter-spacing: 0; }
+    h3 { font-size: 13.5pt; line-height: 1.25; letter-spacing: 0; }
+    p, li, td, th, span { word-break: keep-all; hyphens: none; }
+    code {
+      padding: 0 0.6mm;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-family: Consolas, "Malgun Gothic", monospace;
+      white-space: nowrap;
+    }
+
+    .page {
+      position: relative;
+      width: 297mm;
+      height: 210mm;
+      margin: 0 auto;
+      overflow: hidden;
+      page-break-after: always;
+      background: var(--bg);
+    }
+
+    .page:last-child { page-break-after: auto; }
+
+    .frame {
+      display: grid;
+      grid-template-columns: 50mm 1fr;
+      height: 210mm;
+    }
+
+    .rail {
+      padding: 14mm 8mm;
+      border-right: 1px solid var(--line);
+      background: #0d151d;
+    }
+
+    .rail .name {
+      color: #fff;
+      font-size: 16pt;
+      font-weight: 900;
+      line-height: 1.18;
+    }
+
+    .rail .role {
+      margin-top: 3mm;
+      color: var(--soft);
+      font-size: 8.6pt;
+      line-height: 1.45;
+    }
+
+    .nav {
+      display: grid;
+      gap: 3mm;
+      margin-top: 18mm;
+      color: var(--muted);
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .nav b {
+      display: block;
+      color: var(--accent);
+      font-size: 9pt;
+      letter-spacing: 0;
+    }
+
+    .rail-foot {
+      position: absolute;
+      left: 8mm;
+      bottom: 8mm;
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.5;
+    }
+
+    .content {
+      position: relative;
+      padding: 14mm 16mm 12mm;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 8.5pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 3mm;
+    }
+
+    .lead {
+      margin-top: 5mm;
+      max-width: 142mm;
+      color: var(--soft);
+      font-size: 14pt;
+      line-height: 1.55;
+    }
+
+    .img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3mm;
+      margin-top: 7mm;
+    }
+
+    .btn {
+      min-width: 34mm;
+      padding: 3mm 5mm;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #101821;
+      font-size: 9pt;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .ghost-grid {
+      display: grid;
+      grid-template-columns: 1fr 80mm;
+      gap: 12mm;
+      align-items: start;
+      margin-top: 4mm;
+    }
+
+    .phone-shot {
+      width: 72mm;
+      height: 128mm;
+      justify-self: end;
+    }
+
+    .stat-line {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+      margin-top: 9mm;
+    }
+
+    .stat {
+      padding: 5mm;
+      border-left: 2px solid var(--accent);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .stat strong {
+      display: block;
+      color: #fff;
+      font-size: 20pt;
+      line-height: 1.05;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 1.5mm;
+      color: var(--soft);
+      font-size: 8.8pt;
+    }
+
+    .profile-board {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 10mm;
+      margin-top: 7mm;
+    }
+
+    .bio-table {
+      display: grid;
+      grid-template-columns: 28mm 1fr;
+      gap: 3mm 5mm;
+      padding-top: 4mm;
+      border-top: 2px solid var(--accent);
+    }
+
+    .bio-table b {
+      color: var(--cyan);
+      font-size: 9pt;
+    }
+
+    .bio-table span {
+      color: var(--ink);
+      font-size: 10.5pt;
+      line-height: 1.45;
+    }
+
+    .light {
+      color: var(--dark);
+      background: var(--paper);
+    }
+
+    .light .rail {
+      background: #e8eef0;
+      border-right-color: #cdd8dc;
+    }
+
+    .light .rail .name,
+    .light h1,
+    .light h2,
+    .light h3 {
+      color: var(--dark);
+    }
+
+    .light .rail .role,
+    .light .lead,
+    .light .rail-foot,
+    .light .nav {
+      color: #66757d;
+    }
+
+    .light .content { background: var(--paper); }
+    .light .img { border-color: #d4dee2; background: #eef3f5; }
+
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr 1fr;
+      gap: 5mm;
+      margin-top: 8mm;
+    }
+
+    .work-tile {
+      min-height: 48mm;
+      padding: 4.5mm;
+      border: 1px solid #d5e0e4;
+      background: #fff;
+    }
+
+    .work-tile h3 { margin-bottom: 2mm; }
+    .work-tile p {
+      color: #34454d;
+      font-size: 9.5pt;
+      line-height: 1.48;
+    }
+
+    .work-tile .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5mm;
+      margin-top: 3mm;
+    }
+
+    .tag {
+      padding: 1.1mm 2mm;
+      border-radius: 999px;
+      background: #e8eff1;
+      color: #19313b;
+      font-size: 7.6pt;
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 3mm;
+      margin-top: 8mm;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 36mm 1fr 56mm;
+      gap: 5mm;
+      padding: 3mm 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 10pt;
+    }
+
+    .row b { color: #fff; }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 3mm;
+      margin-top: 8mm;
+      align-items: center;
+    }
+
+    .node {
+      padding: 4mm 2mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.07);
+      color: #fff;
+      text-align: center;
+      font-size: 9.2pt;
+      font-weight: 900;
+    }
+
+    .node.accent {
+      border-color: rgba(239,180,84,0.75);
+      background: rgba(239,180,84,0.18);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 88mm 1fr;
+      gap: 10mm;
+      margin-top: 7mm;
+      align-items: start;
+    }
+
+    .text-list {
+      display: grid;
+      gap: 4mm;
+    }
+
+    .text-block {
+      padding-bottom: 4mm;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .text-block b {
+      display: block;
+      color: #fff;
+      font-size: 13pt;
+      margin-bottom: 1.5mm;
+    }
+
+    .text-block span {
+      color: var(--soft);
+      font-size: 10.5pt;
+      line-height: 1.55;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin-top: 7mm;
+    }
+
+    .mini-card {
+      padding: 4.5mm;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .mini-card h3 { color: #fff; margin-bottom: 2mm; }
+    .mini-card ul {
+      margin: 0;
+      padding-left: 5mm;
+      color: var(--soft);
+      font-size: 9.8pt;
+      line-height: 1.55;
+    }
+
+    .link-table {
+      width: 100%;
+      margin-top: 8mm;
+      border-collapse: collapse;
+      color: var(--dark);
+      font-size: 10.5pt;
+    }
+
+    .link-table th {
+      padding: 3mm;
+      text-align: left;
+      border-bottom: 2px solid var(--dark);
+    }
+
+    .link-table td {
+      padding: 3mm;
+      border-bottom: 1px solid #d4dee2;
+    }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">정우태<br>Portfolio</div>
+        <div class="role">Unity / C#<br>Game Client Developer</div>
+        <div class="nav"><b>00</b>Cover</div>
+        <div class="rail-foot">Updated 2026-06-17<br>github.com/NulMa</div>
+      </aside>
+      <main class="content">
+        <div class="ghost-grid">
+          <div>
+            <p class="kicker">Unity / C# Game Client Developer</p>
+            <h1>정우태<br>Portfolio</h1>
+            <p class="lead">Google Play, itch.io 배포 경험. Unity 클라이언트, 시스템 구현, 최적화, 공개 개발.</p>
+            <div class="stat-line">
+              <div class="stat"><strong>5+</strong><span>Projects</span></div>
+              <div class="stat"><strong>2</strong><span>Release channels</span></div>
+              <div class="stat"><strong>C#</strong><span>Unity client</span></div>
+            </div>
+            <div class="btns">
+              <a class="btn" href="https://github.com/NulMa">GitHub</a>
+              <a class="btn" href="mailto:jungwt524@gmail.com">Email</a>
+            </div>
+          </div>
+          <div class="img phone-shot"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March"></div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page light">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">Profile</div>
+        <div class="role">Wootae Jung</div>
+        <div class="nav"><b>01</b>Profile</div>
+        <div class="rail-foot">jungwt524@gmail.com<br>github.com/NulMa</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">Profile</p>
+        <h2>정우태</h2>
+        <div class="profile-board">
+          <div class="bio-table">
+            <b>직무</b><span>게임 클라이언트 개발자<br>Unity · C#</span>
+            <b>학력</b><span>건국대학교 글로컬캠퍼스 컴퓨터공학과<br>2017~2023</span>
+            <b>수상</b><span>2023 충청권 게임 인디유 공모전 장려상</span>
+            <b>자격</b><span>Unity Certified Associate: Game Developer<br>OPIc IM2</span>
+            <b>언어</b><span>일본어 일상회화</span>
+            <b>연락</b><span>jungwt524@gmail.com<br>010-4738-4382</span>
+          </div>
+          <div class="index-grid" style="grid-template-columns:1fr; margin-top:0;">
+            <div class="work-tile"><h3>Unity Client</h3><p>UGUI, UI Toolkit, URP 2D, ShaderLab, Android release, WebGL deployment.</p></div>
+            <div class="work-tile"><h3>Systems</h3><p>DOTS, asmdef, EventBus, ScriptableObject data, XR Toolkit, Netcode.</p></div>
+            <div class="work-tile"><h3>Workflow</h3><p>AI 작업 lane, PlayMode/EditMode test, 공개 개발, 플레이테스트.</p></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page light">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">Projects</div>
+        <div class="role">Selected work</div>
+        <div class="nav"><b>02</b>Index</div>
+        <div class="rail-foot">Play links included</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">Projects</p>
+        <h2>Projects</h2>
+        <div class="index-grid">
+          <div class="work-tile">
+            <h3>Ghost March</h3>
+            <p>뱀파이어 서바이벌라이크 모바일. Unity 2021.2.7f1, 1인 개발, 약 5주, Play Store 출시.</p>
+            <div class="tags"><span class="tag">Google Play</span><span class="tag">DOTS</span><span class="tag">Performance</span></div>
+          </div>
+          <div class="work-tile">
+            <h3>Match3LogueLike</h3>
+            <p>매치3 × 로그라이크 모바일. Unity 6, 1인 기획·설계, AI workflow, asmdef, EventBus.</p>
+            <div class="tags"><span class="tag">Unity 6</span><span class="tag">AI</span><span class="tag">Tests</span></div>
+          </div>
+          <div class="work-tile">
+            <h3>IronSarcophagus</h3>
+            <p>VR 멀티플레이어 전차 시뮬레이션. Unity XR Toolkit, 2인 팀, 2026.04.</p>
+            <div class="tags"><span class="tag">VR</span><span class="tag">Netcode</span><span class="tag">HUD</span></div>
+          </div>
+          <div class="work-tile">
+            <h3>LostCone</h3>
+            <p>팬게임 플랫포머. Unity 6000.2.8f1, 공개 개발, 개발 근황 50회, 플레이테스트 3회 이상.</p>
+            <div class="tags"><span class="tag">DOTween</span><span class="tag">Public dev</span><span class="tag">Copilot</span></div>
+          </div>
+          <div class="work-tile">
+            <h3>Cubika</h3>
+            <p>큐브 병합 퍼즐. Unity 2022.3.18f1, 약 2주, WebGL 출시, 단일 프리팹 12종.</p>
+            <div class="tags"><span class="tag">WebGL</span><span class="tag">itch.io</span><span class="tag">Puzzle</span></div>
+          </div>
+          <div class="work-tile">
+            <h3>MyTokenMate</h3>
+            <p>AI coding tool 사용량 overlay. Claude, Codex, Gemini, Copilot 로컬 로그 기반.</p>
+            <div class="tags"><span class="tag">Electron</span><span class="tag">Tool</span><span class="tag">AI workflow</span></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">Ghost<br>March</div>
+        <div class="role">Mobile action<br>Unity 2021.2.7f1</div>
+        <div class="nav"><b>03</b>Release</div>
+        <div class="rail-foot">Play Store<br>2024.02.29</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">Ghost March</p>
+        <h2>Ghost March</h2>
+        <div class="split">
+          <div class="img" style="height:104mm;"><img src="portfolio_pdf_assets/GhostMarch_frame.jpg" alt="Ghost March"></div>
+          <div class="timeline">
+            <div class="row"><b>장르</b><span>뱀파이어 서바이벌라이크 모바일</span><span>Android</span></div>
+            <div class="row"><b>역할</b><span>1인 개발</span><span>약 5주</span></div>
+            <div class="row"><b>제작</b><span>장르 이해, 클론 코딩 3주, 차별화 2주</span><span>공모전</span></div>
+            <div class="row"><b>결과</b><span>충청권 게임 인디유 공모전 장려상, Play Store 출시</span><span>2024.02.29</span></div>
+            <div class="row"><b>출시</b><span>AdMob, IAP, localization, app update prompt, AAB metadata</span><span>R8 keep rule</span></div>
+          </div>
+        </div>
+        <div class="btns"><a class="btn" href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&hl=ko">Play Store</a><a class="btn" href="https://youtu.be/E25iW69OW6k">Gameplay</a></div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">Ghost<br>March</div>
+        <div class="role">Performance</div>
+        <div class="nav"><b>04</b>DOTS</div>
+        <div class="rail-foot">Legacy / DOTS<br>comparison</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">Ghost March</p>
+        <h2>Performance</h2>
+        <div class="stat-line">
+          <div class="stat"><strong>9 fps</strong><span>Legacy 1500 enemies</span></div>
+          <div class="stat"><strong>67 fps</strong><span>DOTS 4096 enemies</span></div>
+          <div class="stat"><strong>109.5ms -> 14.92ms</strong><span>CPU frame time</span></div>
+        </div>
+        <div class="timeline">
+          <div class="row"><b>원인</b><span><code>GameManager.instance</code>에 상태, 입력, UI, 저장 책임 집중</span><span>Global state</span></div>
+          <div class="row"><b>원인</b><span><code>Weapon.Update()</code> switch 분기로 무기 확장 비용 증가</span><span>Update branch</span></div>
+          <div class="row"><b>구조</b><span>Enemy, Bullet, Drop, Wave, Damage Event 수직 슬라이스</span><span>DOTS</span></div>
+          <div class="row"><b>결정</b><span><code>RenderMeshIndirect</code>는 URP 2D 궁합 문제로 제외</span><span>Decision</span></div>
+        </div>
+        <div class="stat-line">
+          <div class="stat"><strong>691 -> 4</strong><span>instanced batches</span></div>
+          <div class="stat"><strong>16.93 -> 11.22ms</strong><span>UI Toolkit GPU</span></div>
+          <div class="stat"><strong>17.47 -> 11.43ms</strong><span>UI Toolkit CPU</span></div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">Match3<br>LogueLike</div>
+        <div class="role">Unity 6<br>AI workflow</div>
+        <div class="nav"><b>05</b>Architecture</div>
+        <div class="rail-foot">PlayMode / EditMode</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">Match3LogueLike</p>
+        <h2>Match3LogueLike</h2>
+        <div class="split">
+          <div>
+            <p class="lead">매치3 × 로그라이크 모바일. AI가 판단할 수 있는 맥락을 먼저 만들고 구현을 위임하는 방식으로 진행.</p>
+            <div class="diagram">
+              <div class="node accent">Data</div>
+              <div class="node">Core</div>
+              <div class="node">Board</div>
+              <div class="node">Combat</div>
+              <div class="node">UI</div>
+              <div class="node">Ads</div>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-card"><h3>Architecture</h3><ul><li>Board와 Combat 직접 참조 금지.</li><li>EventBus만 허용.</li><li>Data 영역은 SO, interface, enum 중심.</li></ul></div>
+              <div class="mini-card"><h3>AI Workflow</h3><ul><li>Find 금지.</li><li>Update 할당 금지 hook.</li><li>Coordinator / Worker / Verify 분리.</li></ul></div>
+            </div>
+          </div>
+          <div class="img" style="height:120mm;"><img src="portfolio_pdf_assets/Match3_frame.jpg" alt="Match3LogueLike"></div>
+        </div>
+        <div class="stat-line">
+          <div class="stat"><strong>34</strong><span>C# test files</span></div>
+          <div class="stat"><strong>10/10</strong><span>RewardOverlay PlayMode</span></div>
+          <div class="stat"><strong>4/4</strong><span>SaveManager EditMode</span></div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">Iron<br>Sarcophagus</div>
+        <div class="role">VR multiplayer<br>Team 2</div>
+        <div class="nav"><b>06</b>Systems</div>
+        <div class="rail-foot">Unity XR Toolkit<br>2026.04</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">IronSarcophagus</p>
+        <h2>IronSarcophagus</h2>
+        <div class="split">
+          <div class="img" style="height:95mm;"><img src="portfolio_pdf_assets/IronSarcophagus_frame.jpg" alt="IronSarcophagus"></div>
+          <div class="text-list">
+            <div class="text-block"><b>Gunner / Ballistics</b><span>AimController, BallisticCalc, FireSystem, TankStatus 흐름. 포물선 탄도와 피해 판정 위치 일치.</span></div>
+            <div class="text-block"><b>Enemy AI</b><span>총구 기준 5개 포인트 Linecast로 노출도 계산. 20% 미만 노출은 차폐 상태.</span></div>
+            <div class="text-block"><b>AssemblyDefinition</b><span>게임 시스템 단위의 어셈블리 경계 분리. 2인 개발 충돌 감소.</span></div>
+            <div class="text-block"><b>HUD</b><span>GunnerHUD, DriverHUD, LoaderHUD, SharedHUD. VR 역할별 정보 분리.</span></div>
+          </div>
+        </div>
+        <div class="btns"><a class="btn" href="https://youtu.be/l2X7-3QnWKs">Gameplay</a></div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">LostCone<br>Cubika</div>
+        <div class="role">Public dev<br>WebGL release</div>
+        <div class="nav"><b>07</b>Additional</div>
+        <div class="rail-foot">Gameplay links</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">LostCone / Cubika</p>
+        <h2>LostCone / Cubika</h2>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <div class="img" style="height:48mm; margin-bottom:4mm;"><img src="portfolio_pdf_assets/LostCone_frame.jpg" alt="LostCone"></div>
+            <h3>LostCone</h3>
+            <ul>
+              <li>팬게임 플랫포머, Unity 6000.2.8f1.</li>
+              <li>2025.04~2026.03 공개 개발.</li>
+              <li>개발 근황 50회, 플레이테스트 3회 이상.</li>
+              <li>DoTween 연출 설계.</li>
+              <li>GitHub Copilot 반복 작업 위임.</li>
+            </ul>
+            <div class="btns"><a class="btn" href="https://youtu.be/6QyYSIKdJPw">Gameplay</a><a class="btn" href="https://gall.dcinside.com/mgallery/board/view/?id=yonezkensi&no=114242&search_head=30&page=1">Dev Log</a></div>
+          </div>
+          <div class="mini-card">
+            <div class="img" style="height:48mm; margin-bottom:4mm;"><img src="portfolio_pdf_assets/Cubika_frame.jpg" alt="Cubika"></div>
+            <h3>Cubika</h3>
+            <ul>
+              <li>큐브 병합 퍼즐, Unity 2022.3.18f1.</li>
+              <li>약 2주 개발, WebGL 출시 2024.04.12.</li>
+              <li>사각형 큐브, 회전, 밀치기.</li>
+              <li>단일 프리팹 12종, <code>cubeShape()</code>.</li>
+              <li><code>BashColliderCheck</code> 밀치기.</li>
+            </ul>
+            <div class="btns"><a class="btn" href="https://nullma.itch.io/cubika">itch.io</a><a class="btn" href="https://youtube.com/shorts/A6-j0cwDtW4?feature=share">Shorts</a></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="page light">
+    <div class="frame">
+      <aside class="rail">
+        <div class="name">Links</div>
+        <div class="role">Contact</div>
+        <div class="nav"><b>08</b>Links</div>
+        <div class="rail-foot">jungwt524@gmail.com</div>
+      </aside>
+      <main class="content">
+        <p class="kicker">Links</p>
+        <h2>Links</h2>
+        <table class="link-table">
+          <thead><tr><th>Target</th><th>Link</th><th>Type</th></tr></thead>
+          <tbody>
+            <tr><td>GitHub</td><td><a href="https://github.com/NulMa">https://github.com/NulMa</a></td><td>Code</td></tr>
+            <tr><td>Ghost March</td><td><a href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch&hl=ko">Play Store</a></td><td>Store</td></tr>
+            <tr><td>Cubika</td><td><a href="https://nullma.itch.io/cubika">itch.io</a></td><td>Playable</td></tr>
+            <tr><td>LostCone</td><td><a href="https://gall.dcinside.com/mgallery/board/view/?id=yonezkensi&no=114242&search_head=30&page=1">Dev Log</a></td><td>Public dev</td></tr>
+            <tr><td>MyTokenMate</td><td><a href="https://github.com/NulMa/my-token-mate">GitHub public repo</a></td><td>Tool</td></tr>
+            <tr><td>Email</td><td><a href="mailto:jungwt524@gmail.com">jungwt524@gmail.com</a></td><td>Contact</td></tr>
+            <tr><td>Phone</td><td>010-4738-4382</td><td>Contact</td></tr>
+          </tbody>
+        </table>
+      </main>
+    </div>
+  </section>
+</body>
+</html>
