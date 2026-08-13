@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --bg:#0e120f; --panel:#161b17; --panel2:#1c221d; --line:#2b342d;
+    --ink:#eef2ee; --ink2:#a7b1a9; --ink3:#727b74;
+    --ac:#5fd08a; --acd:#2f6b48; --acdim:rgba(95,208,138,.12);
+  }
+  html,body{margin:0;padding:0;background:#1c1f1d;}
+  *{box-sizing:border-box; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important;}
+  .stage{display:flex;flex-direction:column;align-items:center;gap:26px;padding:34px 0;}
+  [data-pg]{box-shadow:0 10px 40px rgba(0,0,0,.45);}
+  @page{ size: A4 landscape; margin:0; }
+  @media print{
+    html,body{background:#fff;}
+    .stage{gap:0;padding:0;}
+    [data-pg]{box-shadow:none!important;}
+  }
+</style>
+</helmet>
+<div class="stage">
+
+<!-- ===================== P1 COVER ===================== -->
+<div data-pg data-screen-label="01 표지" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:radial-gradient(820px 460px at 16% 4%, rgba(95,208,138,.13), transparent 62%), var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;letter-spacing:.12em;">PORTFOLIO 2026 · 심화본</span>
+  </div>
+
+  <div style="position:absolute;left:64px;right:64px;top:118px;bottom:56px;display:flex;gap:54px;">
+    <!-- left -->
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ac);font-weight:500;">Unity / C# / DOTS · 게임 클라이언트 개발자</div>
+      <h1 style="margin:16px 0 0;font-size:78px;line-height:.98;font-weight:800;letter-spacing:.06em;">정우태</h1>
+      <p style="margin:26px 0 0;font-size:31px;line-height:1.32;color:var(--ink);font-weight:700;letter-spacing:-.01em;max-width:560px;">아이디어를 넘어 완성까지,<br><span style="color:var(--ac);">개발자 정우태</span>입니다.</p>
+
+      
+
+      <div style="margin-top:auto;display:flex;align-items:flex-end;gap:22px;">
+        <div style="flex:1;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg, rgba(95,208,138,.06), transparent);padding:20px 22px;display:flex;align-items:center;gap:20px;">
+          
+          <div>
+            <div style="font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;color:var(--ac);">QUICK VIEW</div>
+            <div style="margin-top:6px;font-size:18px;font-weight:700;"><a href="https://nulma.github.io/#projects" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">간략하게 보기 — 웹 요약본 ↗</a></div>
+            <div style="margin-top:6px;font-size:13px;color:var(--ink2);">5분 요약·플레이 영상은 웹에서. <span style="color:var(--ink);font-weight:600;">nulma.github.io/#projects</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right visual -->
+    <div style="width:330px;flex:none;display:flex;flex-direction:column;">
+      <div style="flex:1;"></div>
+      <div style="border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:9px;font-size:13px;">
+        <div style="display:flex;gap:10px;"><span style="width:52px;color:var(--ink3);font-family:'JetBrains Mono',monospace;">Web</span><a href="https://nulma.github.io" target="_blank" rel="noopener" style="color:inherit;font-weight:600;text-decoration:none;">nulma.github.io</a></div>
+        <div style="display:flex;gap:10px;"><span style="width:52px;color:var(--ink3);font-family:'JetBrains Mono',monospace;">GitHub</span><a href="https://github.com/NulMa" target="_blank" rel="noopener" style="color:inherit;font-weight:600;text-decoration:none;">github.com/NulMa</a></div>
+        <div style="display:flex;gap:10px;"><span style="width:52px;color:var(--ink3);font-family:'JetBrains Mono',monospace;">Email</span><a href="mailto:jungwt524@gmail.com" target="_blank" rel="noopener" style="color:inherit;font-weight:600;text-decoration:none;">jungwt524@gmail.com</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P3 TOC ===================== -->
+<div data-pg data-screen-label="03 목차" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">02</span>
+  </div>
+  <div style="position:absolute;left:64px;top:104px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--ac);">CONTENTS</div>
+    <h2 style="margin:10px 0 0;font-size:42px;font-weight:800;">목차</h2>
+  </div>
+
+  <div style="position:absolute;left:64px;right:64px;top:196px;bottom:60px;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:min-content;align-content:space-between;gap:16px 40px;">
+    <!-- rows -->
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">01</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">프로젝트 맵</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">5개 프로젝트 한눈에</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">04</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">02</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">Ghost March</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">Google Play 출시 · DOTS 재설계 · 트러블슈팅</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">05–06</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">03</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">Match3LogueLike</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">AI 협업 경계 설계 · 검증 루프</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">07–08</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">04</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">IronSarcophagus</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">VR 협동 · 팀 프로젝트 책임 경계</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">09</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">05</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">LostCone</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">공개 개발 방향 전환 · 입력 트러블슈팅</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">10–11</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">06</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">Cubika</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">작게 완성 · itch.io WebGL 배포</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">12</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">07</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">기타 구현 · 작업 방식</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">Dong_Mae · MyTokenMate · 공통 작업 기준</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">13–14</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);width:26px;">08</span>
+      <div style="flex:1;"><div style="font-size:17px;font-weight:700;">링크 / 연락처</div><div style="margin-top:4px;font-size:12.5px;color:var(--ink3);">영상 · 플레이 링크 · 연락처</div></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">15</span>
+    </div>
+  </div>
+
+  
+</div>
+
+<!-- ===================== P2 ABOUT ===================== -->
+<div data-pg data-screen-label="02 소개" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">03</span>
+  </div>
+
+  <div style="position:absolute;left:64px;right:64px;top:104px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--ac);">ABOUT</div>
+    <h2 style="margin:10px 0 0;font-size:42px;font-weight:800;letter-spacing:-.01em;">소개</h2>
+    <p style="margin:18px 0 0;font-size:18px;line-height:1.6;color:var(--ink2);max-width:900px;">
+      <span style="color:var(--ink);font-weight:600;">C# · Unity 기반 게임 클라이언트 개발자</span>입니다. 출시 · 구조 설계 · 트러블슈팅을 직접 경험하며,
+      다른 장르의 문법을 녹여 차별점을 만드는 방식으로 작업합니다.
+    </p>
+  </div>
+
+  <!-- facts -->
+  <div style="position:absolute;left:64px;right:64px;top:368px;display:flex;flex-direction:column;">
+    <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:26px 30px;">
+      <div style="display:flex;gap:44px;align-items:stretch;">
+        <div style="flex:1.25;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--ink3);">이력 · 교육</div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px;">
+            <div style="display:flex;gap:12px;font-size:13.5px;line-height:1.4;"><span style="font-family:'JetBrains Mono',monospace;color:var(--ac);flex:none;width:64px;">학력</span><span style="color:var(--ink2);">건국대학교 글로컬캠퍼스 컴퓨터공학과 <span style="color:var(--ink3);">· 2017–2023</span></span></div>
+            <div style="display:flex;gap:12px;font-size:13.5px;line-height:1.4;"><span style="font-family:'JetBrains Mono',monospace;color:var(--ac);flex:none;width:64px;">병역</span><span style="color:var(--ink2);">육군 병장 만기전역 <span style="color:var(--ink3);">· 2018.04–2019.11</span></span></div>
+            <div style="display:flex;gap:12px;font-size:13.5px;line-height:1.4;"><span style="font-family:'JetBrains Mono',monospace;color:var(--ac);flex:none;width:64px;">수상</span><span style="color:var(--ink2);">2023 충청권 게임 인디유 공모전 장려상</span></div>
+            <div style="display:flex;gap:12px;font-size:13.5px;line-height:1.4;"><span style="font-family:'JetBrains Mono',monospace;color:var(--ac);flex:none;width:64px;">부트캠프</span><span style="color:var(--ink2);">Unity 부트캠프 6개월 과정 수료 <span style="color:var(--ink3);">· 2026.05</span></span></div>
+          </div>
+        </div>
+        <div style="width:1px;background:var(--line);flex:none;"></div>
+        <div style="flex:1;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--ink3);">자격증</div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px;font-size:13.5px;color:var(--ink2);line-height:1.4;">
+            <div>Unity Certified Associate: Game Developer <span style="color:var(--ink3);">· 2026.05</span></div>
+            <div>OPIc IM2 <span style="color:var(--ink3);">· 2022.11</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding-top:20px;border-top:1px solid var(--line);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--ink3);">기술 스택</div>
+        <div style="margin-top:12px;display:flex;gap:7px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink);border:1px solid var(--acd);background:var(--acdim);border-radius:6px;padding:5px 10px;">C#</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink);border:1px solid var(--acd);background:var(--acdim);border-radius:6px;padding:5px 10px;">Unity</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;">DOTS</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;">ShaderLab</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;">HLSL</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;">UGUI</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;">Input System</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;">DoTween</span>
+          <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;">Unity MCP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P4 PROJECT MAP ===================== -->
+<div data-pg data-screen-label="04 프로젝트 맵" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">04</span>
+  </div>
+  <div style="position:absolute;left:64px;top:96px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--ac);">PROJECT MAP</div>
+    <h2 style="margin:10px 0 0;font-size:38px;font-weight:800;">프로젝트 맵</h2>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:170px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+    <!-- card -->
+    <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);">
+      <img src="assets/stills/GhostMarch_06.png" style="display:block;width:100%;height:126px;object-fit:cover;object-position:center;">
+      <div style="padding:14px 16px 16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);">1인 개발 · Google Play 출시</div>
+        <div style="margin-top:7px;font-size:18px;font-weight:700;">Ghost March</div>
+        <div style="margin-top:7px;font-size:13px;line-height:1.5;color:var(--ink2);">한국 무속 테마 모바일 survival-like. 출시 후 DOTS 수직 슬라이스로 대량 적 처리 성능을 재설계.</div>
+        <div style="margin-top:11px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">출시</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">DOTS</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">운영</span>
+        </div>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);">
+      <img src="assets/stills/Match3Roguelike_01.png" style="display:block;width:100%;height:126px;object-fit:cover;object-position:top;">
+      <div style="padding:14px 16px 16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);">1인 개발 · AI 협업 구조</div>
+        <div style="margin-top:7px;font-size:18px;font-weight:700;">Match3LogueLike</div>
+        <div style="margin-top:7px;font-size:13px;line-height:1.5;color:var(--ink2);">모바일 매치3 로그라이크. AI가 구조를 깨지 않도록 모듈 경계·금지 규칙·테스트를 먼저 설계.</div>
+        <div style="margin-top:11px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">asmdef</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">AI 협업</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">테스트</span>
+        </div>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);">
+      <img src="assets/stills/IronSarcophagus_01.png" style="display:block;width:100%;height:126px;object-fit:cover;object-position:center;">
+      <div style="padding:14px 16px 16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);">2인 팀 · VR</div>
+        <div style="margin-top:7px;font-size:18px;font-weight:700;">IronSarcophagus</div>
+        <div style="margin-top:7px;font-size:13px;line-height:1.5;color:var(--ink2);">VR 전차 협동 게임. 포수 조준·탄도 계산·적 AI 노출 판정을 본인 책임 경계로 담당.</div>
+        <div style="margin-top:11px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">VR</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">팀</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">AI</span>
+        </div>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);">
+      <img src="assets/stills/LostCone_02.png" style="display:block;width:100%;height:126px;object-fit:cover;object-position:center;">
+      <div style="padding:14px 16px 16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);">공개 개발 · 팬게임</div>
+        <div style="margin-top:7px;font-size:18px;font-weight:700;">LostCone</div>
+        <div style="margin-top:7px;font-size:13px;line-height:1.5;color:var(--ink2);">팬층 대상 플랫포머. 유저 설문·플레이테스트로 방향을 바꾼 공개 개발 사이클을 경험.</div>
+        <div style="margin-top:11px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">공개개발</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">피드백</span>
+        </div>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);">
+      <img src="assets/gifs/Cubika_01.png" style="display:block;width:100%;height:126px;object-fit:cover;object-position:center;">
+      <div style="padding:14px 16px 16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);">1인 개발 · WebGL</div>
+        <div style="margin-top:7px;font-size:18px;font-weight:700;">Cubika</div>
+        <div style="margin-top:7px;font-size:13px;line-height:1.5;color:var(--ink2);">정사각 큐브 병합 퍼즐. itch.io WebGL 배포, 아이디어부터 완성까지 1주 내 솔로 제작.</div>
+        <div style="margin-top:11px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">WebGL</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">퍼즐</span>
+          <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:3px 7px;">솔로</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== P5 GHOST MARCH OVERVIEW ===================== -->
+<div data-pg data-screen-label="05 Ghost March 개요" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">05</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:100px;bottom:48px;display:flex;gap:40px;">
+    <!-- sidebar -->
+    <div style="width:236px;flex:none;display:flex;flex-direction:column;gap:18px;">
+      <div style="border-radius:20px;overflow:hidden;border:1px solid #333;box-shadow:0 14px 30px rgba(0,0,0,.4);">
+        <img src="assets/stills/GhostMarch_04.png" style="display:block;width:100%;aspect-ratio:334/720;object-fit:cover;">
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px;">
+        <div style="display:flex;align-items:center;gap:13px;">
+          
+          <div>
+            <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ac);">▶ PLAY VIDEO</div>
+            <div style="margin-top:5px;font-size:12.5px;font-weight:600;line-height:1.4;">플레이 영상<br><a href="https://youtu.be/E25iW69OW6k" target="_blank" rel="noopener" style="color:var(--ac);font-weight:600;text-decoration:none;">youtu.be/E25iW69OW6k ↗</a></div>
+          </div>
+        </div>
+        <div style="margin-top:13px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--ink2);line-height:1.5;">
+          <b style="color:var(--ink);">Google Play</b> 출시<br>ShaderLab · C# · HLSL · UGUI
+        </div>
+      </div>
+    </div>
+    <!-- content -->
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">GHOST MARCH · 01</div>
+      <h2 style="margin:10px 0 0;font-size:33px;font-weight:800;line-height:1.18;">출시작을 기준본으로 남기고<br>다시 설계하다</h2>
+      <p style="margin:14px 0 0;font-size:18.5px;line-height:1.5;color:var(--ink);font-weight:600;max-width:620px;">장르 루프를 끝까지 완성해 <span style="color:var(--ac);">Google Play 출시</span>, 이후 출시본을 기준본으로 두고 DOTS로 대량 적 처리를 재설계했습니다.</p>
+      <p style="margin:11px 0 0;font-size:13px;line-height:1.6;color:var(--ink3);max-width:620px;">한국 무속 테마 모바일 survival-like. 구조적 병목을 분리해 같은 장면에서 성능을 재검증하는 방향으로 이어갔습니다.</p>
+      <div style="margin-top:22px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ac);">개발 목적</div>
+          <div style="margin-top:8px;font-size:13px;line-height:1.55;color:var(--ink2);">작은 범위라도 완성·수상·출시까지 가져가며 모바일 클라이언트의 전체 루프를 경험.</div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ac);">핵심 구성</div>
+          <div style="margin-top:8px;font-size:13px;line-height:1.55;color:var(--ink2);">웨이브, 경험치/레벨업, 무기·특수기 커맨드, 보스, 저장, 일시정지, UI 피드백.</div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ac);">장르 차별화</div>
+          <div style="margin-top:8px;font-size:13px;line-height:1.55;color:var(--ink2);">리듬·격투 게임의 커맨드 입력을 궁극기 게이지 수급과 연결해 뱀서라이크에 변주.</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);padding:16px 18px;">
+        <div style="font-size:13px;font-weight:700;">운영까지 문서로 — 단순 출시에서 끝내지 않음</div>
+        <div style="margin-top:8px;font-size:13px;line-height:1.55;color:var(--ink2);">AAB release, Billing 권한, App Update, localization, AdMob을 release checklist로 관리. 민감 정보(keystore, ad id, 인증서)는 코드·문서에서 분리해 노출하지 않음.</div>
+      </div>
+      <div style="margin-top:auto;display:flex;gap:12px;">
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:var(--bg);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:21px;font-weight:700;color:var(--ink);">195</div>
+          <div style="margin-top:4px;font-size:12px;color:var(--ink3);">C# 파일</div>
+        </div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:var(--bg);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:21px;font-weight:700;color:var(--ink);">72</div>
+          <div style="margin-top:4px;font-size:12px;color:var(--ink3);">운영·구현 문서</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P6 GHOST MARCH PERFORMANCE ===================== -->
+<div data-pg data-screen-label="06 Ghost March 근거" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">06</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:96px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">GHOST MARCH · 02</div>
+    <h2 style="margin:9px 0 0;font-size:32px;font-weight:800;">성능과 트러블슈팅에서 남긴 근거</h2>
+    <p style="margin:12px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink2);max-width:880px;">문제를 측정하고 구조를 바꿔 차이를 수치로 남겼습니다. 수치는 <b style="color:var(--ink);">"구조 변경이 왜 필요했는가"</b>의 근거입니다.</p>
+  </div>
+  <!-- hero metric -->
+  <div style="position:absolute;left:64px;right:64px;top:206px;display:flex;gap:16px;align-items:stretch;">
+    <div style="flex:1.5;border:1px solid var(--acd);border-radius:14px;background:linear-gradient(115deg,var(--acdim),transparent 70%);padding:14px 22px;display:flex;align-items:center;gap:20px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:54px;font-weight:700;color:var(--ac);line-height:.9;letter-spacing:-.03em;">7.3&times;</span>
+      <div>
+        <div style="font-size:17px;font-weight:800;color:var(--ink);">CPU 프레임타임 단축</div>
+        <div style="margin-top:7px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink2);">109.5ms <span style="color:var(--ac);">→ 14.92ms</span> <span style="color:var(--ink3);">· 4096 enemies 67fps</span></div>
+        <div style="margin-top:5px;font-size:12px;color:var(--ink3);">출시본을 기준본으로 두고 DOTS 실험본과 같은 장면에서 비교.</div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+      <div style="flex:1;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:9px 16px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;"><span style="color:var(--ink3);">691</span> <span style="color:var(--ac);">&rarr; 4</span></div>
+        <div style="font-size:11.5px;color:var(--ink3);margin-top:3px;">렌더 batch — instancing으로 GPU/CPU 절감</div>
+      </div>
+      <div style="flex:1;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:9px 16px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:var(--ink2);">9fps</div>
+        <div style="font-size:11.5px;color:var(--ink3);margin-top:3px;">Legacy 1500 stress scene 병목 기준점</div>
+      </div>
+    </div>
+  </div>
+  <!-- flowfield + profiler -->
+  <div style="position:absolute;left:64px;right:64px;top:366px;display:grid;grid-template-columns:1.35fr 1fr;gap:16px;">
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">트러블슈팅 — 적 과밀집을 흐름으로 해결</div>
+      <div style="margin-top:14px;display:flex;align-items:stretch;gap:8px;">
+        <div style="flex:1;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;font-size:11.5px;line-height:1.35;color:var(--ink2);">과밀집 →<br>충돌 무시 관통</div>
+        <div style="display:flex;align-items:center;color:var(--ink3);">›</div>
+        <div style="flex:1;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;font-size:11.5px;line-height:1.35;color:var(--ink2);">FlowField로<br>밀집 자체 방지</div>
+        <div style="display:flex;align-items:center;color:var(--ink3);">›</div>
+        <div style="flex:1;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;font-size:11.5px;line-height:1.35;color:var(--ink2);">경로 난잡<br>2차 문제</div>
+        <div style="display:flex;align-items:center;color:var(--ac);">›</div>
+        <div style="flex:1;background:var(--acdim);border:1px solid var(--acd);border-radius:8px;padding:10px;text-align:center;font-size:11.5px;line-height:1.35;color:var(--ink);font-weight:600;">반시계 보정값<br>흐름 안정화</div>
+      </div>
+      <div style="margin-top:14px;font-size:12.5px;line-height:1.55;color:var(--ink2);border-left:2px solid var(--acd);padding-left:12px;">
+        해법은 문제를 단순화해서 도달했습니다 — <span style="color:var(--ink);">"플레이어 눈에 난잡하다 → 난잡함을 없애야 한다 → 내가 흐름을 정리하자."</span> 코드 트릭이 아니라 관점 정리에서 나온 결정이었습니다.
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">프로파일러로 찾은 진짜 원인</div>
+      <div style="margin-top:12px;font-size:13px;line-height:1.6;color:var(--ink2);">
+        DOTS 전환 중 스파이크를 추적하다, <b style="color:var(--ink);">적 프리팹마다 카메라가 하나씩 달려 있던</b> 문제를 발견했습니다. 수치가 아니라 실제 객체 구성을 본 덕에 잡은 케이스로, 이후엔 "코드만 보지 말고 씬 구성을 의심"하는 점검을 루틴에 넣었습니다.
+      </div>
+    </div>
+  </div>
+  <!-- unsolved + takeaway -->
+  <div style="position:absolute;left:64px;right:64px;bottom:48px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px 18px;">
+      <div style="font-size:13px;font-weight:700;color:var(--ink);">남은 리스크 — 솔직하게, 계획과 함께</div>
+      <div style="margin-top:8px;font-size:12.5px;line-height:1.55;color:var(--ink2);">데미지 텍스트가 과다해지면 프로파일러 스파이크가 발생. <b style="color:var(--ink);">큰 데미지만 표기</b>하거나 <b style="color:var(--ink);">군집을 그리드로 나눠 표시 수를 제한</b>하는 방식을 검토 중입니다.</div>
+    </div>
+    <div style="border:1px solid var(--acd);border-radius:12px;background:var(--acdim);padding:16px 18px;">
+      <div style="font-size:13px;font-weight:700;color:var(--ac);">얻은 것</div>
+      <div style="margin-top:8px;font-size:12.5px;line-height:1.55;color:var(--ink);">출시 코드를 "끝난 코드"로 두지 않고 기준본·실험본을 분리 비교하면, 구조 변경의 효과와 위험을 동시에 볼 수 있다는 점. 성능 개선은 기술 교체보다 <b>기준 장면·측정 항목·되돌릴 수 있는 범위</b>를 먼저 정하는 일이 중요했습니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P7 MATCH3 AI STRUCTURE ===================== -->
+<div data-pg data-screen-label="07 Match3 AI구조" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">07</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:100px;bottom:48px;display:flex;gap:40px;">
+    <div style="width:236px;flex:none;display:flex;flex-direction:column;gap:18px;">
+      <div style="border-radius:16px;overflow:hidden;border:1px solid #333;box-shadow:0 14px 30px rgba(0,0,0,.4);">
+        <img src="assets/stills/Match3Roguelike_01.png" style="display:block;width:100%;aspect-ratio:564/770;object-fit:cover;object-position:center;">
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px;">
+        <div style="display:flex;align-items:center;gap:13px;">
+          
+          <div>
+            <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ac);">▶ PLAY VIDEO</div>
+            <div style="margin-top:5px;font-size:12.5px;font-weight:600;line-height:1.4;">플레이 영상<br><a href="https://youtu.be/mGgBsoj-2JA" target="_blank" rel="noopener" style="color:var(--ac);font-weight:600;text-decoration:none;">youtu.be/mGgBsoj-2JA ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">MATCH3LOGUELIKE · 01</div>
+      <h2 style="margin:10px 0 0;font-size:33px;font-weight:800;line-height:1.18;">AI가 건드릴 수 있는<br>경계를 먼저 설계하다</h2>
+      <p style="margin:14px 0 0;font-size:18.5px;line-height:1.5;color:var(--ink);font-weight:600;max-width:640px;">목적은 AI로 코드를 많이 만드는 게 아니라, <span style="color:var(--ac);">AI가 작업해도 구조가 깨지지 않게</span> 경계·금지 규칙·테스트를 먼저 세우는 것이었습니다.</p>
+      <p style="margin:10px 0 0;font-size:13px;line-height:1.6;color:var(--ink3);max-width:640px;">모바일 portrait 매치3 로그라이크 — 1인 개발, AI 협업 구조 실험.</p>
+      <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--ink2);margin-bottom:10px;">모듈 레이어 — 책임 분리</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="background:var(--panel);border:1px solid var(--acd);border-left:3px solid var(--ac);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>Match3.Data</b> <span style="color:var(--ink3);">· SO / interface / enum, MonoBehaviour 금지</span></div>
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>Match3.Core</b> <span style="color:var(--ink3);">· EventBus, 공통 런타임 규칙</span></div>
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>Board / Combat / Roguelike / Meta</b></div>
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>UI / Ads / Tests</b></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--ink2);margin-bottom:10px;">경계를 지키는 규칙</div>
+          <ul style="margin:0;padding-left:17px;display:flex;flex-direction:column;gap:8px;font-size:12.8px;line-height:1.5;color:var(--ink2);">
+            <li>Board와 Combat은 직접 참조하지 않고 <b style="color:var(--ink);">EventBus로만</b> 통신.</li>
+            <li>원격 JSON → 로컬 캐시 → ScriptableObject 기본값 순서로 데이터 fallback.</li>
+            <li>생성 코드가 영향을 줄 범위를 <b style="color:var(--ink);">asmdef·test assembly로 제한</b>.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- AI workflow philosophy -->
+      <div style="margin-top:18px;border:1px solid var(--acd);border-radius:12px;background:linear-gradient(180deg,var(--acdim),transparent);padding:16px 18px;">
+        <div style="font-size:13px;font-weight:700;color:var(--ac);">AI 워크플로우 — 만드는 것보다 "검증·신뢰"를 설계</div>
+        <div style="margin-top:10px;display:flex;gap:14px;font-size:12.5px;line-height:1.5;color:var(--ink2);">
+          <div style="flex:1;"><b style="color:var(--ink);">작업 = Codex</b> / <b style="color:var(--ink);">검증 = Claude Code</b>로 분리해, AI 결과의 신뢰 병목을 역할로 나눴습니다.</div>
+          <div style="width:1px;background:var(--line);"></div>
+          <div style="flex:1;">Unity <b style="color:var(--ink);">MCP</b> 연결 + 컨텍스트 압축 오픈소스로 토큰을 절감하고, 스킬을 전체관리자·UI·레벨·문서로 분리.</div>
+        </div>
+      </div>
+      <div style="margin-top:auto;display:flex;gap:12px;">
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;">11</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">asmdef 경계</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;">34</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">test 파일</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;">8</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">작업 agent</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;">6</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">위험 패턴 hook</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P8 MATCH3 VERIFY ===================== -->
+<div data-pg data-screen-label="08 Match3 검증" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">08</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:96px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">MATCH3LOGUELIKE · 02</div>
+    <h2 style="margin:9px 0 0;font-size:32px;font-weight:800;">검증 루프와 남은 리스크를 분리</h2>
+    <p style="margin:12px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink2);max-width:900px;">기능 테스트가 통과해도 실제 모바일 화면에서 읽히지 않을 수 있습니다. 그래서 문서·테스트 근거·화면 QA를 다른 레이어로 분리했습니다.</p>
+  </div>
+  <!-- 4-step loop -->
+  <div style="position:absolute;left:64px;right:64px;top:214px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+    <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 1</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">설계</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.5;color:var(--ink2);">GDD·데이터 우선순위·모듈 경계·금지 규칙을 먼저. 벗어난 제안은 구현 전 걸러냄.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 2</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">생성</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.5;color:var(--ink2);">AI 작업은 정해진 lane·asmdef 안에서만. Data layer엔 MonoBehaviour 참조 불가.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 3</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">검증</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.5;color:var(--ink2);">test·architecture scan·merge preview·git diff를 분리. 통과 기준을 하나로 합치지 않음.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 4</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">리뷰</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.5;color:var(--ink2);">스크린샷·화면 QA로 실제 플레이 화면의 문제를 다시 확인. 보상창·터치 영역·작은 텍스트.</div>
+    </div>
+  </div>
+  <!-- evidence + ascii art -->
+  <div style="position:absolute;left:64px;right:64px;top:380px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">테스트·QA를 다른 레이어로</div>
+      <div style="margin-top:10px;font-size:13px;line-height:1.6;color:var(--ink2);">
+        RewardOverlayTests 10/10, SaveManagerPhase1SmokeTests 4/4 등 단위 테스트와 통합 smoke test를 나눠, 실패했을 때 어느 레이어가 깨졌는지 먼저 보게 했습니다. Simulator 화면에선 가독성·터치 영역·보상 overlay를 별도로 기록 — <b style="color:var(--ink);">"기능 통과"와 "화면에서 사용 가능"</b>을 분리했습니다.
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">아트 정체성 — AI 이질감을 ASCII로</div>
+      <div style="margin-top:10px;font-size:13px;line-height:1.6;color:var(--ink2);">
+        개인 작업에서 AI 생성 아트는 이질감이 큽니다. 이를 역이용해 <b style="color:var(--ink);">생성 이미지를 ASCII 아트로 변환</b>하는 파이프라인을 시도, 보스·오브젝트의 톤을 하나로 묶었습니다. 보드 위 ASCII 보스가 그 결과물입니다.
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;bottom:48px;border:1px solid var(--acd);border-radius:12px;background:var(--acdim);padding:16px 18px;">
+    <div style="font-size:13px;font-weight:700;color:var(--ac);">얻은 것</div>
+    <div style="margin-top:7px;font-size:12.8px;line-height:1.55;color:var(--ink);">AI 협업에서 중요한 것은 "AI가 할 수 있는 일"보다 <b>"AI가 하면 안 되는 일을 막는 구조"</b>였습니다. 생성 결과를 믿기 전에 경계·금지 규칙·검증 결과를 서로 다른 문서와 테스트로 남겨야 했습니다.</div>
+  </div>
+</div>
+
+<!-- ===================== P9 IRONSARCOPHAGUS ===================== -->
+<div data-pg data-screen-label="09 IronSarcophagus" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">09</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:100px;bottom:48px;display:flex;gap:40px;">
+    <div style="width:264px;flex:none;display:flex;flex-direction:column;gap:18px;">
+      <div style="border-radius:14px;overflow:hidden;border:1px solid #333;box-shadow:0 14px 30px rgba(0,0,0,.4);">
+        <img src="assets/stills/IronSarcophagus_01.png" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover;">
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px;">
+        <div style="display:flex;align-items:center;gap:13px;">
+          
+          <div>
+            <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ac);">▶ TEAM DEMO</div>
+            <div style="margin-top:5px;font-size:12.5px;font-weight:600;line-height:1.4;">팀 프로젝트 영상<br><a href="https://youtu.be/l2X7-3QnWKs" target="_blank" rel="noopener" style="color:var(--ac);font-weight:600;text-decoration:none;">youtu.be/l2X7-3QnWKs ↗</a></div>
+          </div>
+        </div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:16px;">
+        <div style="font-size:12.5px;font-weight:700;color:var(--ink2);">협업 방식</div>
+        <div style="margin-top:8px;font-size:12.5px;line-height:1.55;color:var(--ink2);">팀원 시스템과 맞닿는 지점을 <b style="color:var(--ink);">이벤트·인터페이스로</b> 나눠, 같은 파일을 동시에 만지지 않도록 경계를 분리했습니다.</div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">IRONSARCOPHAGUS · 팀 프로젝트</div>
+      <h2 style="margin:10px 0 0;font-size:33px;font-weight:800;line-height:1.18;">팀 프로젝트에서 맡은<br>시스템 경계</h2>
+      <p style="margin:14px 0 0;font-size:18.5px;line-height:1.5;color:var(--ink);font-weight:600;max-width:640px;">본인 담당은 <span style="color:var(--ac);">포수 조준·탄도 계산·적 AI·전차 상태 연결</span>, 팀원 시스템과는 이벤트·인터페이스로 경계를 나눴습니다.</p>
+      <p style="margin:10px 0 0;font-size:13px;line-height:1.6;color:var(--ink3);max-width:640px;">"협동의 불편함이 재미가 된다"는 컨셉의 VR 전차 시뮬레이션 · 2인 팀.</p>
+      <div style="margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--ink2);margin-bottom:10px;">본인 담당</div>
+          <ul style="margin:0;padding-left:17px;display:flex;flex-direction:column;gap:8px;font-size:12.8px;line-height:1.5;color:var(--ink2);">
+            <li>네트워크 기반 구조와 게임플레이 모드 정리.</li>
+            <li>포수 VR 조준, <b style="color:var(--ink);">BallisticCalc</b>, <b style="color:var(--ink);">FireSystem</b> 구현.</li>
+            <li>적 AI 노출도 판정 + NavMesh 기반 재배치 후보 탐색.</li>
+            <li>TankStatus와 피해 판정 흐름 연결.</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--ink2);margin-bottom:10px;">시스템 흐름</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>AimController</b> <span style="color:var(--ink3);">· 포수 조준 입력</span></div>
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>BallisticCalc</b> <span style="color:var(--ink3);">· 포물선 / TimeOfFlight</span></div>
+            <div style="background:var(--panel);border:1px solid var(--acd);border-left:3px solid var(--ac);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>FireSystem</b> <span style="color:var(--ink3);">· 발사체 / Linecast / impact</span></div>
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;"><b>TankStatus</b> <span style="color:var(--ink3);">· 부위 HP / 관통 / 파괴</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:18px;display:flex;gap:12px;">
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;">5-point</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">노출도 측정점</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;">20%</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">차폐 판정 기준</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;">12방향</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">재배치 후보 탐색</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;">7</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">경계 asmdef</div></div>
+      </div>
+      <div style="margin-top:auto;border:1px solid var(--acd);border-radius:12px;background:var(--acdim);padding:14px 18px;">
+        <div style="font-size:13px;font-weight:700;color:var(--ac);">얻은 것</div>
+        <div style="margin-top:6px;font-size:12.8px;line-height:1.55;color:var(--ink);">팀 프로젝트에서는 "많이 구현했다"보다 <b>"어디까지가 내 책임인지, 어떤 이벤트·인터페이스로 연결되는지"</b>를 먼저 정리해야 충돌이 줄어듭니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P10 LOSTCONE PIVOT ===================== -->
+<div data-pg data-screen-label="10 LostCone 방향전환" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">10</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:100px;bottom:48px;display:flex;gap:40px;">
+    <div style="width:264px;flex:none;display:flex;flex-direction:column;gap:18px;">
+      <div style="border-radius:14px;overflow:hidden;border:1px solid #333;box-shadow:0 14px 30px rgba(0,0,0,.4);">
+        <img src="assets/stills/LostCone_02.png" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover;">
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px;">
+        <div style="display:flex;align-items:center;gap:13px;">
+          
+          <div>
+            <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ac);">▶ PLAY VIDEO</div>
+            <div style="margin-top:5px;font-size:12.5px;font-weight:600;line-height:1.4;">플레이 영상<br><a href="https://youtu.be/6QyYSIKdJPw" target="_blank" rel="noopener" style="color:var(--ac);font-weight:600;text-decoration:none;">youtu.be/6QyYSIKdJPw ↗</a></div>
+          </div>
+        </div>
+        <div style="margin-top:13px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--ink2);line-height:1.5;"><b style="color:var(--ink);">공개 개발 기록</b> — 개발일지 50회로 진행 상황을 커뮤니티에 공개.</div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">LOSTCONE · 01</div>
+      <h2 style="margin:10px 0 0;font-size:33px;font-weight:800;line-height:1.18;">공개 개발에서 방향을 바꾼<br>팬게임</h2>
+      <p style="margin:14px 0 0;font-size:18.5px;line-height:1.5;color:var(--ink);font-weight:600;max-width:640px;"><span style="color:var(--ac);">유저 설문·플레이테스트</span>를 근거로, 복잡한 퍼즐형 메트로배니아에서 세계관·탐험 중심으로 방향을 바꿨습니다.</p>
+      <p style="margin:10px 0 0;font-size:13px;line-height:1.6;color:var(--ink3);max-width:640px;">팬층 대상 플랫포머 · 개발일지 50회의 공개 개발.</p>
+      <div style="margin-top:20px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);padding:14px 18px;">
+        <div style="font-size:13px;font-weight:700;">단점을 인지하고 데이터로 교정</div>
+        <div style="margin-top:7px;font-size:13px;line-height:1.55;color:var(--ink2);">"한 분야에 집중하면 시야가 매몰된다"는 약점을 알기에, 무의식적 가정(유저가 게임에 익숙할 것)을 <b style="color:var(--ink);">커뮤니티 설문·플레이테스트로 검증</b>해 탐험·힐링 방향으로 조정했습니다.</div>
+      </div>
+      <div style="margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:14px;"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 1</div><div style="margin-top:6px;font-size:14px;font-weight:700;">공개 기록</div><div style="margin-top:6px;font-size:12px;line-height:1.5;color:var(--ink2);">개발일지로 진행을 공개하고 반응을 수집.</div></div>
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:14px;"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 2</div><div style="margin-top:6px;font-size:14px;font-weight:700;">테스트</div><div style="margin-top:6px;font-size:12px;line-height:1.5;color:var(--ink2);">설문·플레이테스트로 조작·난이도·길찾기 이해도 확인.</div></div>
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:14px;"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 3</div><div style="margin-top:6px;font-size:14px;font-weight:700;">방향 전환</div><div style="margin-top:6px;font-size:12px;line-height:1.5;color:var(--ink2);">복잡한 퍼즐보다 이스터에그·탐색을 강화.</div></div>
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:14px;"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">STEP 4</div><div style="margin-top:6px;font-size:14px;font-weight:700;">구현 반영</div><div style="margin-top:6px;font-size:12px;line-height:1.5;color:var(--ink2);">컷씬·fade·아이템 이동, 저장 기능을 감성 유지에 맞춰 다듬음.</div></div>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:12px;">
+        <div style="flex:none;border:1px solid var(--line);border-radius:10px;padding:11px 16px;background:var(--bg);"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink2);"><b style="color:var(--ink);">Aseprite</b> · 리소스 직접 제작</span></div>
+        <div style="flex:none;border:1px solid var(--line);border-radius:10px;padding:11px 16px;background:var(--bg);"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink2);"><b style="color:var(--ink);">DoTween</b> · 프롤로그/fade/아이템 연출</span></div>
+      </div>
+      <div style="margin-top:auto;border:1px solid var(--acd);border-radius:12px;background:var(--acdim);padding:14px 18px;">
+        <div style="font-size:13px;font-weight:700;color:var(--ac);">얻은 것</div>
+        <div style="margin-top:6px;font-size:12.8px;line-height:1.55;color:var(--ink);">내가 만들고 싶은 구조보다 <b>실제 플레이할 사람의 이해도와 기대</b>를 먼저 봐야 한다는 점을, 공개 개발 과정에서 데이터로 확인했습니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P11 LOSTCONE TROUBLESHOOTING ===================== -->
+<div data-pg data-screen-label="11 LostCone 입력" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">11</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:96px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">LOSTCONE · 02</div>
+    <h2 style="margin:9px 0 0;font-size:32px;font-weight:800;">간헐적 입력 중단을 코드 밖 상태까지 추적</h2>
+    <p style="margin:12px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink2);max-width:900px;">같은 코드·같은 커밋에서도 키보드 입력이 중단되는 문제였습니다. 코드 변경만으로는 원인을 잡을 수 없었고, 실행 환경의 <b style="color:var(--ink);">Input System 상태</b>를 직접 확인하며 원인을 분리했습니다.</p>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:214px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+    <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">증상</div>
+      <div style="margin-top:7px;font-size:13px;line-height:1.55;color:var(--ink2);">플레이 중 키보드 입력이 간헐적으로 끊김. 저장 데이터·씬 전환 문제처럼 보였습니다.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">실패한 시도</div>
+      <div style="margin-top:7px;font-size:13px;line-height:1.55;color:var(--ink2);">ActionMap 강제 활성화, Domain Reload, Library 삭제, git checkout을 차례로 확인했지만 증상 유지.</div>
+    </div>
+    <div style="border:1px solid var(--acd);border-left:3px solid var(--ac);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">원인</div>
+      <div style="margin-top:7px;font-size:13px;line-height:1.55;color:var(--ink);">터치스크린 노트북에서 Input System이 Control Scheme을 <b>Touch로 auto-switch</b>. 코드 diff가 아니라 실행 환경 상태 문제였습니다.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3);">해결</div>
+      <div style="margin-top:7px;font-size:13px;line-height:1.55;color:var(--ink2);">Keyboard&amp;Mouse scheme 강제·prefab default scheme 변경으로 입력 장치를 고정.</div>
+    </div>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:392px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">결정적 단서 — 엔진 상태를 직접 보다</div>
+      <div style="margin-top:10px;font-size:13px;line-height:1.6;color:var(--ink2);">코드만 보면 ActionMap·Update timing·scene load 순서를 의심하게 됩니다. 하지만 단서는 <b style="color:var(--ink);">엔진 캡처에서 현재 연결된 장치와 선택된 scheme</b>이었고, 이를 AI에게 보여주며 좁혀 찾았습니다. "코드만 되돌리면 해결된다"는 가정이 오히려 추적을 늦췄습니다.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">다음 작업에서 바뀐 점</div>
+      <div style="margin-top:10px;font-size:13px;line-height:1.6;color:var(--ink2);">간헐적 문제를 만나면 먼저 런타임 Inspector·장치 상태·project setting·prefab default를 함께 확인합니다. <b style="color:var(--ink);">"코드가 같으면 동작도 같다"</b>는 가정을 줄이고, 엔진 설정과 디바이스 상태를 체크리스트에 넣었습니다.</div>
+    </div>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;bottom:48px;border:1px solid var(--acd);border-radius:12px;background:var(--acdim);padding:16px 18px;">
+    <div style="font-size:13px;font-weight:700;color:var(--ac);">얻은 것</div>
+    <div style="margin-top:7px;font-size:12.8px;line-height:1.55;color:var(--ink);">재현이 흔들리는 버그는 코드 diff만 볼 것이 아니라 <b>엔진 상태·입력 장치·실행 환경</b>까지 관찰해야 합니다. 같은 소스라도 런타임에서 선택된 장치와 scheme이 다르면 완전히 다른 결과가 나올 수 있었습니다.</div>
+  </div>
+</div>
+
+<!-- ===================== P12 CUBIKA ===================== -->
+<div data-pg data-screen-label="12 Cubika" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">12</span>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:100px;bottom:48px;display:flex;gap:40px;">
+    <div style="width:236px;flex:none;display:flex;flex-direction:column;gap:18px;">
+      <div style="border-radius:16px;overflow:hidden;border:1px solid #333;box-shadow:0 14px 30px rgba(0,0,0,.4);">
+        <img src="assets/gifs/Cubika_01.png" style="display:block;width:100%;aspect-ratio:657/820;object-fit:cover;object-position:top;">
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px;">
+        <div style="display:flex;align-items:center;gap:13px;">
+          
+          <div>
+            <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ac);">▶ PLAY (WebGL)</div>
+            <div style="margin-top:5px;font-size:12.5px;font-weight:600;line-height:1.4;">브라우저 플레이<br><a href="https://nullma.itch.io/cubika" target="_blank" rel="noopener" style="color:var(--ac);font-weight:600;text-decoration:none;">nullma.itch.io/cubika ↗</a></div>
+          </div>
+        </div>
+        <div style="margin-top:13px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--ink2);line-height:1.5;">Shorts 영상 · <a href="https://youtube.com/shorts/A6-j0cwDtW4" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none;">youtube.com/shorts/A6-j0cwDtW4 ↗</a></div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);letter-spacing:.04em;">CUBIKA</div>
+      <h2 style="margin:10px 0 0;font-size:33px;font-weight:800;line-height:1.18;">작게 완성하고 WebGL로 배포</h2>
+      <p style="margin:14px 0 0;font-size:18.5px;line-height:1.5;color:var(--ink);font-weight:600;max-width:640px;">원형 병합이 아니라 <span style="color:var(--ac);">정사각 큐브의 회전·낙하·밀치기</span>로 플레이 감각을 바꾼 병합 퍼즐입니다.</p>
+      <p style="margin:10px 0 0;font-size:13px;line-height:1.6;color:var(--ink3);max-width:640px;">1주 내 솔로 완성 후 itch.io에 WebGL 배포, 이후 모바일 조작·수익화 scaffold 보강.</p>
+      <div style="margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ac);">메커닉 — 정형화를 깨는 변수</div>
+          <div style="margin-top:8px;font-size:13px;line-height:1.55;color:var(--ink2);">고정 방향 낙하의 정형화를 깨려고 낙하 전 <b style="color:var(--ink);">회전</b>과 낙하 후 <b style="color:var(--ink);">밀치기</b>를 추가. 물리 충돌은 Unity Collider·Trigger로 구현.</div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ac);">문제 해결 — 즉시 종료 완화</div>
+          <div style="margin-top:8px;font-size:13px;line-height:1.55;color:var(--ink2);">game over가 너무 즉시 발생해 납득이 어려워, over-line cube가 <b style="color:var(--ink);">3초 grace</b> 지속될 때만 종료되도록 countdown feedback을 추가.</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);padding:16px 18px;">
+        <div style="font-size:13px;font-weight:700;">출시 후 보강 — 단순 업로드에서 운영 항목으로</div>
+        <div style="margin-top:8px;font-size:13px;line-height:1.55;color:var(--ink2);">MainMenu, pause popup, confirmation dialog, mobile controls, Unity Ads / IAP scaffold를 추가해 "완성 후의 운영"을 점검했습니다. 큐브·UI는 톤앤매너를 맞추려 Aseprite로 직접 제작했습니다.</div>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:12px;">
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;">&lt; 1주</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">아이디어→완성 (솔로)</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;">3초</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">game over grace</div></div>
+        <div style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);"><div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;">WebGL</div><div style="margin-top:4px;font-size:11.5px;color:var(--ink3);">itch.io 배포</div></div>
+      </div>
+      <div style="margin-top:auto;border:1px solid var(--acd);border-radius:12px;background:var(--acdim);padding:14px 18px;">
+        <div style="font-size:13px;font-weight:700;color:var(--ac);">얻은 것</div>
+        <div style="margin-top:6px;font-size:12.8px;line-height:1.55;color:var(--ink);">작은 게임을 끝까지 완성하면 새 기능보다 <b>입력·피드백·일시정지·확인 팝업 같은 사용성 보강</b>이 더 중요해진다는 점을, 배포 후의 작업에서 확인했습니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== P13 OTHER WORK ===================== -->
+<div data-pg data-screen-label="13 기타 구현" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">13</span>
+  </div>
+  <div style="position:absolute;left:64px;top:96px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--ac);">OTHER WORK</div>
+    <h2 style="margin:10px 0 0;font-size:38px;font-weight:800;">기타 구현 경험</h2>
+    <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--ink2);max-width:900px;">Dong_Mae는 팀 프로젝트에서 레벨 기믹과 연출 구현 폭을, MyTokenMate는 개발 중 반복되던 AI 사용량 확인 문제를 <b style="color:var(--ink);">local-only 도구</b>로 푼 사례입니다.</p>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:300px;display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:20px;">
+    <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:24px 26px;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);">메트로이드바니아 · 팀 프로젝트</div>
+      <div style="margin-top:8px;font-size:22px;font-weight:700;">Dong_Mae</div>
+      <div style="margin-top:11px;font-size:14px;line-height:1.65;color:var(--ink2);">레벨 기믹과 연출 구현 폭을 확보한 프로젝트입니다. 타일맵 기반 레벨에서 다양한 상호작용과 카메라 연출을 담당했습니다.</div>
+      <div style="margin-top:18px;border-top:1px solid var(--line);padding-top:16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--ink3);">담당 구현</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;gap:11px;font-size:13.5px;line-height:1.45;"><span style="color:var(--ac);flex:none;">레벨 기믹</span><span style="color:var(--ink2);">아이템·퍼즐·트랩 도어, 로프, 점프패드, 사다리, 이동 플랫폼, 함정.</span></div>
+          <div style="display:flex;gap:11px;font-size:13.5px;line-height:1.45;"><span style="color:var(--ac);flex:none;">탐색 요소</span><span style="color:var(--ink2);">수중 구간, 파괴 가능한 숨겨진 벽 등 메트로이드바니아형 탐색.</span></div>
+          <div style="display:flex;gap:11px;font-size:13.5px;line-height:1.45;"><span style="color:var(--ac);flex:none;">연출</span><span style="color:var(--ink2);">카메라 전환, fade, 보스 레터박스 컷씬 연출.</span></div>
+        </div>
+      </div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:4px 8px;">레벨 디자인</span>
+        <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:4px 8px;">보스 연출</span>
+        <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:4px 8px;">카메라/fade</span>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:24px 26px;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);">개발 보조 도구 · Electron</div>
+      <div style="margin-top:8px;font-size:22px;font-weight:700;">MyTokenMate</div>
+      <div style="margin-top:11px;font-size:14px;line-height:1.65;color:var(--ink2);">작업 중 반복되던 AI coding tool 사용량 확인을, API key나 네트워크 요청 없이 해결한 Electron 오버레이입니다.</div>
+      <div style="margin-top:18px;border-top:1px solid var(--line);padding-top:16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--ink3);">설계 방향</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;gap:11px;font-size:13.5px;line-height:1.45;"><span style="color:var(--ac);flex:none;">대상</span><span style="color:var(--ink2);">Claude Code · Codex · Gemini CLI · Copilot의 사용량.</span></div>
+          <div style="display:flex;gap:11px;font-size:13.5px;line-height:1.45;"><span style="color:var(--ac);flex:none;">방식</span><span style="color:var(--ink2);">각 도구가 남기는 로컬 로그를 직접 파싱해 상태를 표시.</span></div>
+          <div style="display:flex;gap:11px;font-size:13.5px;line-height:1.45;"><span style="color:var(--ac);flex:none;">원칙</span><span style="color:var(--ink2);">API key·네트워크 요청 없이 local-only로 동작.</span></div>
+        </div>
+      </div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:4px 8px;">local log parsing</span>
+        <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:4px 8px;">no network</span>
+        <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:4px 8px;">Electron</span>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- ===================== P14 HOW I WORK ===================== -->
+<div data-pg data-screen-label="14 작업 방식" style="position:relative;width:1122px;height:793px;break-after:page;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">14</span>
+  </div>
+  <div style="position:absolute;left:64px;top:96px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--ac);">HOW I WORK</div>
+    <h2 style="margin:10px 0 0;font-size:38px;font-weight:800;">작업 방식</h2>
+    <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--ink2);max-width:900px;">프로젝트마다 형태는 달라도 반복되는 기준은 같습니다. 먼저 <b style="color:var(--ink);">목적과 경계</b>를 정하고, 구현 후에는 테스트·영상·실제 화면·운영 문서로 결과를 다시 확인합니다.</p>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:240px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+    <div style="border:1px solid var(--line);border-left:3px solid var(--ac);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">01</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">목적 정의</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink2);">왜 만들고, 어떤 결과가 완료 기준인지 먼저 정함. Ghost March는 출시, Match3는 구조 설계, LostCone은 팬층 피드백.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-left:3px solid var(--ac);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">02</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">구조 분리</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink2);">asmdef·EventBus·interface·namespace로 변경 영향 범위를 작게 만듦.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-left:3px solid var(--ac);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">03</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">검증 분리</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink2);">테스트 통과·성능 수치·영상·visual QA·플레이테스트를 서로 다른 근거로 분리.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-left:3px solid var(--ac);border-radius:11px;background:var(--panel);padding:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);">04</div>
+      <div style="margin-top:7px;font-size:15px;font-weight:700;">회고 반영</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink2);">문제를 해결하고 끝내지 않고, 다음 프로젝트의 설계 기준으로 옮김.</div>
+    </div>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:420px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">프로젝트별 적용</div>
+      <ul style="margin:10px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:8px;font-size:12.8px;line-height:1.5;color:var(--ink2);">
+        <li><b style="color:var(--ink);">Ghost March</b> — 출시 기준본을 보존하고 DOTS 실험본과 수치 비교.</li>
+        <li><b style="color:var(--ink);">Match3LogueLike</b> — AI 작업 전에 모듈 경계와 금지 규칙을 정의.</li>
+        <li><b style="color:var(--ink);">IronSarcophagus</b> — 본인 담당과 팀원 담당 시스템을 문서로 분리.</li>
+      </ul>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:18px 20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ac);">트러블슈팅 기준</div>
+      <ul style="margin:10px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:8px;font-size:12.8px;line-height:1.5;color:var(--ink2);">
+        <li><b style="color:var(--ink);">LostCone</b> — 코드를 고치기 전 Control Scheme·장치 상태를 확인.</li>
+        <li><b style="color:var(--ink);">Cubika</b> — 즉시 game over 대신 feedback·grace로 납득 가능한 실패 상태 구성.</li>
+        <li><b style="color:var(--ink);">Ghost March</b> — 최신 렌더링 API보다 프로젝트 렌더 파이프라인과 맞는 선택을 우선.</li>
+      </ul>
+    </div>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;bottom:48px;border-left:2px solid var(--acd);padding-left:16px;font-size:13px;line-height:1.55;color:var(--ink2);">
+    공통적으로 <b style="color:var(--ink);">성능 개선은 기술 교체 자체보다 기준 장면·측정 항목·되돌릴 수 있는 범위를 먼저 정하는 일</b>이라고 보고, 변경의 효과와 위험을 같은 자리에서 비교합니다.
+  </div>
+</div>
+
+<!-- ===================== P16 LINKS ===================== -->
+<div data-pg data-screen-label="15 링크 연락처" style="position:relative;width:1122px;height:793px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Pretendard,sans-serif;">
+  <div style="position:absolute;top:38px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.04em;color:var(--ink3);">
+    <span style="font-weight:600;">정우태 <span style="color:var(--line);">·</span> Unity 클라이언트 개발자</span>
+    <span style="font-family:'JetBrains Mono',monospace;">15</span>
+  </div>
+  <div style="position:absolute;left:64px;top:96px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--ac);">LINKS &amp; CONTACT</div>
+    <h2 style="margin:10px 0 0;font-size:38px;font-weight:800;">링크 / 연락처</h2>
+    <p style="margin:14px 0 0;font-size:14px;line-height:1.55;color:var(--ink3);">링크를 누르면 브라우저에서 영상·플레이·기록으로 이동합니다.</p>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;top:218px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+    <div style="border:1px solid var(--acd);border-radius:12px;background:var(--acdim);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ac);">웹 포트폴리오 (요약본)</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://nulma.github.io/#projects" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">nulma.github.io ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">GitHub</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://github.com/NulMa" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">github.com/NulMa ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">Email</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="mailto:jungwt524@gmail.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">jungwt524@gmail.com ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">Ghost March · Google Play</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://play.google.com/store/apps/details?id=com.NullMa.GhostMarch" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">앱 출시 페이지 ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">Ghost March · Video</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://youtu.be/E25iW69OW6k" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">플레이 영상 ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">Match3LogueLike · Video</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://youtu.be/mGgBsoj-2JA" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">플레이 영상 ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">IronSarcophagus · Video</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://youtu.be/l2X7-3QnWKs" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">팀 프로젝트 영상 ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">LostCone · Video</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://youtu.be/6QyYSIKdJPw" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">플레이 영상 ↗</a></div></div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px;display:flex;gap:14px;align-items:center;">
+      
+      <div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ink3);">Cubika · itch.io</div><div style="margin-top:4px;font-size:13.5px;font-weight:700;"><a href="https://nullma.itch.io/cubika" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">WebGL 플레이 ↗</a></div></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:64px;right:64px;bottom:46px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:18px;">
+    <div style="font-size:13px;color:var(--ink2);">감사합니다. <span style="color:var(--ink);font-weight:600;">정우태</span> · Unity 게임 클라이언트 개발자</div>
+    <div style="font-size:12px;color:var(--ink3);font-family:'JetBrains Mono',monospace;">jungwt524@gmail.com</div>
+  </div>
+</div>
+
+<!-- MORE-PAGES -->
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){ this._renderQRs(); }
+  _renderQRs(tries){
+    tries = tries || 0;
+    if(typeof QRCode === 'undefined'){
+      if(tries < 60){ setTimeout(()=>this._renderQRs(tries+1), 100); }
+      return;
+    }
+    document.querySelectorAll('[data-qr]').forEach((el)=>{
+      if(el.dataset.qrDone) return;
+      el.dataset.qrDone = '1';
+      const size = parseInt(el.dataset.qrSize || '92', 10);
+      try{
+        new QRCode(el, { text: el.dataset.qr, width:size, height:size, colorDark:'#0e120f', colorLight:'#ffffff', correctLevel: QRCode.CorrectLevel.M });
+      }catch(e){}
+    });
+  }
+  renderVals(){ return {}; }
+}
+</script>
+</body>
+</html>
