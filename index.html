@@ -13,7 +13,7 @@
     gtag('js', new Date());
     gtag('config', 'G-0H11QLFWFB');
   </script>
-  <link rel="stylesheet" href="style.css?v=20260612-mobile-showcase" />
+  <link rel="stylesheet" href="style.css?v=20260813-jam-contest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -27,6 +27,7 @@
       <ul class="nav-links" id="desktop-nav">
         <li><a href="#about">소개</a></li>
         <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#jams">잼 · 공모전</a></li>
         <li><a href="#skills">기술</a></li>
         <li><a href="#contact">연락처</a></li>
       </ul>
@@ -46,6 +47,7 @@
     <ul>
       <li><a href="#about">소개</a></li>
       <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#jams">잼 · 공모전</a></li>
       <li><a href="#skills">기술</a></li>
       <li><a href="#contact">연락처</a></li>
     </ul>
@@ -476,6 +478,95 @@
             <figure class="gif-tile"><img data-src="images/gifs/LostCone_03.gif" alt="LostCone stage traversal"><figcaption>Stage</figcaption></figure>
             <figure class="gif-tile"><img data-src="images/gifs/LostCone_04.gif" alt="LostCone extended sequence"><figcaption>Sequence</figcaption></figure>
             <figure class="gif-tile"><img data-src="images/gifs/LostCone_05.gif" alt="LostCone combat feedback"><figcaption>Feedback</figcaption></figure>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAM & CONTEST -->
+  <section id="jams">
+    <div class="section-inner">
+      <p class="section-label reveal">Jam &amp; Contest</p>
+      <h2 class="reveal">게임잼 &amp; 공모전 참여</h2>
+
+      <div class="jam-stack">
+        <article class="jam-entry reveal">
+          <div class="jam-head">
+            <span class="jam-badge">Game Jam</span>
+            <span class="jam-period">2026.07.22 – 07.26 · 4일 · 1인 제작</span>
+          </div>
+          <h3>acCountDown</h3>
+          <p class="jam-event">GMTK Game Jam 2026 · 주제 “Count Down”</p>
+          <p class="jam-desc">
+            잔고와 턴이 함께 줄어드는 덱빌딩 게임입니다.
+            정해진 턴 안에 계좌 잔고를 정확히 0원으로 맞춰야 합니다.
+            주제였던 “Count Down”을 연출이 아니라 승패 조건에 넣었습니다.
+          </p>
+          <div class="jam-stats">
+            <div class="jam-stat">
+              <span class="jam-stat-value">#858</span>
+              <span class="jam-stat-label">Artwork</span>
+            </div>
+            <div class="jam-stat">
+              <span class="jam-stat-value">#1045</span>
+              <span class="jam-stat-label">Creativity</span>
+            </div>
+            <div class="jam-stat">
+              <span class="jam-stat-value">#1447</span>
+              <span class="jam-stat-label">Narrative</span>
+            </div>
+            <div class="jam-stat jam-stat-total">
+              <span class="jam-stat-value">10,500</span>
+              <span class="jam-stat-label">총 출품작</span>
+            </div>
+          </div>
+          <div class="jam-links">
+            <a href="https://nulma.github.io/accountdown/" target="_blank" rel="noopener" class="link-btn link-btn-play">▶ 플레이 (한국어)</a>
+            <a href="https://itch.io/jam/gmtk-jam-2026/rate/4823321" target="_blank" rel="noopener" class="link-btn">itch.io 제출 페이지 →</a>
+            <a href="https://itch.io/jam/gmtk-jam-2026" target="_blank" rel="noopener" class="link-btn">잼 정보 →</a>
+          </div>
+        </article>
+
+        <article class="jam-entry reveal">
+          <div class="jam-head">
+            <span class="jam-badge jam-badge-alt">Contest</span>
+            <span class="jam-period">2026.07.31 – 08.10 · 11일 · 2인 팀</span>
+          </div>
+          <h3>Domo Ninja-desu</h3>
+          <p class="jam-event">NAN 2026 (NHN Game × AI 해커톤) 사전 과제 출품작 · 결과 발표 예정</p>
+          <p class="jam-desc">
+            빌드를 짜서 스테이지를 돌파하는 2D 오토배틀러입니다.
+            캐릭터마다 스킬 2개 중 하나만 살 수 있어 빌드 조합이 4,320가지로 고정되고,
+            덕분에 밸런스를 전수 검증할 수 있습니다.
+          </p>
+
+          <div class="jam-role">
+            <p class="jam-role-title">담당 — 전투 엔진 · 시뮬레이션 · 밸런스 자동화 · 배포</p>
+            <ul class="jam-role-list">
+              <li><strong>전투 엔진</strong> — 틱 루프, 이동·타겟팅·데미지, 상태이상 8종, 스킬 템플릿 5종. Unity에 의존하지 않게 분리해 시뮬레이터와 게임이 같은 코드를 사용</li>
+              <li><strong>헤드리스 시뮬레이터</strong> — 빌드 조합 4,320가지 전수 21,600런을 1.3초에 처리</li>
+              <li><strong>밸런스 외부 루프</strong> — Morris 스크리닝(SALib) + Optuna(CMA-ES · ASHA)로 목적함수 0.807 → 0.923</li>
+              <li><strong>CI · 배포</strong> — 경계 가드와 결정론 검사, 야간 밸런스 실행, GitHub Pages 자동 배포</li>
+              <li><strong>운영 측정</strong> — Cloudflare Worker + D1 자체 구축. GA는 심사 환경에서 차단될 수 있어 미채택</li>
+              <li><strong>테스트 376개</strong> — 전투 엔진 337 · 시뮬레이터 39</li>
+            </ul>
+            <p class="jam-role-title">AI 협업 구조 설계</p>
+            <ul class="jam-role-list">
+              <li>LLM을 수치 최적화에서 배제 — 탐색은 알고리즘에, LLM은 정의와 판단에</li>
+              <li>경계를 코드로 강제 — 전투 엔진에 Unity 참조가 들어오지 못하도록 asmdef와 CI 검사 두 겹으로 차단</li>
+              <li>접점을 이벤트 로그 하나로 단일화 — 연출이 전투 시간에 영향을 주지 못하므로 시뮬 결과와 실제 게임이 갈라지지 않음</li>
+            </ul>
+            <p class="jam-role-note">
+              게임 규칙 설계 · 콘텐츠 · Unity UI 구현 · 제출 영상은 팀원이 담당했습니다.
+              전투 감각에 관한 결정은 팀원 몫으로 넘겼고, 그 과정에서 제 제안 여러 건이 기각됐습니다.
+            </p>
+          </div>
+
+          <div class="jam-links">
+            <a href="https://nulma.github.io/domo-ninja-desu/" target="_blank" rel="noopener" class="link-btn link-btn-play">▶ 플레이</a>
+            <a href="https://www.youtube.com/watch?v=Sg2dWIGZeHI" target="_blank" rel="noopener" class="link-btn">플레이 영상 →</a>
+            <a href="https://nan2026.nhn.com/" target="_blank" rel="noopener" class="link-btn">대회 정보 →</a>
           </div>
         </article>
       </div>
