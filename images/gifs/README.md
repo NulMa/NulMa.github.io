@@ -27,6 +27,8 @@ Current showcase files:
 - `GhostMarch_06.gif`
 - `IronSarcophagus_01.gif`
 - `IronSarcophagus_02.gif`
+- `LastWrite_01.gif` ~ `LastWrite_04.gif` (512x288 native pixels, shown with `.gif-grid-pixel`)
+- `MergeCubeFactory_01.gif` ~ `MergeCubeFactory_04.gif`
 - `IronSarcophagus_03.gif`
 - `IronSarcophagus_04.gif`
 - `LostCone_01.gif`

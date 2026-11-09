@@ -200,6 +200,7 @@ videoLightbox.innerHTML = `
     <button class="video-lightbox-close" type="button" aria-label="Close">X</button>
     <div class="video-lightbox-frame">
       <iframe class="video-lightbox-iframe" src="" title="Project gameplay video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <video class="video-lightbox-video" controls muted playsinline preload="none" hidden></video>
     </div>
     <div class="video-lightbox-footer">
       <span class="video-lightbox-caption"></span>
@@ -210,17 +211,32 @@ videoLightbox.innerHTML = `
 document.body.appendChild(videoLightbox);
 
 const videoLightboxIframe = videoLightbox.querySelector('.video-lightbox-iframe');
+const videoLightboxVideo = videoLightbox.querySelector('.video-lightbox-video');
 const videoLightboxCaption = videoLightbox.querySelector('.video-lightbox-caption');
 const videoLightboxClose = videoLightbox.querySelector('.video-lightbox-close');
 const videoLightboxLink = videoLightbox.querySelector('.video-lightbox-link');
 
-function openVideoLightbox(url, title) {
-  const embedUrl = getYoutubeNocookieEmbedUrl(url);
-  if (!embedUrl) return;
+// 사이트에 직접 올린 영상(.mp4)은 YouTube iframe 대신 video 태그로 재생한다
+function isLocalVideo(url) {
+  return /\.mp4(\?|#|$)/i.test(url || '');
+}
 
-  videoLightboxIframe.src = embedUrl;
+function openVideoLightbox(url, title) {
+  const local = isLocalVideo(url);
+  const embedUrl = local ? '' : getYoutubeNocookieEmbedUrl(url);
+  if (!local && !embedUrl) return;
+
+  videoLightboxIframe.hidden = local;
+  videoLightboxVideo.hidden = !local;
+  if (local) {
+    videoLightboxVideo.src = url;
+    videoLightboxVideo.play().catch(() => {});
+  } else {
+    videoLightboxIframe.src = embedUrl;
+  }
   videoLightboxCaption.textContent = title || '전체 영상';
   videoLightboxLink.href = url;
+  videoLightboxLink.textContent = local ? '새 탭에서 열기' : 'YouTube에서 열기';
   videoLightbox.classList.add('active');
   videoLightbox.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
@@ -231,6 +247,9 @@ function closeVideoLightbox() {
   videoLightbox.classList.remove('active');
   videoLightbox.setAttribute('aria-hidden', 'true');
   videoLightboxIframe.src = '';
+  videoLightboxVideo.pause();
+  videoLightboxVideo.removeAttribute('src');
+  videoLightboxVideo.load();
   document.body.style.overflow = '';
 }
 
@@ -367,6 +386,7 @@ function setLightboxGif(index) {
   const source = getGifSource(tile);
 
   gifLightboxImage.src = source;
+  gifLightboxImage.classList.toggle('pixel-art', !!tile.closest('.gif-grid-pixel'));
   gifLightboxImage.alt = image?.alt || clipTitle || projectTitle;
   gifLightboxCaption.textContent = [projectTitle, clipTitle].filter(Boolean).join(' - ');
 }

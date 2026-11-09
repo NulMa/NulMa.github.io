@@ -984,10 +984,23 @@ a.badge:hover {
   background: #000;
 }
 
-.video-lightbox-iframe {
+.video-lightbox-iframe,
+.video-lightbox-video {
   display: block;
   width: 100%;
   height: 100%;
+  background: #000;
+}
+
+.video-lightbox-iframe[hidden],
+.video-lightbox-video[hidden] {
+  display: none;
+}
+
+/* 도트 그래픽은 확대할 때 번지지 않게 */
+.gif-grid-pixel img,
+.gif-lightbox-media.pixel-art {
+  image-rendering: pixelated;
 }
 
 .video-lightbox-footer {
