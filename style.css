@@ -214,16 +214,23 @@ img { max-width: 100%; }
   gap: 14px;
   width: max-content;
   padding: 0 7px;
-  animation: reelScroll 70s linear infinite;
+  will-change: transform;
 }
 
-.hero-reel:hover .hero-reel-track,
-.hero-reel:focus-within .hero-reel-track {
-  animation-play-state: paused;
+/* 자동으로 흐르다가 끌거나 밀면 그만큼 넘어간다 (script.js) */
+.hero-reel.is-draggable {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-@keyframes reelScroll {
-  to { transform: translateX(-50%); }
+.hero-reel.is-dragging {
+  cursor: grabbing;
+}
+
+.hero-reel.is-dragging .hero-clip {
+  transform: none;
 }
 
 .hero-clip {
@@ -2102,10 +2109,6 @@ footer {
 
   .hero-reel {
     overflow-x: auto;
-  }
-
-  .hero-reel-track {
-    animation: none;
   }
 
   .hero-clip,

@@ -56,6 +56,140 @@ if (heroReelTrack && !reduceMotion) {
     copy.tabIndex = -1;
     heroReelTrack.appendChild(copy);
   });
+  initHeroReel(heroReelTrack);
+}
+
+// 평소엔 천천히 흐르고, 마우스로 끌거나 손가락으로 밀면 그만큼 넘어간 뒤 그 자리부터 다시 흐른다
+function initHeroReel(track) {
+  const reel = track.parentElement;
+  const SECONDS_PER_LOOP = 70;
+  const DRAG_THRESHOLD = 6;
+  let period = 0;
+  let offset = 0;
+  let velocity = 0;
+  let hovering = false;
+  let focused = false;
+  let visible = true;
+  let drag = null;
+  let suppressClick = false;
+  let lastTime = 0;
+  let frame = 0;
+
+  const measure = () => {
+    const half = track.children.length / 2;
+    period = track.children[half].offsetLeft - track.children[0].offsetLeft;
+  };
+
+  const wrap = () => {
+    if (period <= 0) return;
+    offset = ((offset % period) + period) % period;
+  };
+
+  const tick = time => {
+    const dt = Math.min((time - lastTime) / 1000, 0.1);
+    lastTime = time;
+
+    if (!drag) {
+      if (Math.abs(velocity) > 5) {
+        // 손을 뗀 뒤 관성으로 조금 더 미끄러진다
+        offset += velocity * dt;
+        velocity *= Math.pow(0.04, dt);
+      } else {
+        velocity = 0;
+        if (!hovering && !focused) offset += (period / SECONDS_PER_LOOP) * dt;
+      }
+    }
+
+    wrap();
+    track.style.transform = `translateX(${-offset}px)`;
+    frame = visible ? requestAnimationFrame(tick) : 0;
+  };
+
+  const start = () => {
+    if (frame) return;
+    lastTime = performance.now();
+    frame = requestAnimationFrame(tick);
+  };
+
+  reel.classList.add('is-draggable');
+
+  reel.addEventListener('pointerdown', event => {
+    if (event.button !== 0) return;
+    drag = { id: event.pointerId, startX: event.clientX, lastX: event.clientX, lastT: event.timeStamp, moved: false };
+    velocity = 0;
+  });
+
+  reel.addEventListener('pointermove', event => {
+    if (!drag || event.pointerId !== drag.id) return;
+    const dx = event.clientX - drag.lastX;
+
+    if (!drag.moved) {
+      if (Math.abs(event.clientX - drag.startX) < DRAG_THRESHOLD) return;
+      drag.moved = true;
+      reel.setPointerCapture(event.pointerId);
+      reel.classList.add('is-dragging');
+    }
+
+    offset -= dx;
+    const dt = Math.max(event.timeStamp - drag.lastT, 1) / 1000;
+    velocity = -dx / dt;
+    drag.lastX = event.clientX;
+    drag.lastT = event.timeStamp;
+  });
+
+  const endDrag = event => {
+    if (!drag || event.pointerId !== drag.id) return;
+    if (drag.moved) {
+      suppressClick = true;
+      // 마지막 움직임 뒤 한참 멈췄다 떼면 관성 없이 그 자리에 둔다
+      if (event.timeStamp - drag.lastT > 80) velocity = 0;
+    } else {
+      velocity = 0;
+    }
+    drag = null;
+    reel.classList.remove('is-dragging');
+  };
+
+  reel.addEventListener('pointerup', endDrag);
+  reel.addEventListener('pointercancel', endDrag);
+
+  // 끌어서 넘긴 경우엔 클립 링크로 이동하지 않는다
+  reel.addEventListener('click', event => {
+    if (!suppressClick) return;
+    suppressClick = false;
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
+
+  reel.addEventListener('dragstart', event => event.preventDefault());
+
+  // 트랙패드 가로 스와이프 / Shift+휠
+  reel.addEventListener('wheel', event => {
+    const dx = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : (event.shiftKey ? event.deltaY : 0);
+    if (!dx) return;
+    event.preventDefault();
+    offset += dx;
+    velocity = 0;
+  }, { passive: false });
+
+  reel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hovering = true; });
+  reel.addEventListener('pointerleave', () => { hovering = false; });
+  reel.addEventListener('focusin', () => { focused = !!reel.querySelector(':focus-visible'); });
+  reel.addEventListener('focusout', () => { focused = false; });
+
+  new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    if (visible) start();
+  }).observe(reel);
+
+  window.addEventListener('resize', () => {
+    const ratio = period ? offset / period : 0;
+    measure();
+    offset = ratio * period;
+  });
+
+  measure();
+  start();
 }
 
 const clipVideos = Array.from(document.querySelectorAll('video[data-src]'));
