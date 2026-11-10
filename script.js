@@ -37,26 +37,9 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 /* =========================================
-   PROJECT GIF PREVIEWS
+   MOTION PREFERENCE
    ========================================= */
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (!reduceMotion) {
-  document.querySelectorAll('.project-card[data-gif-src]').forEach(card => {
-    if (card.closest('.project-card-source')) return;
-
-    const gifSrc = card.dataset.gifSrc;
-    const gifPreview = card.querySelector('.header-gif-preview');
-    if (!gifSrc || !gifPreview) return;
-
-    const preload = new Image();
-    preload.onload = () => {
-      gifPreview.src = gifSrc;
-      card.classList.add('gif-ready');
-    };
-    preload.src = gifSrc;
-  });
-}
 
 /* =========================================
    GAMEPLAY CLIPS (GIF 대신 짧은 mp4)
