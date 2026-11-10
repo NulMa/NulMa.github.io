@@ -1,5 +1,14 @@
 # Project GIF Showcase
 
+> **2026-11-10:** the site no longer loads these GIFs. Each one was re-encoded to
+> `images/clips/<name>.mp4` (H.264, muted loop, faststart) plus a first-frame
+> poster `images/clips/<name>.jpg` (205MB → about 9MB). Tiles and the hero reel
+> are `<video data-src data-poster>`: posters load near the viewport, video loads
+> and plays only while on screen, and `prefers-reduced-motion` shows posters only.
+> Keep these GIFs as source material; add new clips to `images/clips/` with:
+> `ffmpeg -i X.gif -an -c:v libx264 -preset slow -crf 25 -pix_fmt yuv420p -movflags +faststart -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" X.mp4`
+> (pixel art: `-vf "scale=iw*2:ih*2:flags=neighbor"`).
+
 This directory contains the GIF assets used by the portfolio project showcase.
 
 The current site no longer uses the old two-column project cards as the visible

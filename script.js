@@ -29,8 +29,9 @@ const revealObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.12,
-  rootMargin: '0px 0px -40px 0px'
+  // 화면에 들어오기 조금 전에 미리 나타나게 해서 빠르게 스크롤할 때 빈 화면이 보이지 않게
+  threshold: 0,
+  rootMargin: '0px 0px 15% 0px'
 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
@@ -57,30 +58,95 @@ if (!reduceMotion) {
   });
 }
 
-const showcaseGifImages = document.querySelectorAll('.gif-tile img[data-src]');
-
-function loadShowcaseGif(img) {
-  if (!img.dataset.src || img.src) return;
-  img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
-  img.src = img.dataset.src;
+/* =========================================
+   GAMEPLAY CLIPS (GIF 대신 짧은 mp4)
+   - 가까워지면 포스터만 먼저 받고
+   - 실제로 화면에 보일 때만 영상을 받아 재생, 벗어나면 멈춘다
+   - 움직임 줄이기 설정이면 포스터만 보여준다
+   ========================================= */
+// 히어로 릴은 끊김 없이 돌도록 클립 묶음을 한 번 더 붙인다 (복제본은 보조기기에서 숨김)
+const heroReelTrack = document.querySelector('.hero-reel-track');
+if (heroReelTrack && !reduceMotion) {
+  Array.from(heroReelTrack.children).forEach(clip => {
+    const copy = clip.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.tabIndex = -1;
+    heroReelTrack.appendChild(copy);
+  });
 }
 
-if (showcaseGifImages.length) {
-  if ('IntersectionObserver' in window) {
-    const showcaseGifObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        loadShowcaseGif(entry.target);
-        showcaseGifObserver.unobserve(entry.target);
-      });
-    }, {
-      rootMargin: '600px 0px',
-      threshold: 0.01
-    });
+const clipVideos = Array.from(document.querySelectorAll('video[data-src]'));
 
-    showcaseGifImages.forEach(img => showcaseGifObserver.observe(img));
-  } else {
-    showcaseGifImages.forEach(loadShowcaseGif);
+function markClipReady(video) {
+  video.closest('.gif-tile, .hero-clip')?.classList.add('is-ready');
+}
+
+function loadClipPoster(video) {
+  if (video.poster || !video.dataset.poster) return;
+  const poster = new Image();
+  poster.onload = () => markClipReady(video);
+  poster.src = video.dataset.poster;
+  video.poster = video.dataset.poster;
+}
+
+function loadClipVideo(video) {
+  loadClipPoster(video);
+  if (video.getAttribute('src') || !video.dataset.src) return;
+  video.addEventListener('loadeddata', () => markClipReady(video), { once: true });
+  video.src = video.dataset.src;
+}
+
+function playClip(video) {
+  if (reduceMotion) return;
+  loadClipVideo(video);
+  video.play().catch(() => {});
+}
+
+if ('IntersectionObserver' in window) {
+  const clipPosterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      loadClipPoster(entry.target);
+      clipPosterObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: '600px 600px' });
+
+  const clipPlayObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        playClip(entry.target);
+      } else if (!entry.target.paused) {
+        entry.target.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+
+  clipVideos.forEach(video => {
+    clipPosterObserver.observe(video);
+    clipPlayObserver.observe(video);
+  });
+} else {
+  clipVideos.forEach(video => (reduceMotion ? loadClipPoster(video) : playClip(video)));
+}
+
+const ICON_PREV = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+const ICON_NEXT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+const ICON_CLOSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+// 모달 안에서만 Tab 포커스가 돌도록
+function trapFocus(container, event) {
+  if (event.key !== 'Tab') return;
+  const focusable = Array.from(container.querySelectorAll('button, a[href], video[controls], iframe'))
+    .filter(el => !el.hidden && el.offsetParent !== null);
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
   }
 }
 
@@ -149,18 +215,19 @@ function syncShowcaseCopyFromCards() {
     const details = document.createElement('div');
     details.className = 'showcase-details';
 
+    if (tags) summary.appendChild(tags);
+
+    const heading = document.createElement('h3');
+    heading.textContent = title;
+    summary.appendChild(heading);
+
+    // 장르 설명은 제목 위 라벨이 아니라 제목 아래 한 줄로
     if (existingKicker) {
       const kicker = document.createElement('span');
       kicker.className = 'showcase-kicker';
       kicker.textContent = existingKicker;
       summary.appendChild(kicker);
     }
-
-    if (tags) summary.appendChild(tags);
-
-    const heading = document.createElement('h3');
-    heading.textContent = title;
-    summary.appendChild(heading);
 
     if (sub) summary.appendChild(sub);
 
@@ -197,9 +264,9 @@ videoLightbox.setAttribute('aria-modal', 'true');
 videoLightbox.setAttribute('aria-hidden', 'true');
 videoLightbox.innerHTML = `
   <div class="video-lightbox-panel">
-    <button class="video-lightbox-close" type="button" aria-label="Close">X</button>
+    <button class="video-lightbox-close" type="button" aria-label="영상 닫기">${ICON_CLOSE}</button>
     <div class="video-lightbox-frame">
-      <iframe class="video-lightbox-iframe" src="" title="Project gameplay video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe class="video-lightbox-iframe" src="" title="프로젝트 플레이 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <video class="video-lightbox-video" controls muted playsinline preload="none" hidden></video>
     </div>
     <div class="video-lightbox-footer">
@@ -221,11 +288,19 @@ function isLocalVideo(url) {
   return /\.mp4(\?|#|$)/i.test(url || '');
 }
 
-function openVideoLightbox(url, title) {
+let videoLightboxTrigger = null;
+
+function openVideoLightbox(url, title, trigger) {
   const local = isLocalVideo(url);
   const embedUrl = local ? '' : getYoutubeNocookieEmbedUrl(url);
-  if (!local && !embedUrl) return;
+  // 임베드 주소를 만들 수 없으면 원래 링크를 새 탭으로 연다
+  if (!local && !embedUrl) {
+    if (url) window.open(url, '_blank', 'noopener');
+    return;
+  }
 
+  videoLightboxTrigger = trigger || null;
+  videoLightbox.setAttribute('aria-label', title ? `${title} 전체 영상` : '전체 영상');
   videoLightboxIframe.hidden = local;
   videoLightboxVideo.hidden = !local;
   if (local) {
@@ -251,13 +326,19 @@ function closeVideoLightbox() {
   videoLightboxVideo.removeAttribute('src');
   videoLightboxVideo.load();
   document.body.style.overflow = '';
+  if (videoLightboxTrigger) {
+    videoLightboxTrigger.focus();
+    videoLightboxTrigger = null;
+  }
 }
 
 document.addEventListener('click', (event) => {
   const button = event.target.closest('.showcase-video-btn');
   if (!button) return;
-  openVideoLightbox(button.dataset.videoUrl, button.dataset.projectTitle);
+  openVideoLightbox(button.dataset.videoUrl, button.dataset.projectTitle, button);
 });
+
+videoLightbox.addEventListener('keydown', (event) => trapFocus(videoLightbox, event));
 
 videoLightboxClose.addEventListener('click', closeVideoLightbox);
 videoLightbox.addEventListener('click', (event) => {
@@ -275,8 +356,8 @@ document.querySelectorAll('.gif-grid').forEach((grid, index) => {
   const controls = document.createElement('div');
   controls.className = 'gif-slider-controls';
   controls.innerHTML = `
-    <button class="gif-slider-btn" type="button" data-dir="-1" aria-label="Previous GIF">&lt;</button>
-    <button class="gif-slider-btn" type="button" data-dir="1" aria-label="Next GIF">&gt;</button>
+    <button class="gif-slider-btn" type="button" data-dir="-1" aria-label="이전 클립">${ICON_PREV}</button>
+    <button class="gif-slider-btn" type="button" data-dir="1" aria-label="다음 클립">${ICON_NEXT}</button>
   `;
   slider.appendChild(controls);
 
@@ -354,10 +435,10 @@ gifLightbox.setAttribute('aria-modal', 'true');
 gifLightbox.setAttribute('aria-hidden', 'true');
 gifLightbox.innerHTML = `
   <div class="gif-lightbox-panel">
-    <button class="gif-lightbox-close" type="button" aria-label="Close">X</button>
-    <button class="gif-lightbox-nav gif-lightbox-prev" type="button" aria-label="Previous GIF">&lt;</button>
-    <img class="gif-lightbox-media" alt="">
-    <button class="gif-lightbox-nav gif-lightbox-next" type="button" aria-label="Next GIF">&gt;</button>
+    <button class="gif-lightbox-close" type="button" aria-label="크게 보기 닫기">${ICON_CLOSE}</button>
+    <button class="gif-lightbox-nav gif-lightbox-prev" type="button" aria-label="이전 클립">${ICON_PREV}</button>
+    <video class="gif-lightbox-media" muted loop playsinline></video>
+    <button class="gif-lightbox-nav gif-lightbox-next" type="button" aria-label="다음 클립">${ICON_NEXT}</button>
     <div class="gif-lightbox-caption"></div>
   </div>
 `;
@@ -369,25 +450,21 @@ const gifLightboxClose = gifLightbox.querySelector('.gif-lightbox-close');
 const gifLightboxPrev = gifLightbox.querySelector('.gif-lightbox-prev');
 const gifLightboxNext = gifLightbox.querySelector('.gif-lightbox-next');
 
-function getGifSource(tile) {
-  const image = tile.querySelector('img');
-  if (!image) return '';
-  loadShowcaseGif(image);
-  return image.currentSrc || image.src || image.dataset.src || '';
-}
-
 function setLightboxGif(index) {
   if (!currentGifGroup.length) return;
   currentGifIndex = (index + currentGifGroup.length) % currentGifGroup.length;
   const tile = currentGifGroup[currentGifIndex];
-  const image = tile.querySelector('img');
+  const clip = tile.querySelector('video');
   const projectTitle = tile.closest('.showcase-project')?.querySelector('h3')?.textContent || '';
   const clipTitle = tile.querySelector('figcaption')?.textContent || '';
-  const source = getGifSource(tile);
 
-  gifLightboxImage.src = source;
+  gifLightboxImage.poster = clip?.dataset.poster || '';
+  gifLightboxImage.src = clip?.dataset.src || '';
   gifLightboxImage.classList.toggle('pixel-art', !!tile.closest('.gif-grid-pixel'));
-  gifLightboxImage.alt = image?.alt || clipTitle || projectTitle;
+  gifLightboxImage.setAttribute('aria-label', clip?.getAttribute('aria-label') || clipTitle || projectTitle);
+  // 움직임 줄이기 설정이면 크게 볼 때도 자동 재생 대신 재생 버튼을 준다
+  gifLightboxImage.controls = reduceMotion;
+  if (!reduceMotion) gifLightboxImage.play().catch(() => {});
   gifLightboxCaption.textContent = [projectTitle, clipTitle].filter(Boolean).join(' - ');
 }
 
@@ -406,7 +483,9 @@ function openGifLightbox(tile) {
 function closeGifLightbox() {
   gifLightbox.classList.remove('active');
   gifLightbox.setAttribute('aria-hidden', 'true');
-  gifLightboxImage.src = '';
+  gifLightboxImage.pause();
+  gifLightboxImage.removeAttribute('src');
+  gifLightboxImage.load();
   document.body.style.overflow = '';
   if (gifLightboxTrigger) {
     gifLightboxTrigger.focus();
@@ -416,6 +495,9 @@ function closeGifLightbox() {
 
 gifLightboxItems.forEach(tile => {
   tile.tabIndex = 0;
+  tile.setAttribute('role', 'button');
+  const clipLabel = tile.querySelector('video')?.getAttribute('aria-label') || '';
+  tile.setAttribute('aria-label', `${clipLabel} 크게 보기`.trim());
   tile.addEventListener('click', (event) => {
     event.preventDefault();
   });
@@ -432,6 +514,7 @@ gifLightboxNext.addEventListener('click', () => setLightboxGif(currentGifIndex +
 gifLightbox.addEventListener('click', (event) => {
   if (event.target === gifLightbox) closeGifLightbox();
 });
+gifLightbox.addEventListener('keydown', (event) => trapFocus(gifLightbox, event));
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && videoLightbox.classList.contains('active')) {
@@ -452,18 +535,21 @@ document.addEventListener('keydown', (event) => {
 const sections = document.querySelectorAll('section[id]');
 const navLinksAll = document.querySelectorAll('.nav-links a');
 
+// 화면 위쪽 40% 지점을 지나는 섹션을 현재 위치로 본다 (섹션이 화면보다 길어도 동작)
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.id;
       navLinksAll.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${id}`
-          ? 'var(--text)'
-          : '';
+        if (link.getAttribute('href') === `#${id}`) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     }
   });
-}, { threshold: 0.4 });
+}, { rootMargin: '-40% 0px -59% 0px', threshold: 0 });
 
 sections.forEach(s => sectionObserver.observe(s));
 
@@ -568,7 +654,7 @@ const heroContent = document.querySelector('.hero-content');
 
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
-  if (scrolled < window.innerHeight && heroContent) {
+  if (!reduceMotion && scrolled < window.innerHeight && heroContent) {
     heroContent.style.transform = `translateY(${scrolled * 0.15}px)`;
     heroContent.style.opacity = 1 - scrolled / (window.innerHeight * 0.8);
   }

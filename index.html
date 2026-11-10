@@ -13,7 +13,7 @@
     gtag('js', new Date());
     gtag('config', 'G-0H11QLFWFB');
   </script>
-  <link rel="stylesheet" href="style.css?v=20261109-mcf-lastwrite" />
+  <link rel="stylesheet" href="style.css?v=20261110-impeccable" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -56,17 +56,51 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow reveal">Game Client Developer</p>
-      <h1 class="hero-title reveal">
-        아이디어를 넘어<br />완성까지,<br /><span class="hero-title-last"><span class="accent">개발자 정우태</span>입니다.</span>
+      <h1 class="hero-title">
+        <span class="hero-title-lead">아이디어를 넘어 완성까지,</span>
+        <span class="hero-title-last">개발자 정우태입니다.</span>
       </h1>
-      <div class="hero-cta reveal">
+      <p class="hero-proof">
+        게임 클라이언트 개발자 · 완성한 게임 7개 · Google Play · itch.io · Roblox 출시 · 공모전 수상 2회
+      </p>
+      <div class="hero-cta">
         <a href="#projects" class="btn-primary">프로젝트 보기</a>
         <a href="#contact" class="btn-ghost">연락하기</a>
       </div>
     </div>
-    <div class="hero-scroll-hint">
-      <span></span>
+
+    <!-- 직접 만든 게임 7종의 실제 플레이 클립 -->
+    <div class="hero-reel" aria-label="직접 만든 게임 플레이 클립">
+      <div class="hero-reel-track">
+        <a class="hero-clip hero-clip-wide" href="#show-merge-cube-factory">
+          <video data-src="images/clips/MergeCubeFactory_01.mp4" data-poster="images/clips/MergeCubeFactory_01.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>Merge Cube Factory</span>
+        </a>
+        <a class="hero-clip hero-clip-phone" href="#show-ghost-march">
+          <video data-src="images/clips/GhostMarch_04.mp4" data-poster="images/clips/GhostMarch_04.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>Ghost March</span>
+        </a>
+        <a class="hero-clip hero-clip-wide hero-clip-pixel" href="#show-last-write">
+          <video data-src="images/clips/LastWrite_02.mp4" data-poster="images/clips/LastWrite_02.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>Last Write</span>
+        </a>
+        <a class="hero-clip hero-clip-portrait" href="#show-cubika">
+          <video data-src="images/clips/Cubika_02.mp4" data-poster="images/clips/Cubika_02.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>Cubika</span>
+        </a>
+        <a class="hero-clip hero-clip-wide" href="#show-iron-sarcophagus">
+          <video data-src="images/clips/IronSarcophagus_03.mp4" data-poster="images/clips/IronSarcophagus_03.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>IronSarcophagus</span>
+        </a>
+        <a class="hero-clip hero-clip-phone" href="#show-match3-roguelike">
+          <video data-src="images/clips/Match3Roguelike_01.mp4" data-poster="images/clips/Match3Roguelike_01.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>Match3Roguelike</span>
+        </a>
+        <a class="hero-clip hero-clip-wide" href="#show-lost-cone">
+          <video data-src="images/clips/LostCone_02.mp4" data-poster="images/clips/LostCone_02.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>LostCone</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -74,7 +108,6 @@
   <section id="about">
     <div class="section-inner">
       <div class="about-text reveal">
-        <p class="section-label">About</p>
         <h2>다양한 경험을 기반으로<br />새로운 것을 만들어냅니다.</h2>
         <p class="body-text">
           TCG, FPS, AOS, 액션 RPG, MMORGPG 등 장르를 가리지 않고 게임을 즐겨온 경험이
@@ -463,36 +496,36 @@
   <!-- GIF SHOWCASE DRAFT -->
   <section id="projects" class="gif-showcase">
     <div class="section-inner">
-      <p class="section-label reveal">Projects</p>
+      <h2 class="reveal">직접 만들고, 직접 출시했습니다.</h2>
 
       <div class="showcase-stack">
-        <article class="showcase-project showcase-project-wide reveal" data-card-title="Merge Cube Factory" data-video-url="videos/MergeCubeFactory.mp4">
+        <article class="showcase-project showcase-project-wide reveal" id="show-merge-cube-factory" data-card-title="Merge Cube Factory" data-video-url="videos/MergeCubeFactory.mp4">
           <div class="showcase-copy">
             <span class="showcase-kicker">Roblox merge tycoon</span>
             <h3>Merge Cube Factory</h3>
           </div>
           <div class="gif-grid gif-grid-wide">
-            <figure class="gif-tile"><img data-src="images/gifs/MergeCubeFactory_01.gif" alt="Merge Cube Factory merge combos and rare cubes"><figcaption>Merge</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/MergeCubeFactory_02.gif" alt="Merge Cube Factory bat combo"><figcaption>Bat</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/MergeCubeFactory_03.gif" alt="Merge Cube Factory cube stealing with an AI thief"><figcaption>Steal</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/MergeCubeFactory_04.gif" alt="Merge Cube Factory boss raid"><figcaption>Raid</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/MergeCubeFactory_01.mp4" data-poster="images/clips/MergeCubeFactory_01.jpg" muted loop playsinline preload="none" aria-label="Merge Cube Factory merge combos and rare cubes"></video><figcaption>Merge</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/MergeCubeFactory_02.mp4" data-poster="images/clips/MergeCubeFactory_02.jpg" muted loop playsinline preload="none" aria-label="Merge Cube Factory bat combo"></video><figcaption>Bat</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/MergeCubeFactory_03.mp4" data-poster="images/clips/MergeCubeFactory_03.jpg" muted loop playsinline preload="none" aria-label="Merge Cube Factory cube stealing with an AI thief"></video><figcaption>Steal</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/MergeCubeFactory_04.mp4" data-poster="images/clips/MergeCubeFactory_04.jpg" muted loop playsinline preload="none" aria-label="Merge Cube Factory boss raid"></video><figcaption>Raid</figcaption></figure>
           </div>
         </article>
 
-        <article class="showcase-project showcase-project-wide reveal" data-card-title="Last Write" data-video-url="videos/LastWrite.mp4">
+        <article class="showcase-project showcase-project-wide reveal" id="show-last-write" data-card-title="Last Write" data-video-url="videos/LastWrite.mp4">
           <div class="showcase-copy">
             <span class="showcase-kicker">1.44MB platformer</span>
             <h3>Last Write</h3>
           </div>
           <div class="gif-grid gif-grid-wide gif-grid-pixel">
-            <figure class="gif-tile"><img data-src="images/gifs/LastWrite_01.gif" alt="Last Write loading a utility at a terminal"><figcaption>Loadout</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/LastWrite_02.gif" alt="Last Write gliding through an updraft"><figcaption>Glide</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/LastWrite_03.gif" alt="Last Write climbing walls with grip"><figcaption>Grip</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/LastWrite_04.gif" alt="Last Write sector clear unlocking a new utility"><figcaption>Unlock</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LastWrite_01.mp4" data-poster="images/clips/LastWrite_01.jpg" muted loop playsinline preload="none" aria-label="Last Write loading a utility at a terminal"></video><figcaption>Loadout</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LastWrite_02.mp4" data-poster="images/clips/LastWrite_02.jpg" muted loop playsinline preload="none" aria-label="Last Write gliding through an updraft"></video><figcaption>Glide</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LastWrite_03.mp4" data-poster="images/clips/LastWrite_03.jpg" muted loop playsinline preload="none" aria-label="Last Write climbing walls with grip"></video><figcaption>Grip</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LastWrite_04.mp4" data-poster="images/clips/LastWrite_04.jpg" muted loop playsinline preload="none" aria-label="Last Write sector clear unlocking a new utility"></video><figcaption>Unlock</figcaption></figure>
           </div>
         </article>
 
-        <article class="showcase-project reveal" data-card-title="Ghost March" data-video-url="https://youtu.be/E25iW69OW6k">
+        <article class="showcase-project reveal" id="show-ghost-march" data-card-title="Ghost March" data-video-url="https://youtu.be/E25iW69OW6k">
           <div class="showcase-copy">
             <span class="showcase-kicker">Mobile roguelike</span>
             <h3>Ghost March</h3>
@@ -504,15 +537,15 @@
             </div>
           </div>
           <div class="gif-grid gif-grid-phone">
-            <figure class="gif-tile"><img data-src="images/gifs/GhostMarch_01.gif" alt="Ghost March opening gameplay"><figcaption>Opening</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/GhostMarch_02.gif" alt="Ghost March stage movement"><figcaption>Route</figcaption></figure>
-            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/GhostMarch_04.gif" alt="Ghost March combat sequence"><figcaption>Combat</figcaption></figure>
-            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/GhostMarch_05.gif" alt="Ghost March wave fight"><figcaption>Wave</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/GhostMarch_06.gif" alt="Ghost March boss action"><figcaption>Boss</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/GhostMarch_01.mp4" data-poster="images/clips/GhostMarch_01.jpg" muted loop playsinline preload="none" aria-label="Ghost March opening gameplay"></video><figcaption>Opening</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/GhostMarch_02.mp4" data-poster="images/clips/GhostMarch_02.jpg" muted loop playsinline preload="none" aria-label="Ghost March stage movement"></video><figcaption>Route</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><video data-src="images/clips/GhostMarch_04.mp4" data-poster="images/clips/GhostMarch_04.jpg" muted loop playsinline preload="none" aria-label="Ghost March combat sequence"></video><figcaption>Combat</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><video data-src="images/clips/GhostMarch_05.mp4" data-poster="images/clips/GhostMarch_05.jpg" muted loop playsinline preload="none" aria-label="Ghost March wave fight"></video><figcaption>Wave</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/GhostMarch_06.mp4" data-poster="images/clips/GhostMarch_06.jpg" muted loop playsinline preload="none" aria-label="Ghost March boss action"></video><figcaption>Boss</figcaption></figure>
           </div>
         </article>
 
-        <article class="showcase-project reveal" data-card-title="Match3LogueLike" data-video-url="https://youtu.be/mGgBsoj-2JA">
+        <article class="showcase-project reveal" id="show-match3-roguelike" data-card-title="Match3LogueLike" data-video-url="https://youtu.be/mGgBsoj-2JA">
           <div class="showcase-copy">
             <span class="showcase-kicker">Match-3 roguelike</span>
             <h3>Match3Roguelike</h3>
@@ -524,14 +557,14 @@
             </div>
           </div>
           <div class="gif-grid gif-grid-phone">
-            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/Match3Roguelike_01.gif" alt="Match3Roguelike early gameplay"><figcaption>Board</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/Match3Roguelike_02.gif" alt="Match3Roguelike combat UI"><figcaption>Combat</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/Match3Roguelike_03.gif" alt="Match3Roguelike reward interaction"><figcaption>Reward</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/Match3Roguelike_04.gif" alt="Match3Roguelike menu flow"><figcaption>Flow</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><video data-src="images/clips/Match3Roguelike_01.mp4" data-poster="images/clips/Match3Roguelike_01.jpg" muted loop playsinline preload="none" aria-label="Match3Roguelike early gameplay"></video><figcaption>Board</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/Match3Roguelike_02.mp4" data-poster="images/clips/Match3Roguelike_02.jpg" muted loop playsinline preload="none" aria-label="Match3Roguelike combat UI"></video><figcaption>Combat</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/Match3Roguelike_03.mp4" data-poster="images/clips/Match3Roguelike_03.jpg" muted loop playsinline preload="none" aria-label="Match3Roguelike reward interaction"></video><figcaption>Reward</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/Match3Roguelike_04.mp4" data-poster="images/clips/Match3Roguelike_04.jpg" muted loop playsinline preload="none" aria-label="Match3Roguelike menu flow"></video><figcaption>Flow</figcaption></figure>
           </div>
         </article>
 
-        <article class="showcase-project reveal" data-card-title="Cubika" data-video-url="https://youtube.com/shorts/A6-j0cwDtW4?feature=share">
+        <article class="showcase-project reveal" id="show-cubika" data-card-title="Cubika" data-video-url="https://youtube.com/shorts/A6-j0cwDtW4?feature=share">
           <div class="showcase-copy">
             <span class="showcase-kicker">Puzzle WebGL</span>
             <h3>Cubika</h3>
@@ -543,14 +576,14 @@
             </div>
           </div>
           <div class="gif-grid gif-grid-portrait">
-            <figure class="gif-tile"><img data-src="images/gifs/Cubika_01.gif" alt="Cubika cube movement"><figcaption>Move</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/Cubika_02.gif" alt="Cubika merge puzzle"><figcaption>Merge</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/Cubika_03.gif" alt="Cubika stage solution"><figcaption>Solve</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/Cubika_04.gif" alt="Cubika puzzle feedback"><figcaption>Feedback</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/Cubika_01.mp4" data-poster="images/clips/Cubika_01.jpg" muted loop playsinline preload="none" aria-label="Cubika cube movement"></video><figcaption>Move</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/Cubika_02.mp4" data-poster="images/clips/Cubika_02.jpg" muted loop playsinline preload="none" aria-label="Cubika merge puzzle"></video><figcaption>Merge</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/Cubika_03.mp4" data-poster="images/clips/Cubika_03.jpg" muted loop playsinline preload="none" aria-label="Cubika stage solution"></video><figcaption>Solve</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/Cubika_04.mp4" data-poster="images/clips/Cubika_04.jpg" muted loop playsinline preload="none" aria-label="Cubika puzzle feedback"></video><figcaption>Feedback</figcaption></figure>
           </div>
         </article>
 
-        <article class="showcase-project showcase-project-wide reveal" data-card-title="IronSarcophagus" data-video-url="https://youtu.be/l2X7-3QnWKs">
+        <article class="showcase-project showcase-project-wide reveal" id="show-iron-sarcophagus" data-card-title="IronSarcophagus" data-video-url="https://youtu.be/l2X7-3QnWKs">
           <div class="showcase-copy">
             <span class="showcase-kicker">VR team project</span>
             <h3>IronSarcophagus</h3>
@@ -562,14 +595,14 @@
             </div>
           </div>
           <div class="gif-grid gif-grid-wide">
-            <figure class="gif-tile"><img data-src="images/gifs/IronSarcophagus_01.gif" alt="IronSarcophagus cockpit interaction"><figcaption>Cockpit</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/IronSarcophagus_02.gif" alt="IronSarcophagus driving sequence"><figcaption>Drive</figcaption></figure>
-            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/IronSarcophagus_03.gif" alt="IronSarcophagus combat sequence"><figcaption>Combat</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/IronSarcophagus_04.gif" alt="IronSarcophagus multi-role gameplay"><figcaption>Roles</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/IronSarcophagus_01.mp4" data-poster="images/clips/IronSarcophagus_01.jpg" muted loop playsinline preload="none" aria-label="IronSarcophagus cockpit interaction"></video><figcaption>Cockpit</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/IronSarcophagus_02.mp4" data-poster="images/clips/IronSarcophagus_02.jpg" muted loop playsinline preload="none" aria-label="IronSarcophagus driving sequence"></video><figcaption>Drive</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><video data-src="images/clips/IronSarcophagus_03.mp4" data-poster="images/clips/IronSarcophagus_03.jpg" muted loop playsinline preload="none" aria-label="IronSarcophagus combat sequence"></video><figcaption>Combat</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/IronSarcophagus_04.mp4" data-poster="images/clips/IronSarcophagus_04.jpg" muted loop playsinline preload="none" aria-label="IronSarcophagus multi-role gameplay"></video><figcaption>Roles</figcaption></figure>
           </div>
         </article>
 
-        <article class="showcase-project showcase-project-wide reveal" data-card-title="LostCone" data-video-url="https://youtu.be/6QyYSIKdJPw">
+        <article class="showcase-project showcase-project-wide reveal" id="show-lost-cone" data-card-title="LostCone" data-video-url="https://youtu.be/6QyYSIKdJPw">
           <div class="showcase-copy">
             <span class="showcase-kicker">Fan game</span>
             <h3>LostCone</h3>
@@ -581,11 +614,11 @@
             </div>
           </div>
           <div class="gif-grid gif-grid-wide">
-            <figure class="gif-tile"><img data-src="images/gifs/LostCone_01.gif" alt="LostCone intro gameplay"><figcaption>Intro</figcaption></figure>
-            <figure class="gif-tile gif-tile-feature"><img data-src="images/gifs/LostCone_02.gif" alt="LostCone action gameplay"><figcaption>Action</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/LostCone_03.gif" alt="LostCone stage traversal"><figcaption>Stage</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/LostCone_04.gif" alt="LostCone extended sequence"><figcaption>Sequence</figcaption></figure>
-            <figure class="gif-tile"><img data-src="images/gifs/LostCone_05.gif" alt="LostCone combat feedback"><figcaption>Feedback</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LostCone_01.mp4" data-poster="images/clips/LostCone_01.jpg" muted loop playsinline preload="none" aria-label="LostCone intro gameplay"></video><figcaption>Intro</figcaption></figure>
+            <figure class="gif-tile gif-tile-feature"><video data-src="images/clips/LostCone_02.mp4" data-poster="images/clips/LostCone_02.jpg" muted loop playsinline preload="none" aria-label="LostCone action gameplay"></video><figcaption>Action</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LostCone_03.mp4" data-poster="images/clips/LostCone_03.jpg" muted loop playsinline preload="none" aria-label="LostCone stage traversal"></video><figcaption>Stage</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LostCone_04.mp4" data-poster="images/clips/LostCone_04.jpg" muted loop playsinline preload="none" aria-label="LostCone extended sequence"></video><figcaption>Sequence</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/LostCone_05.mp4" data-poster="images/clips/LostCone_05.jpg" muted loop playsinline preload="none" aria-label="LostCone combat feedback"></video><figcaption>Feedback</figcaption></figure>
           </div>
         </article>
       </div>
@@ -595,7 +628,6 @@
   <!-- JAM & CONTEST -->
   <section id="jams">
     <div class="section-inner">
-      <p class="section-label reveal">Jam &amp; Contest</p>
       <h2 class="reveal">게임잼 &amp; 공모전 참여</h2>
 
       <div class="jam-stack">
@@ -730,18 +762,17 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-inner">
-      <p class="section-label reveal">Skills</p>
       <h2 class="reveal">기술 스택</h2>
       <div class="skills-grid">
         <div class="skill-group reveal">
-          <h4>Engine & Language</h4>
+          <h3>Engine & Language</h3>
           <div class="skill-pills">
             <span class="pill pill-accent">C#</span>
             <span class="pill pill-accent">Unity</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>Unity Subsystems</h4>
+          <h3>Unity Subsystems</h3>
           <div class="skill-pills">
             <span class="pill">UGUI</span>
             <span class="pill">Tilemap</span>
@@ -753,7 +784,7 @@
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>Tools & Platform</h4>
+          <h3>Tools & Platform</h3>
           <div class="skill-pills">
             <span class="pill">Git / GitHub</span>
             <span class="pill">Aseprite</span>
@@ -765,7 +796,7 @@
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>Language</h4>
+          <h3>Language</h3>
           <div class="skill-pills">
             <span class="pill">영어 OPIc IM2</span>
             <span class="pill">일본어 일상회화</span>
@@ -778,7 +809,6 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner contact-inner">
-      <p class="section-label reveal">Contact</p>
       <h2 class="reveal">함께 게임을<br />만들어요.</h2>
       <div class="contact-links reveal">
         <a href="mailto:jungwt524@gmail.com" class="contact-card">
@@ -835,6 +865,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261109-mcf-lastwrite"></script>
+  <script src="script.js?v=20261110-impeccable"></script>
 </body>
 </html>
