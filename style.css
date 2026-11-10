@@ -204,7 +204,10 @@ img { max-width: 100%; }
 .hero-reel {
   --reel-h: clamp(170px, 30vh, 280px);
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
@@ -214,13 +217,15 @@ img { max-width: 100%; }
   gap: 14px;
   width: max-content;
   padding: 0 7px;
-  will-change: transform;
+}
+
+.hero-reel::-webkit-scrollbar {
+  display: none;
 }
 
 /* 자동으로 흐르다가 끌거나 밀면 그만큼 넘어간다 (script.js) */
 .hero-reel.is-draggable {
   cursor: grab;
-  touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
 }

@@ -47,61 +47,85 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
    - 실제로 화면에 보일 때만 영상을 받아 재생, 벗어나면 멈춘다
    - 움직임 줄이기 설정이면 포스터만 보여준다
    ========================================= */
-// 히어로 릴은 끊김 없이 돌도록 클립 묶음을 한 번 더 붙인다 (복제본은 보조기기에서 숨김)
+// 히어로 릴: 실제 가로 스크롤 영역이라 휴대폰에선 브라우저 기본 스와이프로 넘어간다.
+// 평소엔 scrollLeft를 조금씩 올려 흐르게 하고, 클립 묶음을 여러 벌 붙여 양쪽 끝에서 한 벌만큼 되감아 끊김 없이 돈다.
 const heroReelTrack = document.querySelector('.hero-reel-track');
-if (heroReelTrack && !reduceMotion) {
-  Array.from(heroReelTrack.children).forEach(clip => {
-    const copy = clip.cloneNode(true);
-    copy.setAttribute('aria-hidden', 'true');
-    copy.tabIndex = -1;
-    heroReelTrack.appendChild(copy);
-  });
-  initHeroReel(heroReelTrack);
-}
+if (heroReelTrack && !reduceMotion) initHeroReel(heroReelTrack);
 
-// 평소엔 천천히 흐르고, 마우스로 끌거나 손가락으로 밀면 그만큼 넘어간 뒤 그 자리부터 다시 흐른다
 function initHeroReel(track) {
   const reel = track.parentElement;
+  const originals = Array.from(track.children);
   const SECONDS_PER_LOOP = 70;
   const DRAG_THRESHOLD = 6;
+  const USER_IDLE_MS = 1200;
+  let copies = 1;
   let period = 0;
-  let offset = 0;
+  let pos = 0;
+  let lastSet = -1;
   let velocity = 0;
   let hovering = false;
   let focused = false;
   let visible = true;
+  let touching = false;
+  let userUntil = 0;
   let drag = null;
   let suppressClick = false;
   let lastTime = 0;
   let frame = 0;
 
-  const measure = () => {
-    const half = track.children.length / 2;
-    period = track.children[half].offsetLeft - track.children[0].offsetLeft;
+  const addCopy = () => {
+    originals.forEach(clip => {
+      const copy = clip.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      copy.tabIndex = -1;
+      track.appendChild(copy);
+    });
+    copies += 1;
   };
 
-  const wrap = () => {
-    if (period <= 0) return;
-    offset = ((offset % period) + period) % period;
+  // 한 벌 길이를 재고, 앞뒤로 한 벌씩 여유가 생길 만큼 복제본을 붙인다
+  const measure = () => {
+    if (copies === 1) addCopy();
+    period = track.children[originals.length]?.offsetLeft - track.children[0].offsetLeft || 0;
+    if (period <= 0) return false;
+    const widest = Math.max(reel.clientWidth, window.screen?.width || 0);
+    while (copies * period < 2 * period + widest + period * 0.25) {
+      addCopy();
+    }
+    return true;
   };
+
+  const setScroll = value => {
+    pos = value;
+    reel.scrollLeft = Math.round(pos);
+    lastSet = reel.scrollLeft;
+  };
+
+  // 가운데 벌(period ~ 2*period) 안으로 되감기
+  const normalize = () => {
+    if (pos < period) setScroll(pos + period);
+    else if (pos >= 2 * period) setScroll(pos - period);
+  };
+
+  const userActive = () => touching || drag || performance.now() < userUntil;
 
   const tick = time => {
     const dt = Math.min((time - lastTime) / 1000, 0.1);
     lastTime = time;
 
-    if (!drag) {
-      if (Math.abs(velocity) > 5) {
-        // 손을 뗀 뒤 관성으로 조금 더 미끄러진다
-        offset += velocity * dt;
-        velocity *= Math.pow(0.04, dt);
-      } else {
-        velocity = 0;
-        if (!hovering && !focused) offset += (period / SECONDS_PER_LOOP) * dt;
-      }
+    if (drag) {
+      // 끄는 중에는 pointermove가 위치를 정한다
+    } else if (Math.abs(velocity) > 5) {
+      // 마우스로 던진 뒤 관성으로 조금 더 미끄러진다
+      setScroll(pos + velocity * dt);
+      velocity *= Math.pow(0.04, dt);
+      normalize();
+    } else if (!userActive()) {
+      velocity = 0;
+      normalize();
+      if (!hovering && !focused) setScroll(pos + (period / SECONDS_PER_LOOP) * dt);
     }
 
-    wrap();
-    track.style.transform = `translateX(${-offset}px)`;
     frame = visible ? requestAnimationFrame(tick) : 0;
   };
 
@@ -111,10 +135,25 @@ function initHeroReel(track) {
     frame = requestAnimationFrame(tick);
   };
 
-  reel.classList.add('is-draggable');
+  // 손가락 스와이프·트랙패드·Shift+휠 같은 기본 스크롤을 따라간다
+  reel.addEventListener('scroll', () => {
+    if (Math.abs(reel.scrollLeft - lastSet) <= 1) return;
+    pos = reel.scrollLeft;
+    lastSet = pos;
+    velocity = 0;
+    userUntil = performance.now() + USER_IDLE_MS;
+    // 관성 스크롤이 끝까지 닿기 직전이면 바로 되감는다
+    const max = reel.scrollWidth - reel.clientWidth;
+    if (pos < 40 || pos > max - 40) normalize();
+  }, { passive: true });
 
+  reel.addEventListener('touchstart', () => { touching = true; }, { passive: true });
+  reel.addEventListener('touchend', () => { touching = false; userUntil = performance.now() + USER_IDLE_MS; }, { passive: true });
+  reel.addEventListener('touchcancel', () => { touching = false; }, { passive: true });
+
+  // 마우스는 기본 스크롤이 없으니 끌기를 직접 처리한다
   reel.addEventListener('pointerdown', event => {
-    if (event.button !== 0) return;
+    if (event.pointerType !== 'mouse' || event.button !== 0) return;
     drag = { id: event.pointerId, startX: event.clientX, lastX: event.clientX, lastT: event.timeStamp, moved: false };
     velocity = 0;
   });
@@ -130,7 +169,8 @@ function initHeroReel(track) {
       reel.classList.add('is-dragging');
     }
 
-    offset -= dx;
+    setScroll(pos - dx);
+    normalize();
     const dt = Math.max(event.timeStamp - drag.lastT, 1) / 1000;
     velocity = -dx / dt;
     drag.lastX = event.clientX;
@@ -163,15 +203,6 @@ function initHeroReel(track) {
 
   reel.addEventListener('dragstart', event => event.preventDefault());
 
-  // 트랙패드 가로 스와이프 / Shift+휠
-  reel.addEventListener('wheel', event => {
-    const dx = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : (event.shiftKey ? event.deltaY : 0);
-    if (!dx) return;
-    event.preventDefault();
-    offset += dx;
-    velocity = 0;
-  }, { passive: false });
-
   reel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hovering = true; });
   reel.addEventListener('pointerleave', () => { hovering = false; });
   reel.addEventListener('focusin', () => { focused = !!reel.querySelector(':focus-visible'); });
@@ -183,12 +214,15 @@ function initHeroReel(track) {
   }).observe(reel);
 
   window.addEventListener('resize', () => {
-    const ratio = period ? offset / period : 0;
-    measure();
-    offset = ratio * period;
+    const ratio = period ? (pos - period) / period : 0;
+    if (!measure()) return;
+    setScroll(period + ratio * period);
+    normalize();
   });
 
+  reel.classList.add('is-draggable');
   measure();
+  setScroll(period);
   start();
 }
 
