@@ -2137,3 +2137,12 @@ footer {
     scroll-behavior: auto;
   }
 }
+
+/* Long underscore title (RoughCut_v99_ForReal_Last) must wrap inside the copy column */
+#show-roughcut .showcase-copy h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  overflow-wrap: normal;
+}
+
+
+.hero-proof .nowrap { white-space: nowrap; }

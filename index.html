@@ -61,7 +61,7 @@
         <span class="hero-title-last">개발자 정우태입니다.</span>
       </h1>
       <p class="hero-proof">
-        게임 클라이언트 개발자 · 완성한 게임 7개 · Google Play · itch.io · Roblox 출시 · 공모전 수상 2회
+        <span class="nowrap">게임 클라이언트 개발자</span> · <span class="nowrap">Google Play · itch.io · Roblox 출시</span> · <span class="nowrap">공모전 수상 2회</span>
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">프로젝트 보기</a>
@@ -69,9 +69,13 @@
       </div>
     </div>
 
-    <!-- 직접 만든 게임 7종의 실제 플레이 클립 -->
+    <!-- 직접 만든 게임들의 실제 플레이 클립 -->
     <div class="hero-reel" aria-label="직접 만든 게임 플레이 클립">
       <div class="hero-reel-track">
+        <a class="hero-clip hero-clip-wide" href="#show-roughcut">
+          <video data-src="images/clips/RoughCut_03.mp4" data-poster="images/clips/RoughCut_03.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span>RoughCut_v99</span>
+        </a>
         <a class="hero-clip hero-clip-wide" href="#show-merge-cube-factory">
           <video data-src="images/clips/MergeCubeFactory_01.mp4" data-poster="images/clips/MergeCubeFactory_01.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span>Merge Cube Factory</span>
@@ -128,10 +132,6 @@
       </div>
       <div class="about-stats reveal">
         <div class="stat">
-          <span class="stat-num">7</span>
-          <span class="stat-label">완성한 게임</span>
-        </div>
-        <div class="stat">
           <span class="stat-num">3</span>
           <span class="stat-label">플랫폼 출시</span>
         </div>
@@ -187,6 +187,46 @@
             <div class="card-links">
               <a href="https://www.roblox.com/games/137640599837742/Merge-Cube-Factory" target="_blank" class="link-btn link-btn-play">▶ Roblox</a>
               <a href="https://github.com/NulMa/MergeCubeFactory" target="_blank" class="link-btn">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- RoughCut_v99_ForReal_Last -->
+        <article class="project-card" id="project-roughcut">
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Unreal Engine 5</span>
+              <span class="tag">C++</span>
+              <span class="tag">AI 디렉팅</span>
+              <span class="tag">솔로 개발</span>
+            </div>
+            <h3>RoughCut_v99_&#8203;ForReal_Last</h3>
+            <p class="card-sub">2026 Epic AI MegaJam 출품작 · 2.5D 보스 러시</p>
+            <p class="card-desc">
+              잘려 나간 영화 속 캐릭터를 다시 찍으러 간 연필이 주인공인 보스 러시. 보스전 한 판이 한 테이크라
+              지면 "CUT!", 이기면 "THAT'S A WRAP!". 4일간 Claude Code에 구현을 맡기고 기획·플레이테스트·검수를 맡음.
+            </p>
+            <div class="card-highlights">
+              <div class="highlight">
+                <span class="highlight-icon">✏️</span>
+                <span>32×32 칸에 무기를 직접 그리면 도트 질량으로 속도·리치·패링 타이밍이 정해짐</span>
+              </div>
+              <div class="highlight">
+                <span class="highlight-icon">🎬</span>
+                <span>패배하면 편집실로 돌아가 무기를 고쳐 그리고 재촬영</span>
+              </div>
+              <div class="highlight">
+                <span class="highlight-icon">🎭</span>
+                <span>보스 2종 · 네코맨서의 마술쇼, 조선 마당의 하회탈 춤</span>
+              </div>
+              <div class="highlight">
+                <span class="highlight-icon">🌐</span>
+                <span>UE 웹(Wasm) 빌드와 Windows 빌드 동시 배포</span>
+              </div>
+            </div>
+            <div class="card-links">
+              <a href="https://nullma.itch.io/roughcut-v99-forreal-last" target="_blank" rel="noopener" class="link-btn link-btn-play">▶ 플레이 (itch.io)</a>
+              <a href="https://itch.io/jam/2026-epic-ai-megajam/rate/5353603" target="_blank" rel="noopener" class="link-btn">잼 제출 페이지 →</a>
             </div>
           </div>
         </article>
@@ -490,6 +530,19 @@
       <h2 class="reveal">직접 만들고, 직접 출시했습니다.</h2>
 
       <div class="showcase-stack">
+        <article class="showcase-project showcase-project-wide reveal" id="show-roughcut" data-card-title="RoughCut_v99_&#8203;ForReal_Last" data-video-url="https://youtu.be/02lyYiaRPto">
+          <div class="showcase-copy">
+            <span class="showcase-kicker">2.5D boss rush</span>
+            <h3>RoughCut_v99_ForReal_Last</h3>
+          </div>
+          <div class="gif-grid gif-grid-wide">
+            <figure class="gif-tile"><video data-src="images/clips/RoughCut_01.mp4" data-poster="images/clips/RoughCut_01.jpg" muted loop playsinline preload="none" aria-label="RoughCut drawing a hammer in the Editing Room"></video><figcaption>Draw</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/RoughCut_02.mp4" data-poster="images/clips/RoughCut_02.jpg" muted loop playsinline preload="none" aria-label="RoughCut hitting the Nekormancer boss"></video><figcaption>Hit</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/RoughCut_03.mp4" data-poster="images/clips/RoughCut_03.jpg" muted loop playsinline preload="none" aria-label="RoughCut parrying a gold attack"></video><figcaption>Parry</figcaption></figure>
+            <figure class="gif-tile"><video data-src="images/clips/RoughCut_04.mp4" data-poster="images/clips/RoughCut_04.jpg" muted loop playsinline preload="none" aria-label="RoughCut boss fight finale"></video><figcaption>Finale</figcaption></figure>
+          </div>
+        </article>
+
         <article class="showcase-project showcase-project-wide reveal" id="show-merge-cube-factory" data-card-title="Merge Cube Factory" data-video-url="videos/MergeCubeFactory.mp4">
           <div class="showcase-copy">
             <span class="showcase-kicker">Roblox merge tycoon</span>
@@ -622,6 +675,39 @@
       <h2 class="reveal">게임잼 &amp; 공모전 참여</h2>
 
       <div class="jam-stack">
+        <article class="jam-entry reveal" id="jam-roughcut">
+          <div class="jam-head">
+            <span class="jam-badge">Game Jam</span>
+            <span class="jam-period">2026.11.12 – 11.16 · 4일 · 1인 제작</span>
+          </div>
+          <h3>RoughCut_v99_ForReal_Last</h3>
+          <p class="jam-event">2026 Epic AI MegaJam · 주제 “DIRECTOR'S CUT” · Unreal Engine 5.9</p>
+          <p class="jam-desc">
+            영화 촬영장처럼 찍는 2.5D 보스 러시입니다.
+            보스전 한 판이 한 테이크라 지면 “CUT!”이 나오고, 편집실에서 무기를 다시 그려 재촬영합니다.
+            주제였던 “DIRECTOR'S CUT”을 무기를 편집하는 반복 구조에 넣었습니다.
+          </p>
+          <div class="jam-role">
+            <p class="jam-role-title">AI 디렉팅 — 기획 · 플레이테스트 · 검수</p>
+            <ul class="jam-role-list">
+              <li><strong>물리 무기 편집기</strong> — 32×32 칸의 도트마다 질량이 있어 무게중심·관성·리치가 스윙 속도, 차지 시간, 패링 타이밍, 데미지를 결정. 도트별 데미지 히트맵 제공</li>
+              <li><strong>보스 2종</strong> — 네코맨서의 마술쇼와 조선 마당의 하회탈 춤. 위험해지는 순간에 맞춘 텔레그래프와 금색 공격 패링</li>
+              <li><strong>웹 빌드</strong> — UE 웹(Wasm) 빌드로 브라우저 플레이 지원. 웹 렌더링 경로에서 깨지던 잉크 포스트 프로세스 셰이더를 수정</li>
+              <li><strong>개발 로그 공개</strong> — 4일간의 결정과 수정 과정을 itch.io 데브로그 8편으로 게시</li>
+            </ul>
+            <p class="jam-role-note">
+              코드는 Claude Code가 작성했습니다. 플레이어와 네코맨서 스프라이트는 직접 그렸고,
+              일부 3D 소품은 Meshy로 생성했으며 음악과 효과음은 라이선스 음원을 사용했습니다.
+            </p>
+          </div>
+          <div class="jam-links">
+            <a href="https://nullma.itch.io/roughcut-v99-forreal-last" target="_blank" rel="noopener" class="link-btn link-btn-play">▶ 플레이 (itch.io)</a>
+            <a href="https://itch.io/jam/2026-epic-ai-megajam/rate/5353603" target="_blank" rel="noopener" class="link-btn">itch.io 제출 페이지 →</a>
+            <a href="#show-roughcut" class="link-btn">게임플레이 GIF →</a>
+            <a href="https://itch.io/jam/2026-epic-ai-megajam" target="_blank" rel="noopener" class="link-btn">잼 정보 →</a>
+          </div>
+        </article>
+
         <article class="jam-entry reveal" id="contest-last-write">
           <div class="jam-head">
             <span class="jam-badge jam-badge-alt">Contest · 특별상</span>
